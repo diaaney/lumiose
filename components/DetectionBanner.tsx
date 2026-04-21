@@ -16,32 +16,47 @@ function clearCookie(name: string) {
   document.cookie = `${name}=; max-age=0; path=/; SameSite=Lax`;
 }
 
+const VISIBLE_MS = 3500;
+const FADE_MS = 320;
+
 export default function DetectionBanner({ wasDetected, labels }: Props) {
   const [mounted, setMounted] = useState(false);
   const [target, setTarget] = useState<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
+  const [dismissing, setDismissing] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     setTarget(document.getElementById('detection-banner-mount'));
-    setVisible(wasDetected);
+    if (!wasDetected) return;
+    setVisible(true);
+    const fadeT = setTimeout(() => setDismissing(true), VISIBLE_MS - FADE_MS);
+    const hideT = setTimeout(() => {
+      clearCookie(DETECTED_FLAG_COOKIE);
+      setVisible(false);
+    }, VISIBLE_MS);
+    return () => {
+      clearTimeout(fadeT);
+      clearTimeout(hideT);
+    };
   }, [wasDetected]);
 
   if (!mounted || !target || !visible) return null;
 
   const onChange = () => {
-    const switcher = document.querySelector<HTMLButtonElement>('.ls-btn');
+    const switcher = document.querySelector<HTMLButtonElement>('.ls-flag');
     switcher?.click();
     switcher?.scrollIntoView({ block: 'center', behavior: 'smooth' });
   };
 
   const onDismiss = () => {
     clearCookie(DETECTED_FLAG_COOKIE);
-    setVisible(false);
+    setDismissing(true);
+    setTimeout(() => setVisible(false), FADE_MS);
   };
 
   const node = (
-    <div className="db-root" role="status">
+    <div className={`db-root${dismissing ? ' is-leaving' : ''}`} role="status">
       <span className="db-msg">{labels.message}</span>
       <button type="button" className="db-link" onClick={onChange}>
         {labels.change}
@@ -55,6 +70,14 @@ export default function DetectionBanner({ wasDetected, labels }: Props) {
           display:flex;align-items:center;justify-content:center;gap:14px;
           padding:8px 18px;font-family:'Inter',sans-serif;font-size:13px;
           border-bottom:1px solid rgba(20,30,50,.06);
+          transform:translateY(0);opacity:1;
+          transition:transform ${FADE_MS}ms ease, opacity ${FADE_MS}ms ease;
+          animation:db-enter 320ms ease-out;
+        }
+        .db-root.is-leaving{opacity:0;transform:translateY(-100%)}
+        @keyframes db-enter{
+          from{opacity:0;transform:translateY(-100%)}
+          to{opacity:1;transform:translateY(0)}
         }
         .db-msg{opacity:.82}
         .db-link{
