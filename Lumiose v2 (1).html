@@ -1,0 +1,1553 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lumiose — Web Development Studio · San Diego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky-1:#bfe0f5;
+    --sky-2:#a7d2ee;
+    --sky-3:#8ec4e8;
+    --sky-deep:#6ab0dd;
+    --cream:#f6efde;
+    --cream-2:#f0e6cd;
+    --paper-yellow:#f3e29a;
+    --paper-blue:#c8d8ec;
+    --paper-pink:#f0c7c2;
+    --paper-mint:#cfe3cf;
+    --ink:#1a1f2b;
+    --ink-soft:#3a414f;
+    --ink-muted:#6a7080;
+    --chip:#ffffff;
+    --cloud:#ffffff;
+    --btn:#111318;
+    --btn-ink:#fafafa;
+    --accent:#d94f3a; /* tiny warm accent */
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-0.01em}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+
+  /* ===== Top banner ===== */
+  .banner{
+    background:#111318;color:#f3efe1;text-align:center;
+    padding:10px 20px;font-family:'Fraunces',serif;font-style:italic;font-size:15px;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .banner a{display:inline-flex;align-items:center;gap:8px}
+  .banner .arrow{width:22px;height:22px;border-radius:999px;background:#f3efe1;color:#111;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-style:normal}
+
+  /* ===== Hero shell ===== */
+  .hero{
+    position:relative;margin:14px;border-radius:28px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 50% 0%, #dfeffb 0%, #bfdcf3 40%, #9dc8e9 70%, #86bbe2 100%);
+    min-height:780px;
+    isolation:isolate;
+  }
+  /* subtle paper grain */
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      radial-gradient(rgba(255,255,255,.35) 1px, transparent 1.2px),
+      radial-gradient(rgba(0,0,0,.04) 1px, transparent 1.2px);
+    background-size: 3px 3px, 5px 5px;
+    background-position: 0 0, 1px 1px;
+    opacity:.55;
+    mix-blend-mode:overlay;
+  }
+
+  /* Nav */
+  nav.top{
+    position:relative;z-index:5;display:flex;justify-content:center;padding:22px;
+  }
+  .navbar{
+    background:#fff;border-radius:999px;padding:10px 12px 10px 22px;
+    display:flex;align-items:center;gap:26px;
+    box-shadow:0 12px 30px -18px rgba(20,30,50,.25), 0 2px 0 rgba(255,255,255,.8) inset;
+  }
+  .logo{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:20px;font-weight:500;letter-spacing:.01em}
+  .logo .mark{
+    width:22px;height:22px;border-radius:50%;
+    background:radial-gradient(circle at 32% 32%, #ffe7a8 0%, #ffb84d 55%, #e6892f 100%);
+    box-shadow:0 0 0 2px #fff, 0 0 22px rgba(255,184,77,.6);
+  }
+  .navbar ul{display:flex;gap:22px;margin:0;padding:0;list-style:none;font-size:14.5px;color:#1a1f2b}
+  .navbar ul a{opacity:.82}
+  .navbar ul a:hover{opacity:1}
+  .nav-cta{display:flex;align-items:center;gap:14px;margin-left:6px}
+  .nav-cta .login{font-size:14.5px;opacity:.75}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#111318;color:#fafafa;
+    padding:10px 18px;border-radius:999px;font-size:14.5px;font-weight:500;
+    border:1px solid #111318;cursor:pointer;transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn.ghost{background:#fff;color:#111318}
+  .btn.pill-lg{padding:14px 26px;font-size:16px}
+
+  /* Clouds */
+  .cloud{position:absolute;z-index:1;filter:drop-shadow(0 4px 0 rgba(255,255,255,.4))}
+  .cloud svg{display:block}
+
+  /* Headline area */
+  .hero-inner{position:relative;z-index:4;text-align:center;padding:40px 24px 0}
+  h1.display{
+    font-family:'Fraunces',Georgia,serif;font-weight:400;
+    font-size:clamp(48px,7.2vw,112px);line-height:.98;letter-spacing:-0.025em;
+    color:#111318;margin:14px auto 0;max-width:1100px;
+  }
+  h1.display em{font-style:italic;font-weight:400}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    background:rgba(255,255,255,.7);backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.9);
+    padding:7px 14px;border-radius:999px;font-size:13px;
+    color:#1a1f2b;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#2db073;box-shadow:0 0 0 3px rgba(45,176,115,.25)}
+  .sub{
+    margin:24px auto 0;max-width:640px;color:#26303f;font-size:17px;line-height:1.5;
+  }
+  .hero-ctas{display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+
+  /* Torn paper strip */
+  .torn-wrap{
+    position:absolute;left:0;right:0;bottom:-2px;z-index:2;pointer-events:none;
+    height:280px;
+  }
+  .paper{
+    position:absolute;bottom:-40px;
+    filter:drop-shadow(0 18px 22px rgba(20,40,70,.18));
+  }
+  .paper.blue{left:-40px;bottom:-20px;width:360px;transform:rotate(-6deg)}
+  .paper.yellow{right:-60px;bottom:-30px;width:520px;transform:rotate(4deg)}
+  .paper.dark{left:52%;bottom:40px;width:180px;transform:rotate(8deg)}
+  .paper.pink{right:24%;bottom:130px;width:120px;transform:rotate(-14deg);z-index:3}
+
+  /* Code editor + preview mockup (hero) */
+  .sd-art{
+    position:relative;z-index:5;margin:60px auto -60px;width:min(1180px, 94%);
+    border-radius:14px;overflow:hidden;
+    background:#1a1f2b;
+    box-shadow:
+      0 40px 80px -30px rgba(20,40,70,.45),
+      0 2px 0 rgba(255,255,255,.08) inset,
+      0 0 0 1px rgba(20,40,70,.12);
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+  }
+  .ide-bar{display:flex;align-items:center;gap:10px;padding:11px 14px;background:#23293a;border-bottom:1px solid rgba(255,255,255,.06)}
+  .ide-bar .ide-dots{display:flex;gap:6px}
+  .ide-bar .ide-dots span{width:12px;height:12px;border-radius:50%}
+  .ide-bar .ide-dots .r{background:#ff6058}.ide-bar .ide-dots .y{background:#ffbd2e}.ide-bar .ide-dots .g{background:#29ca42}
+  .ide-tabs{display:flex;gap:2px;margin-left:10px;flex:1;min-width:0}
+  .ide-tab{background:#1a1f2b;color:#c5ccd9;padding:6px 12px;font-size:11.5px;border-radius:6px 6px 0 0;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+  .ide-tab.active{background:#0e1220;color:#fff}
+  .ide-tab .ide-dot-mod{width:6px;height:6px;border-radius:50%;background:#7eb8da}
+  .ide-url{background:#0e1220;color:#8aa0bd;padding:6px 14px;border-radius:6px;font-size:11.5px;display:flex;align-items:center;gap:8px}
+  .ide-url .ide-lock{width:9px;height:9px;border-radius:2px;background:#2db073}
+  .ide-body{display:grid;grid-template-columns:180px 1.05fr 1fr;min-height:500px;background:#0e1220}
+  .ide-side{background:#141a28;border-right:1px solid rgba(255,255,255,.05);padding:14px 10px;font-size:12px;color:#8aa0bd}
+  .ide-side h6{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#5a6a85;margin:14px 6px 8px;font-weight:500;font-family:'Inter',sans-serif}
+  .ide-side h6:first-child{margin-top:0}
+  .ide-file{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:5px;cursor:default}
+  .ide-file.active{background:rgba(126,184,218,.14);color:#dbe5f2}
+  .ide-file .ide-ficon{width:12px;height:12px;border-radius:2px;flex-shrink:0}
+  .ide-file .ide-ficon.html{background:#e36464}
+  .ide-file .ide-ficon.css{background:#7eb8da}
+  .ide-file .ide-ficon.js{background:#f3e29a}
+  .ide-file .ide-ficon.folder{background:#8aa0bd;border-radius:2px 2px 1px 1px;position:relative}
+  .ide-file .ide-ficon.folder::after{content:"";position:absolute;top:-2px;left:1px;width:4px;height:2px;background:inherit;border-radius:1px 1px 0 0}
+
+  .ide-code{padding:14px 0;background:#0e1220;color:#dbe5f2;font-size:12.5px;line-height:1.65;overflow:hidden;border-right:1px solid rgba(255,255,255,.05)}
+  .ide-code .ide-row{display:grid;grid-template-columns:38px 1fr;gap:0}
+  .ide-code .ide-ln{text-align:right;padding-right:14px;color:#4a5670;user-select:none;font-size:11.5px}
+  .ide-code .ide-tx{white-space:pre;padding-right:14px;overflow:hidden;text-overflow:ellipsis}
+  .ide-code .tag{color:#e89b9b}
+  .ide-code .attr{color:#f3d07a}
+  .ide-code .str{color:#a7d2ee}
+  .ide-code .txt{color:#dbe5f2}
+  .ide-code .com{color:#5a6a85;font-style:italic}
+  .ide-code .kw{color:#c7a0e6}
+  .ide-code .cursor-blink{display:inline-block;width:7px;height:14px;background:#7eb8da;vertical-align:-2px;animation:blink 1s steps(1) infinite;margin-left:1px}
+  @keyframes blink{50%{opacity:0}}
+
+  .ide-preview{background:#f0c7c2;position:relative;overflow:hidden}
+  .ide-preview .prev-label{position:absolute;top:12px;left:12px;z-index:3;background:rgba(255,255,255,.85);padding:4px 10px;border-radius:999px;font-size:10.5px;color:#1a1f2b;letter-spacing:.06em;display:flex;align-items:center;gap:6px}
+  .ide-preview .prev-label .live{width:6px;height:6px;border-radius:50%;background:#2db073;box-shadow:0 0 0 3px rgba(45,176,115,.28)}
+  .prev-site{position:absolute;inset:0;padding:48px 28px 24px;display:flex;flex-direction:column;justify-content:space-between;font-family:'Inter',sans-serif}
+  .prev-nav{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#5a1b17;font-family:'Fraunces',serif;font-weight:500}
+  .prev-nav .prev-links{display:flex;gap:12px;font-family:'Inter',sans-serif;font-weight:400;font-size:10.5px;opacity:.75}
+  .prev-hero{display:flex;flex-direction:column;gap:12px}
+  .prev-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5a1b17;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:rgba(255,255,255,.5);padding:3px 9px;border-radius:999px}
+  .prev-h1{font-family:'Fraunces',serif;font-weight:400;font-size:38px;line-height:.95;letter-spacing:-0.02em;color:#2d0a08;max-width:360px}
+  .prev-h1 em{font-style:italic}
+  .prev-sub{font-size:12px;color:#5a1b17;line-height:1.5;max-width:280px}
+  .prev-ctas{display:flex;gap:8px;margin-top:4px}
+  .prev-ctas .prev-btn{background:#2d0a08;color:#fff8f6;padding:8px 14px;border-radius:999px;font-size:11px;font-weight:500}
+  .prev-ctas .prev-btn.ghost{background:rgba(255,255,255,.55);color:#2d0a08}
+  .prev-metrics{display:flex;gap:20px;padding-top:14px;border-top:1px solid rgba(45,10,8,.18);font-family:'JetBrains Mono',monospace}
+  .prev-metrics .pm{display:flex;flex-direction:column;gap:2px}
+  .prev-metrics .pm .v{font-family:'Fraunces',serif;font-size:22px;color:#2d0a08;line-height:1;letter-spacing:-0.02em}
+  .prev-metrics .pm .l{font-size:8.5px;letter-spacing:.08em;color:#5a1b17;text-transform:uppercase}
+
+  .ide-status{display:flex;justify-content:space-between;align-items:center;padding:7px 14px;background:#23293a;color:#8aa0bd;font-size:10.5px;letter-spacing:.04em;border-top:1px solid rgba(255,255,255,.06)}
+  .ide-status .ide-st-l,.ide-status .ide-st-r{display:flex;gap:14px;align-items:center}
+  .ide-status .ide-st-dot{width:6px;height:6px;border-radius:50%;background:#2db073}
+
+  @media (max-width:960px){
+    .ide-body{grid-template-columns:1fr;min-height:auto}
+    .ide-side{display:none}
+    .ide-code{min-height:240px}
+    .ide-preview{min-height:280px;border-top:1px solid rgba(255,255,255,.05)}
+  }
+
+  /* ===== Marquee ===== */
+  .marquee{
+    background:#f3efe1;border-top:1px solid rgba(0,0,0,.06);
+    padding:28px 0;overflow:hidden;white-space:nowrap;
+  }
+  .marquee-track{display:inline-flex;gap:60px;animation:slide 42s linear infinite;font-family:'Fraunces',serif;font-size:30px;color:#1a1f2b}
+  .marquee-track span{display:inline-flex;align-items:center;gap:30px;font-style:italic;opacity:.85}
+  .marquee-track .star{font-style:normal;color:#d94f3a;font-size:22px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ===== Sections ===== */
+  section.block{padding:110px 40px;max-width:1240px;margin:0 auto}
+  .kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;
+    color:#6a7080;text-transform:uppercase;
+  }
+  .kicker::before{content:"";width:22px;height:1px;background:#6a7080}
+  h2.section-title{
+    font-family:'Fraunces',serif;font-weight:400;font-size:clamp(38px,5vw,68px);
+    line-height:1.02;letter-spacing:-0.02em;margin:16px 0 0;color:#1a1f2b;
+  }
+  h2.section-title em{font-style:italic}
+
+  /* Services — editorial index */
+  .services-section{
+    background:linear-gradient(180deg,#f6efde 0%, #efe6cf 50%, #e8dfc4 100%);
+    border-radius:28px;margin:14px;padding:100px 40px;position:relative;overflow:hidden;
+  }
+  .services-section::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(rgba(20,40,70,.05) 1px, transparent 1.2px);
+    background-size:4px 4px;opacity:.6;mix-blend-mode:multiply;
+  }
+  .services-head{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:end;margin-bottom:70px;max-width:1240px;margin-left:auto;margin-right:auto;position:relative}
+  .services-head p{max-width:460px;font-size:17px;line-height:1.55;color:#3a414f;margin:0}
+  .svc-index{
+    max-width:1240px;margin:0 auto;border-top:1px solid rgba(20,40,70,.22);
+    position:relative;
+  }
+  .svc-row{
+    display:grid;grid-template-columns:80px 1fr auto;gap:28px;align-items:center;
+    padding:26px 10px;border-bottom:1px solid rgba(20,40,70,.22);
+    cursor:pointer;transition:padding .4s cubic-bezier(.2,.8,.2,1), background .3s ease;
+    position:relative;
+  }
+  .svc-row:hover{padding-left:28px;padding-right:28px;background:rgba(255,255,255,.55)}
+  .svc-row.open{background:rgba(255,255,255,.75);padding-top:32px;padding-bottom:32px}
+  .svc-row .svc-num{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:40px;color:#d94f3a;line-height:1;letter-spacing:-0.02em}
+  .svc-row .svc-title{
+    font-family:'Fraunces',serif;font-weight:400;
+    font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-0.02em;color:#111318;
+    display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;
+  }
+  .svc-row .svc-title em{font-style:italic}
+  .svc-row .svc-sub{
+    font-family:'Inter',sans-serif;font-size:14.5px;color:#6a7080;font-weight:400;
+    letter-spacing:normal;font-style:normal;
+  }
+  .svc-row .svc-toggle{
+    width:36px;height:36px;border-radius:50%;border:1px solid #1a1f2b;
+    display:flex;align-items:center;justify-content:center;position:relative;
+    transition:background .3s, transform .4s ease;flex-shrink:0;
+  }
+  .svc-row .svc-toggle::before,.svc-row .svc-toggle::after{
+    content:"";position:absolute;background:#1a1f2b;transition:all .3s
+  }
+  .svc-row .svc-toggle::before{width:12px;height:1.5px}
+  .svc-row .svc-toggle::after{width:1.5px;height:12px}
+  .svc-row.open .svc-toggle{background:#1a1f2b;transform:rotate(180deg)}
+  .svc-row.open .svc-toggle::before,.svc-row.open .svc-toggle::after{background:#fff}
+  .svc-row.open .svc-toggle::after{height:0}
+
+  .svc-expand{
+    grid-column:1 / -1;max-height:0;overflow:hidden;
+    transition:max-height .55s cubic-bezier(.2,.8,.2,1), opacity .4s ease, margin .4s ease;
+    opacity:0;
+  }
+  .svc-row.open .svc-expand{max-height:340px;opacity:1;margin-top:22px}
+  .svc-expand-inner{
+    display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding:24px 0 10px;
+  }
+  .svc-expand p{font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;color:#3a414f;margin:0 0 18px;max-width:48ch}
+  .svc-expand .svc-tags{display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#3a414f}
+  .svc-expand .svc-tags span{padding:5px 11px;border-radius:999px;background:#fff;border:1px solid rgba(20,40,70,.14)}
+  .svc-visual{
+    aspect-ratio:4/3;border-radius:12px;overflow:hidden;position:relative;
+    box-shadow:0 18px 40px -26px rgba(20,40,70,.4);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-size:40px;color:#1a1f2b;letter-spacing:-0.02em;
+  }
+  .svc-visual em{font-style:italic;color:#d94f3a}
+  .svc-visual .label{position:absolute;top:14px;left:14px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.75;font-style:normal;color:inherit}
+  .svc-v1{background:linear-gradient(135deg,#bfdcf3 0%,#8ec4e8 100%)}
+  .svc-v2{background:linear-gradient(135deg,#f3e29a 0%,#e9c565 100%)}
+  .svc-v3{background:linear-gradient(135deg,#f0c7c2 0%,#e69b96 100%)}
+  .svc-v4{background:linear-gradient(135deg,#cfe3cf 0%,#9cc69c 100%)}
+  .svc-v5{background:linear-gradient(135deg,#1a1f2b 0%,#3a414f 100%);color:#fff}
+  .svc-v5 em{color:#f3e29a}
+  .svc-v6{background:linear-gradient(135deg,#f6efde 0%,#e0d6b7 100%)}
+  .svc-v7{background:linear-gradient(135deg,#c8d8ec 0%,#a7bcd8 100%)}
+  .svc-v8{background:linear-gradient(135deg,#e9dcba 0%,#c8b78a 100%)}
+
+  .svc-footer{
+    max-width:1240px;margin:40px auto 0;padding-top:24px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6a7080;letter-spacing:.06em;text-transform:uppercase;
+  }
+
+  /* Portfolio — hover list */
+  .portfolio{background:#f3efe1;border-radius:28px;margin:0 14px;padding:90px 40px;position:relative}
+  .portfolio-head{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:end;margin-bottom:54px}
+  .portfolio-head p{max-width:460px;color:#3a414f;font-size:17px;line-height:1.55;margin:0}
+  .cases{border-top:1px solid rgba(20,40,70,.18);max-width:1240px;margin:0 auto}
+  .case{
+    display:grid;grid-template-columns:70px 1.4fr 2fr 1fr 100px;gap:24px;align-items:center;
+    padding:28px 8px;border-bottom:1px solid rgba(20,40,70,.18);
+    transition:padding .35s ease, background .35s ease;color:#1a1f2b;position:relative;
+  }
+  .case:hover{padding-left:24px;padding-right:24px;background:rgba(255,255,255,.55)}
+  .case .num{font-family:'JetBrains Mono',monospace;font-size:12px;color:#6a7080;letter-spacing:.06em}
+  .case .name{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1;letter-spacing:-0.02em;display:flex;align-items:center;gap:14px}
+  .case .name em{font-style:italic;color:#d94f3a;opacity:0;transform:translateX(-8px);transition:all .35s ease;display:inline-block;font-size:.75em}
+  .case:hover .name em{opacity:1;transform:translateX(0)}
+  .case .desc{font-size:14.5px;color:#3a414f;line-height:1.5}
+  .case .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .case .case-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:4px 10px;border:1px solid rgba(20,40,70,.2);border-radius:999px;letter-spacing:.06em;text-transform:uppercase;color:#3a414f}
+  .case .yr{font-family:'JetBrains Mono',monospace;font-size:12px;color:#6a7080;text-align:right;letter-spacing:.06em}
+  .cases-footer{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6a7080;letter-spacing:.06em;text-transform:uppercase;max-width:1240px;margin:0 auto}
+  .cases-footer a{color:#111318}
+
+  /* Floating preview panel */
+  .preview{
+    position:fixed;top:0;left:0;width:340px;height:230px;pointer-events:none;z-index:80;
+    opacity:0;transform:translate(-50%,-50%) scale(.94);
+    transition:opacity .25s ease, transform .3s ease;
+    border-radius:10px;overflow:hidden;
+    box-shadow:0 28px 70px -20px rgba(20,40,70,.55), 0 0 0 1px rgba(255,255,255,.2);
+  }
+  .preview.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  .preview.pointer{pointer-events:auto;cursor:pointer}
+  .preview .pslide{position:absolute;inset:0;opacity:0;transition:opacity .22s ease;display:flex;flex-direction:column;justify-content:flex-end;padding:0}
+  .preview .pslide.on{opacity:1}
+  .preview .pchrome{position:absolute;top:12px;left:12px;right:12px;height:22px;background:rgba(255,255,255,.85);border-radius:5px;display:flex;align-items:center;gap:4px;padding:0 8px;font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#6a7080;z-index:2}
+  .preview .pchrome .pd{width:6px;height:6px;border-radius:50%;background:#c4cbd6}
+  .preview .pcontent{position:absolute;inset:44px 20px 18px;display:flex;flex-direction:column;justify-content:space-between;color:#1a1f2b}
+  .preview .plabel{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;opacity:.8}
+  .preview .ptitle{font-family:'Fraunces',serif;font-weight:500;font-size:32px;line-height:1;letter-spacing:-0.01em;margin-top:8px}
+  .preview .ptitle em{font-style:italic}
+  .preview .pcta{align-self:flex-start;background:#1a1f2b;color:#fff;padding:6px 12px;border-radius:999px;font-size:10.5px;font-family:'Inter',sans-serif}
+
+  /* ===== Immersive overlay — full-viewport browser window ===== */
+  .immersive-backdrop{
+    position:fixed;inset:0;z-index:200;background:rgba(8,12,22,0);
+    pointer-events:none;transition:background .5s ease;
+  }
+  .immersive-backdrop.on{background:rgba(8,12,22,.72);pointer-events:auto;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .immersive{
+    position:fixed;z-index:201;top:0;left:0;
+    border-radius:12px;overflow:hidden;
+    box-shadow:0 40px 120px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08);
+    will-change:transform,width,height,opacity;
+    transition:transform .65s cubic-bezier(.2,.8,.2,1), width .5s cubic-bezier(.6,.02,.3,1), height .5s cubic-bezier(.6,.02,.3,1), left .5s cubic-bezier(.6,.02,.3,1), top .5s cubic-bezier(.6,.02,.3,1), border-radius .5s ease, opacity .45s cubic-bezier(.4,0,.6,1);
+    pointer-events:none;
+    background:#f7f4ec;
+    opacity:0;
+    visibility:hidden;
+  }
+  .immersive.active{pointer-events:auto;cursor:default;opacity:1;visibility:visible}
+
+  /* Close button */
+  .immersive-close{
+    position:fixed;top:22px;right:22px;z-index:210;
+    width:44px;height:44px;border-radius:50%;
+    background:#fff;color:#1a1f2b;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:22px;
+    box-shadow:0 10px 30px -8px rgba(0,0,0,.35);
+    opacity:0;transform:scale(.7);transition:opacity .3s .25s ease, transform .3s .25s ease;
+    font-family:'Fraunces',serif;font-weight:400;
+  }
+  .immersive-close.on{opacity:1;transform:scale(1)}
+  .immersive-close:hover{background:#1a1f2b;color:#fff}
+
+  /* Full-site mock layout */
+  .fullsite{
+    position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;
+    opacity:0;transition:opacity .35s ease .25s;
+    background:#fffdf5;
+  }
+  .immersive.reveal .fullsite{opacity:1}
+  .fullsite::-webkit-scrollbar{width:10px}
+  .fullsite::-webkit-scrollbar-thumb{background:rgba(0,0,0,.2);border-radius:5px}
+
+  .fs-chrome{
+    position:sticky;top:0;z-index:3;background:#eee7d7;border-bottom:1px solid rgba(0,0,0,.08);
+    display:flex;align-items:center;gap:10px;padding:11px 16px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:#6a7080
+  }
+  .fs-chrome .dd{width:12px;height:12px;border-radius:50%;display:inline-block}
+  .fs-url{
+    flex:1;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:7px;
+    padding:5px 12px;font-size:12px;color:#3a414f;max-width:480px;margin:0 auto;text-align:center
+  }
+
+  /* Site nav */
+  .fs-nav{
+    display:flex;align-items:center;justify-content:space-between;padding:22px 48px;
+    font-family:'Fraunces',serif;
+  }
+  .fs-nav .brand{font-size:24px;letter-spacing:-0.01em}
+  .fs-nav ul{display:flex;gap:26px;list-style:none;padding:0;margin:0;font-size:14px;font-family:'Inter',sans-serif}
+  .fs-nav .btn-sm{font-family:'Inter',sans-serif;font-size:13px;padding:8px 16px;border-radius:999px;background:#1a1f2b;color:#fff}
+
+  /* Hero of each fake site */
+  .fs-hero{padding:60px 48px 70px;position:relative}
+  .fs-hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(48px,7vw,96px);line-height:.98;letter-spacing:-0.025em;margin:0;max-width:14ch}
+  .fs-hero h1 em{font-style:italic}
+  .fs-hero p{max-width:42ch;font-size:16.5px;line-height:1.55;margin-top:20px;color:#3a414f}
+  .fs-hero .hero-ctas{margin-top:26px;display:flex;gap:10px}
+  .fs-hero .hero-ctas a{padding:12px 22px;border-radius:999px;font-size:14px;font-family:'Inter',sans-serif;font-weight:500}
+  .fs-hero .primary{background:#1a1f2b;color:#fff}
+  .fs-hero .secondary{background:transparent;border:1px solid #1a1f2b;color:#1a1f2b}
+  .fs-hero .hero-img{
+    position:absolute;right:48px;top:40px;width:42%;height:360px;border-radius:16px;
+    background:rgba(0,0,0,.08);overflow:hidden;
+  }
+
+  /* Section rows */
+  .fs-row{padding:52px 48px;border-top:1px solid rgba(0,0,0,.08)}
+  .fs-row h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(32px,4vw,56px);letter-spacing:-0.02em;line-height:1.05;margin:0 0 32px;max-width:20ch}
+  .fs-row h2 em{font-style:italic}
+  .fs-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .fs-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .fs-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:22px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between}
+  .fs-card h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin:0 0 6px;letter-spacing:-0.01em}
+  .fs-card p{margin:0;font-size:13.5px;color:#6a7080;line-height:1.5}
+  .fs-card .tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6a7080;margin-top:14px}
+  .fs-thumb{height:120px;border-radius:10px;margin-bottom:14px;display:flex;align-items:flex-end;padding:12px;color:#1a1f2b;font-family:'Fraunces',serif;font-size:22px;font-style:italic}
+
+  .fs-footer{padding:36px 48px;background:#1a1f2b;color:#d7d3c4;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+
+  /* Per-site palette (applied via data-site on .immersive) */
+  .immersive[data-site="0"]{background:#fef1ee}
+  .immersive[data-site="0"] .fs-nav,.immersive[data-site="0"] .fs-row:first-of-type{background:#fef1ee}
+  .immersive[data-site="0"] .fs-hero{background:linear-gradient(180deg,#f0c7c2,#fef1ee 80%)}
+  .immersive[data-site="0"] h1,.immersive[data-site="0"] .fs-row h2{color:#5a1b17}
+
+  .immersive[data-site="1"]{background:#0b0d12;color:#f0e6cd}
+  .immersive[data-site="1"] .fullsite{background:#0b0d12}
+  .immersive[data-site="1"] .fs-nav{color:#f0e6cd;background:#0b0d12}
+  .immersive[data-site="1"] .fs-nav .btn-sm{background:#f0e6cd;color:#0b0d12}
+  .immersive[data-site="1"] .fs-hero{background:linear-gradient(180deg,#1a1f2b,#0b0d12)}
+  .immersive[data-site="1"] .fs-hero h1{color:#fff}
+  .immersive[data-site="1"] .fs-hero p{color:#a8aab5}
+  .immersive[data-site="1"] .fs-hero .primary{background:#f0e6cd;color:#0b0d12}
+  .immersive[data-site="1"] .fs-hero .secondary{border-color:#f0e6cd;color:#f0e6cd}
+  .immersive[data-site="1"] .fs-row{border-top-color:rgba(255,255,255,.08)}
+  .immersive[data-site="1"] .fs-row h2{color:#fff}
+  .immersive[data-site="1"] .fs-card{background:#15181f;border-color:rgba(255,255,255,.08);color:#f0e6cd}
+  .immersive[data-site="1"] .fs-card h3{color:#fff}
+  .immersive[data-site="1"] .fs-card p{color:#a8aab5}
+
+  .immersive[data-site="2"]{background:#fbf3d6}
+  .immersive[data-site="2"] .fs-hero{background:linear-gradient(180deg,#f3e29a,#fbf3d6 85%)}
+
+  .immersive[data-site="3"]{background:#eef6ee}
+  .immersive[data-site="3"] .fs-hero{background:linear-gradient(180deg,#cfe3cf,#eef6ee 85%)}
+  .immersive[data-site="3"] h1{color:#1e3a1e}
+
+  .immersive[data-site="4"]{background:#eaf2fb}
+  .immersive[data-site="4"] .fs-hero{background:linear-gradient(180deg,#c8d8ec,#eaf2fb 85%)}
+  .immersive[data-site="4"] h1{color:#0c2a47}
+
+  .immersive[data-site="5"]{background:#faf4e4}
+  .immersive[data-site="5"] .fs-hero{background:linear-gradient(180deg,#f6efde,#faf4e4 85%)}
+
+  /* Portfolio placeholders — stylized mock screens */
+  .site-cafe{background:linear-gradient(180deg,#f0c7c2 0%,#e9a59f 100%);position:relative}
+  .site-gym{background:linear-gradient(180deg,#111318 0%,#1a1f2b 100%);position:relative;color:#fff}
+  .site-real{background:linear-gradient(180deg,#f3e29a 0%,#e9c565 100%);position:relative}
+  .site-law{background:linear-gradient(180deg,#cfe3cf 0%,#9cc69c 100%);position:relative}
+  .site-gen{background:linear-gradient(180deg,#c8d8ec 0%,#8ec4e8 100%);position:relative}
+  .site-dent{background:linear-gradient(180deg,#f6efde 0%,#e9dcba 100%);position:relative}
+  .site-chrome{
+    position:absolute;top:14px;left:14px;right:14px;height:22px;background:rgba(255,255,255,.85);
+    border-radius:6px;display:flex;align-items:center;gap:5px;padding:0 8px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#6a7080
+  }
+  .site-chrome .d{width:7px;height:7px;border-radius:50%;background:#c4cbd6}
+  .site-content{position:absolute;inset:50px 28px 24px;display:flex;flex-direction:column;justify-content:space-between;color:inherit}
+  .site-content h6{font-family:'Fraunces',serif;font-weight:500;font-size:32px;margin:0 0 6px;letter-spacing:-0.01em;line-height:1}
+  .site-content h6 em{font-style:italic}
+  .site-content small{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;opacity:.75}
+  .site-content .cta-mini{align-self:flex-start;background:#1a1f2b;color:#fff;padding:6px 12px;border-radius:999px;font-size:11px}
+  .site-gym .cta-mini{background:#fff;color:#1a1f2b}
+  .site-real .cta-mini{background:#1a1f2b}
+
+  @media (max-width:960px){
+    .case{grid-template-columns:40px 1fr;grid-template-rows:auto auto;gap:6px 16px}
+    .case .desc,.case .tags,.case .yr{display:none}
+    .portfolio-head{grid-template-columns:1fr}
+    .preview{display:none}
+  }
+
+  /* Pricing */
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+  .plan{
+    background:#fff;border-radius:22px;padding:32px;border:1px solid rgba(20,40,70,.08);
+    display:flex;flex-direction:column;
+    box-shadow:0 20px 40px -30px rgba(20,40,70,.2);
+  }
+  .plan.featured{background:linear-gradient(180deg,#dfeffb,#bfdcf3);border-color:rgba(20,40,70,.12);position:relative}
+  .plan.featured::before{
+    content:"Most chosen · El más elegido";
+    position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:#111318;color:#fafafa;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;
+    padding:6px 14px;border-radius:999px;white-space:nowrap;
+  }
+  .plan .pname{font-family:'Fraunces',serif;font-weight:500;font-size:24px;letter-spacing:-0.01em}
+  .plan .psub{color:#6a7080;font-size:13.5px;margin-top:4px}
+  .plan .price{font-family:'Fraunces',serif;font-weight:400;font-size:56px;margin:28px 0 0;line-height:1;letter-spacing:-0.02em}
+  .plan .price .cur{font-size:22px;vertical-align:top;position:relative;top:8px;margin-right:2px}
+  .plan .price .per{font-size:14px;color:#6a7080;font-family:'Inter',sans-serif;margin-left:6px}
+  .plan ul{list-style:none;padding:0;margin:26px 0 0;font-size:14px;color:#1a1f2b}
+  .plan ul li{padding:9px 0;border-top:1px dashed rgba(20,40,70,.14);display:flex;gap:10px;align-items:flex-start}
+  .plan ul li:first-child{border-top:none}
+  .plan ul li::before{content:"";width:14px;height:14px;border-radius:50%;background:#fff;border:1.5px solid #1a1f2b;flex-shrink:0;margin-top:3px;position:relative}
+  .plan ul li.check::before{background:#1a1f2b}
+  .plan .plan-cta{margin-top:26px}
+  .plan .plan-cta .btn{width:100%;justify-content:center}
+
+  /* Contact */
+  .contact{
+    background:linear-gradient(180deg,#bfdcf3 0%,#a7d2ee 100%);
+    border-radius:28px;margin:0 14px 14px;padding:90px 40px;
+    position:relative;overflow:hidden;
+  }
+  .contact::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.35) 1px, transparent 1.2px);
+    background-size:4px 4px;opacity:.5;mix-blend-mode:overlay;
+  }
+  .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1240px;margin:0 auto;position:relative}
+  .contact h2{color:#111318}
+  .contact .lead{color:#26303f;font-size:17px;line-height:1.55;margin-top:20px;max-width:420px}
+  .contact .meta-list{margin-top:34px;display:flex;flex-direction:column;gap:18px;font-size:15px;color:#1a1f2b}
+  .contact .meta-list .row{display:flex;gap:12px;align-items:center}
+  .contact .meta-list .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#3a414f;text-transform:uppercase;min-width:80px}
+  form.cform{
+    background:#fffdf5;border-radius:22px;padding:30px;
+    box-shadow:0 30px 60px -30px rgba(20,40,70,.35);
+    display:flex;flex-direction:column;gap:16px;
+  }
+  .cform label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#6a7080;text-transform:uppercase}
+  .cform .field{display:flex;flex-direction:column;gap:6px}
+  .cform input, .cform select, .cform textarea{
+    border:none;border-bottom:1.5px solid #1a1f2b;background:transparent;
+    font-family:'Fraunces',serif;font-size:19px;color:#111318;padding:8px 2px;outline:none;
+  }
+  .cform input::placeholder, .cform textarea::placeholder{color:#8a91a0;font-style:italic}
+  .cform input:focus, .cform select:focus, .cform textarea:focus{border-bottom-color:#d94f3a}
+  .cform textarea{resize:vertical;min-height:80px;font-family:'Inter',sans-serif;font-size:15px}
+  .cform .row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .cform .submit-row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+  .cform .submit-row .note{font-size:12px;color:#6a7080}
+
+  /* Footer */
+  footer{
+    background:#111318;color:#d7d3c4;padding:80px 40px 34px;
+  }
+  .foot-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+  .foot-brand .logo{color:#fff;font-size:26px}
+  .foot-brand .logo .mark{box-shadow:0 0 0 2px #1a1f2b}
+  .foot-brand p{color:#8a91a0;font-size:14px;line-height:1.6;margin-top:16px;max-width:320px}
+  footer h5{font-family:'Fraunces',serif;font-weight:500;color:#fff;font-size:16px;margin:0 0 14px}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;font-size:14px;color:#d7d3c4}
+  footer ul a:hover{color:#fff}
+  .foot-bottom{
+    max-width:1240px;margin:60px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);
+    display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#8a91a0;letter-spacing:.04em;
+  }
+
+  /* responsive */
+  @media (max-width:960px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .services-head{grid-template-columns:1fr}
+    .svc-row{grid-template-columns:60px 1fr auto}
+    .svc-row .svc-title{font-size:30px}
+    .svc-expand-inner{grid-template-columns:1fr}
+    .pricing-grid{grid-template-columns:1fr}
+    .contact-inner{grid-template-columns:1fr}
+    .proj.a,.proj.b,.proj.c,.proj.d,.proj.e,.proj.f{grid-column:span 12}
+    .foot-inner{grid-template-columns:1fr 1fr}
+    .mock-body{grid-template-columns:1fr}
+    .side{display:none}
+    .navbar ul{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- Top banner -->
+<div class="banner">
+  <a href="#contact">
+    <span class="serif" style="font-style:italic">Spring launch offer · 20% off your first site — available for May bookings</span>
+    <span class="arrow">→</span>
+  </a>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <!-- Clouds -->
+  <div class="cloud" style="top:80px;left:6%;width:130px;opacity:.9">
+    <svg viewBox="0 0 130 60"><ellipse cx="40" cy="38" rx="36" ry="18" fill="#fff"/><ellipse cx="74" cy="30" rx="40" ry="22" fill="#fff"/><ellipse cx="104" cy="40" rx="22" ry="14" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:130px;right:8%;width:160px;opacity:.95">
+    <svg viewBox="0 0 160 70"><ellipse cx="46" cy="44" rx="44" ry="20" fill="#fff"/><ellipse cx="92" cy="32" rx="50" ry="26" fill="#fff"/><ellipse cx="130" cy="46" rx="26" ry="16" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:40px;left:44%;width:90px;opacity:.85">
+    <svg viewBox="0 0 100 40"><ellipse cx="30" cy="26" rx="26" ry="12" fill="#fff"/><ellipse cx="60" cy="20" rx="30" ry="14" fill="#fff"/><ellipse cx="82" cy="28" rx="16" ry="10" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:260px;left:3%;width:90px;opacity:.7">
+    <svg viewBox="0 0 100 40"><ellipse cx="30" cy="26" rx="26" ry="12" fill="#fff"/><ellipse cx="60" cy="20" rx="30" ry="14" fill="#fff"/><ellipse cx="82" cy="28" rx="16" ry="10" fill="#fff"/></svg>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="top">
+    <div class="navbar">
+      <div class="logo"><span class="mark"></span> Lumiose</div>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="login" href="#contact">EN · ES</a>
+        <a class="btn" href="#contact">Book a call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Headline -->
+  <div class="hero-inner">
+    <span class="eyebrow"><span class="dot"></span> Now booking · Mayo 2026 · San Diego, CA</span>
+    <h1 class="display">Websites that make <em>San Diego</em><br/>small businesses <em>shine</em>.</h1>
+    <p class="sub">A web development studio for the restaurants, contractors, realtors and clinics that keep this city running. Custom-built, fast as the Pacific, made in English &amp; Spanish.</p>
+    <div class="hero-ctas">
+      <a class="btn pill-lg" href="#contact">Get a free quote</a>
+      <a class="btn pill-lg ghost" href="#work">See our work →</a>
+    </div>
+  </div>
+
+  <!-- Torn paper shapes (SVG) -->
+  <svg class="paper blue" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M10,60 C20,40 60,30 90,40 C130,20 180,50 220,30 C270,10 320,40 370,30 L385,230 C340,250 290,230 240,245 C200,255 160,240 110,250 C70,258 30,245 15,230 Z" fill="#c8d8ec"/>
+    <path d="M20,65 C35,50 65,42 92,52" stroke="#a8bdd6" stroke-width="1" fill="none" opacity=".5"/>
+  </svg>
+
+  <svg class="paper yellow" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <pattern id="lines" width="100%" height="28" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="14" x2="520" y2="14" stroke="#d6b94a" stroke-width="1" opacity=".45"/>
+      </pattern>
+    </defs>
+    <path d="M20,20 C40,6 90,14 130,8 C180,0 230,22 280,12 C330,2 390,28 440,18 C470,12 500,22 510,34 L505,280 C470,290 420,278 370,286 C310,296 260,278 210,284 C160,290 100,276 50,282 C30,284 15,270 15,258 Z" fill="#f3e29a"/>
+    <rect x="25" y="35" width="470" height="240" fill="url(#lines)" opacity=".6"/>
+    <line x1="75" y1="20" x2="78" y2="280" stroke="#e36464" stroke-width="1.5" opacity=".5"/>
+  </svg>
+
+  <svg class="paper dark" viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M8,30 C20,10 50,22 80,14 C110,6 150,20 172,30 L168,100 C140,115 100,100 70,108 C40,116 15,104 10,92 Z" fill="#1a1f2b"/>
+  </svg>
+
+  <svg class="paper pink" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M10,24 C20,8 50,18 70,12 C90,6 110,20 114,30 L108,74 C90,84 60,74 40,80 C20,86 8,74 8,64 Z" fill="#f0c7c2"/>
+  </svg>
+
+  <!-- Code editor + live preview mockup -->
+  <div class="sd-art" role="img" aria-label="Lumiose code editor with live preview of a client site">
+    <div class="ide-bar">
+      <div class="ide-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+      <div class="ide-tabs">
+        <span class="ide-tab active"><span class="ide-dot-mod"></span>index.html</span>
+        <span class="ide-tab">styles.css</span>
+        <span class="ide-tab">menu.ts</span>
+      </div>
+      <div class="ide-url"><span class="ide-lock"></span>barriocoastal.com · localhost:3000</div>
+    </div>
+
+    <div class="ide-body">
+      <aside class="ide-side">
+        <h6>Project</h6>
+        <div class="ide-file"><span class="ide-ficon folder"></span>barrio-coastal</div>
+        <div class="ide-file" style="padding-left:22px"><span class="ide-ficon folder"></span>components</div>
+        <div class="ide-file" style="padding-left:22px"><span class="ide-ficon folder"></span>styles</div>
+        <div class="ide-file active" style="padding-left:22px"><span class="ide-ficon html"></span>index.html</div>
+        <div class="ide-file" style="padding-left:22px"><span class="ide-ficon css"></span>globals.css</div>
+        <div class="ide-file" style="padding-left:22px"><span class="ide-ficon js"></span>menu.ts</div>
+        <h6>Deployments</h6>
+        <div class="ide-file" style="color:#c5ccd9"><span class="ide-ficon" style="background:#2db073"></span>prod · live</div>
+        <div class="ide-file"><span class="ide-ficon" style="background:#f3e29a"></span>preview #42</div>
+      </aside>
+
+      <div class="ide-code">
+        <div class="ide-row"><span class="ide-ln">1</span><span class="ide-tx"><span class="com">&lt;!-- Lumiose · Barrio Coastal Café --&gt;</span></span></div>
+        <div class="ide-row"><span class="ide-ln">2</span><span class="ide-tx"><span class="tag">&lt;section</span> <span class="attr">class</span>=<span class="str">"hero"</span><span class="tag">&gt;</span></span></div>
+        <div class="ide-row"><span class="ide-ln">3</span><span class="ide-tx">  <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="str">"eyebrow"</span><span class="tag">&gt;</span><span class="txt">Ocean Beach · est. 2019</span><span class="tag">&lt;/span&gt;</span></span></div>
+        <div class="ide-row"><span class="ide-ln">4</span><span class="ide-tx">  <span class="tag">&lt;h1&gt;</span><span class="txt">Coastal Mexican,</span></span></div>
+        <div class="ide-row"><span class="ide-ln">5</span><span class="ide-tx">    <span class="tag">&lt;em&gt;</span><span class="txt">cooked slow.</span><span class="tag">&lt;/em&gt;&lt;/h1&gt;</span></span></div>
+        <div class="ide-row"><span class="ide-ln">6</span><span class="ide-tx">  <span class="tag">&lt;p&gt;</span><span class="txt">Family recipes, Pacific fish,</span></span></div>
+        <div class="ide-row"><span class="ide-ln">7</span><span class="ide-tx">    <span class="txt">a long patio sunset.</span><span class="tag">&lt;/p&gt;</span></span></div>
+        <div class="ide-row"><span class="ide-ln">8</span><span class="ide-tx">  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"/reserve"</span> <span class="attr">class</span>=<span class="str">"btn"</span><span class="tag">&gt;</span></span></div>
+        <div class="ide-row"><span class="ide-ln">9</span><span class="ide-tx">    <span class="txt">Reserve a table →</span><span class="tag">&lt;/a&gt;</span><span class="cursor-blink"></span></span></div>
+        <div class="ide-row"><span class="ide-ln">10</span><span class="ide-tx">  <span class="tag">&lt;Menu</span> <span class="attr">today</span>=<span class="kw">{seasonal}</span> <span class="tag">/&gt;</span></span></div>
+        <div class="ide-row"><span class="ide-ln">11</span><span class="ide-tx"><span class="tag">&lt;/section&gt;</span></span></div>
+        <div class="ide-row"><span class="ide-ln">12</span><span class="ide-tx"></span></div>
+        <div class="ide-row"><span class="ide-ln">13</span><span class="ide-tx"><span class="com">// 98 PageSpeed · 0.8s FCP · a11y AA</span></span></div>
+      </div>
+
+      <div class="ide-preview">
+        <div class="prev-label"><span class="live"></span>LIVE PREVIEW</div>
+        <div class="prev-site">
+          <div class="prev-nav">
+            <span>Barrio Coastal</span>
+            <span class="prev-links"><span>Menu</span><span>Reserve</span><span>Order</span></span>
+          </div>
+          <div class="prev-hero">
+            <span class="prev-eyebrow">✦ Ocean Beach · est. 2019</span>
+            <div class="prev-h1">Coastal Mexican, <em>cooked slow.</em></div>
+            <div class="prev-sub">Family recipes, Pacific fish, a long patio sunset. Abierto de 11 a 10 todos los días.</div>
+            <div class="prev-ctas">
+              <span class="prev-btn">Reserve a table →</span>
+              <span class="prev-btn ghost">See menu</span>
+            </div>
+          </div>
+          <div class="prev-metrics">
+            <div class="pm"><span class="v">98</span><span class="l">PageSpeed</span></div>
+            <div class="pm"><span class="v">0.8<span style="font-size:.55em">s</span></span><span class="l">First paint</span></div>
+            <div class="pm"><span class="v">AA</span><span class="l">A11y score</span></div>
+            <div class="pm"><span class="v">+34<span style="font-size:.55em">%</span></span><span class="l">Bookings</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ide-status">
+      <div class="ide-st-l">
+        <span><span class="ide-st-dot"></span> main</span>
+        <span>⎇ 0 conflicts</span>
+        <span>● saved</span>
+      </div>
+      <div class="ide-st-r">
+        <span>Next.js 15.1</span>
+        <span>Ln 9, Col 42</span>
+        <span>UTF-8</span>
+        <span style="color:#2db073">✓ deployed · 2m ago</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Restaurants <span class="star">✦</span></span>
+    <span>Contractors <span class="star">✦</span></span>
+    <span>Real estate <span class="star">✦</span></span>
+    <span>Clinics &amp; law <span class="star">✦</span></span>
+    <span>Retail &amp; Shopify <span class="star">✦</span></span>
+    <span>Gyms &amp; studios <span class="star">✦</span></span>
+    <span>Local PyMEs <span class="star">✦</span></span>
+    <span>Startups <span class="star">✦</span></span>
+    <!-- duplicate for seamless loop -->
+    <span>Restaurants <span class="star">✦</span></span>
+    <span>Contractors <span class="star">✦</span></span>
+    <span>Real estate <span class="star">✦</span></span>
+    <span>Clinics &amp; law <span class="star">✦</span></span>
+    <span>Retail &amp; Shopify <span class="star">✦</span></span>
+    <span>Gyms &amp; studios <span class="star">✦</span></span>
+    <span>Local PyMEs <span class="star">✦</span></span>
+    <span>Startups <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ===================== PORTFOLIO (hover list) ===================== -->
+<section class="portfolio" id="work">
+  <div style="max-width:1240px;margin:0 auto">
+    <div class="portfolio-head">
+      <div>
+        <span class="kicker">02 · Recent work · Trabajo reciente</span>
+        <h2 class="section-title">A few <em>neighbors</em> we've<br/>built for lately.</h2>
+      </div>
+      <p>Hover over a project to see a preview. Every site below was hand-designed &amp; built in San Diego, for San Diego — no page builders, no shared templates.</p>
+    </div>
+
+    <div class="cases" id="cases">
+      <a href="#" class="case" data-preview="0">
+        <span class="num">→ 01</span>
+        <span class="name">Barrio Coastal Café <em>↗</em></span>
+        <span class="desc">Rediseño + online ordering &amp; reservations para restaurante de Ocean Beach.</span>
+        <span class="tags"><span class="case-tag">Restaurant</span><span class="case-tag">Ordering</span><span class="case-tag">Next.js</span></span>
+        <span class="yr">2026</span>
+      </a>
+      <a href="#" class="case" data-preview="1">
+        <span class="num">→ 02</span>
+        <span class="name">Pacific Ironworks <em>↗</em></span>
+        <span class="desc">Membership site &amp; class booking para gym boutique en North Park.</span>
+        <span class="tags"><span class="case-tag">Fitness</span><span class="case-tag">Booking</span><span class="case-tag">Stripe</span></span>
+        <span class="yr">2026</span>
+      </a>
+      <a href="#" class="case" data-preview="2">
+        <span class="num">→ 03</span>
+        <span class="name">La Jolla Realty Co. <em>↗</em></span>
+        <span class="desc">Listings CMS + lead capture para inmobiliaria de La Jolla.</span>
+        <span class="tags"><span class="case-tag">Real estate</span><span class="case-tag">CMS</span><span class="case-tag">CRM</span></span>
+        <span class="yr">2026</span>
+      </a>
+      <a href="#" class="case" data-preview="3">
+        <span class="num">→ 04</span>
+        <span class="name">Sandoval Law <em>↗</em></span>
+        <span class="desc">Bilingual (EN/ES) practice site para despacho de inmigración en Chula Vista.</span>
+        <span class="tags"><span class="case-tag">Legal</span><span class="case-tag">EN/ES</span><span class="case-tag">SEO</span></span>
+        <span class="yr">2025</span>
+      </a>
+      <a href="#" class="case" data-preview="4">
+        <span class="num">→ 05</span>
+        <span class="name">Costa Mar Contractors <em>↗</em></span>
+        <span class="desc">Sitio + generación de leads para constructora residencial y comercial.</span>
+        <span class="tags"><span class="case-tag">Construction</span><span class="case-tag">Leads</span></span>
+        <span class="yr">2025</span>
+      </a>
+      <a href="#" class="case" data-preview="5">
+        <span class="num">→ 06</span>
+        <span class="name">Alvarado Family Dental <em>↗</em></span>
+        <span class="desc">Clinic site + online booking para consultorio dental bilingüe.</span>
+        <span class="tags"><span class="case-tag">Healthcare</span><span class="case-tag">Booking</span></span>
+        <span class="yr">2025</span>
+      </a>
+    </div>
+
+    <div class="cases-footer">
+      <span>— 6 of 40+ local projects</span>
+      <a href="#contact">See the full archive ↗</a>
+    </div>
+  </div>
+
+  <!-- Floating preview (fixed, cursor-follow) -->
+  <div class="preview" id="preview">
+    <div class="pslide on" style="background:linear-gradient(180deg,#f0c7c2 0%,#e9a59f 100%)">
+      <div class="pchrome"><span class="pd"></span><span class="pd"></span><span class="pd"></span><span style="margin-left:auto">barriocoastal.com</span></div>
+      <div class="pcontent" style="color:#5a1b17">
+        <div><div class="plabel">MENU · ORDER · RESERVE</div><div class="ptitle">Barrio <em>Coastal</em></div></div>
+        <span class="pcta">Reserve →</span>
+      </div>
+    </div>
+    <div class="pslide" style="background:linear-gradient(180deg,#111318 0%,#1a1f2b 100%)">
+      <div class="pchrome" style="background:rgba(255,255,255,.12);color:#fff"><span class="pd" style="background:#3a414f"></span><span class="pd" style="background:#3a414f"></span><span class="pd" style="background:#3a414f"></span><span style="margin-left:auto">pacificironworks.fit</span></div>
+      <div class="pcontent" style="color:#fff">
+        <div><div class="plabel">MEMBERSHIPS · CLASSES</div><div class="ptitle">Pacific <em>Ironworks</em></div></div>
+        <span class="pcta" style="background:#fff;color:#111318">7-day trial</span>
+      </div>
+    </div>
+    <div class="pslide" style="background:linear-gradient(180deg,#f3e29a 0%,#e9c565 100%)">
+      <div class="pchrome"><span class="pd"></span><span class="pd"></span><span class="pd"></span><span style="margin-left:auto">lajollarealty.co</span></div>
+      <div class="pcontent">
+        <div><div class="plabel">LISTINGS · AGENTS</div><div class="ptitle">La Jolla <em>Realty</em></div></div>
+        <span class="pcta">See homes →</span>
+      </div>
+    </div>
+    <div class="pslide" style="background:linear-gradient(180deg,#cfe3cf 0%,#9cc69c 100%)">
+      <div class="pchrome"><span class="pd"></span><span class="pd"></span><span class="pd"></span><span style="margin-left:auto">sandovallaw.com</span></div>
+      <div class="pcontent" style="color:#1e3a1e">
+        <div><div class="plabel">EN / ES · IMMIGRATION</div><div class="ptitle">Sandoval <em>Law</em></div></div>
+        <span class="pcta">Consulta gratis →</span>
+      </div>
+    </div>
+    <div class="pslide" style="background:linear-gradient(180deg,#c8d8ec 0%,#8ec4e8 100%)">
+      <div class="pchrome"><span class="pd"></span><span class="pd"></span><span class="pd"></span><span style="margin-left:auto">costamarcontractors.com</span></div>
+      <div class="pcontent" style="color:#0c2a47">
+        <div><div class="plabel">RESIDENTIAL · COMMERCIAL</div><div class="ptitle">Costa Mar <em>Contractors</em></div></div>
+        <span class="pcta">Estimate →</span>
+      </div>
+    </div>
+    <div class="pslide" style="background:linear-gradient(180deg,#f6efde 0%,#e9dcba 100%)">
+      <div class="pchrome"><span class="pd"></span><span class="pd"></span><span class="pd"></span><span style="margin-left:auto">alvaradodental.com</span></div>
+      <div class="pcontent">
+        <div><div class="plabel">FAMILY DENTISTRY · EN/ES</div><div class="ptitle">Alvarado <em>Family</em></div></div>
+        <span class="pcta">Book →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IMMERSIVE OVERLAY ===================== -->
+<div class="immersive-backdrop" id="immersive-backdrop"></div>
+<div class="immersive" id="immersive" aria-hidden="true">
+  <!-- Content is injected by JS based on selected site -->
+</div>
+<button class="immersive-close" id="immersive-close" aria-label="Close preview">✕</button>
+
+<!-- ===================== SERVICES (editorial index) ===================== -->
+<section class="services-section" id="services">
+  <div class="services-head">
+    <div>
+      <span class="kicker">03 · What we do · Lo que hacemos</span>
+      <h2 class="section-title">Eight services,<br/>one <em>thoughtful</em> studio.</h2>
+    </div>
+    <p>We're a small San Diego team — designers and developers — building websites and marketing systems that pull their weight for local businesses. Click any row to expand.</p>
+  </div>
+
+  <div class="svc-index" id="svc-index">
+    <div class="svc-row open" data-idx="0">
+      <div class="svc-num">i.</div>
+      <div class="svc-title">Web <em>development</em> <span class="svc-sub">Custom-coded on Next.js, Astro, or WordPress.</span></div>
+      <div class="svc-toggle" aria-label="Toggle"></div>
+      <div class="svc-expand">
+        <div class="svc-expand-inner">
+          <div>
+            <p>Hand-coded sites on modern stacks. Fast, accessible, easy for you to update — and ownership stays with you, always. This is our flagship offering and where most of our projects land.</p>
+            <div class="svc-tags"><span>Next.js</span><span>Astro</span><span>Headless CMS</span><span>A11y AA</span><span>Core Web Vitals</span></div>
+          </div>
+          <div class="svc-visual svc-v1">
+            <span class="label">&lt;/&gt; index.tsx</span>
+            <span>Custom <em>builds</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-row" data-idx="1">
+      <div class="svc-num">ii.</div>
+      <div class="svc-title">Web <em>design</em> <span class="svc-sub">Brand-driven UI, wireframes, design systems.</span></div>
+      <div class="svc-toggle"></div>
+      <div class="svc-expand">
+        <div class="svc-expand-inner">
+          <div>
+            <p>Brand-driven site design that actually reflects your business. Wireframes, high-fi mocks, and a design system you'll use long after we ship.</p>
+            <div class="svc-tags"><span>UX</span><span>UI</span><span>Figma</span><span>Prototyping</span><span>Design Systems</span></div>
+          </div>
+          <div class="svc-visual svc-v2">
+            <span class="label">◐ figma/mock</span>
+            <span>Art <em>direction</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-row" data-idx="2">
+      <div class="svc-num">iii.</div>
+      <div class="svc-title">Shopify &amp; <em>e-commerce</em> <span class="svc-sub">From first SKU to checkout — and beyond.</span></div>
+      <div class="svc-toggle"></div>
+      <div class="svc-expand">
+        <div class="svc-expand-inner">
+          <div>
+            <p>Custom Shopify themes, subscriptions, and merchandising that moves product off the shelf. Headless when it makes sense.</p>
+            <div class="svc-tags"><span>Shopify 2.0</span><span>Stripe</span><span>Klaviyo</span><span>Headless</span></div>
+          </div>
+          <div class="svc-visual svc-v3">
+            <span class="label">◎ checkout.v2</span>
+            <span>Stores that <em>sell</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-row" data-idx="3">
+      <div class="svc-num">iv.</div>
+      <div class="svc-title">Local <em>SEO</em> <span class="svc-sub">Show up when your neighbors search.</span></div>
+      <div class="svc-toggle"></div>
+      <div class="svc-expand">
+        <div class="svc-expand-inner">
+          <div>
+            <p>Schema, Google Business Profile, local citations, and the technical plumbing to rank for "best [thing] in San Diego." Monthly reporting, no jargon.</p>
+            <div class="svc-tags"><span>Google Business</span><span>Schema.org</span><span>Citations</span><span>Content</span></div>
+          </div>
+          <div class="svc-visual svc-v4">
+            <span class="label">◈ rank / sd</span>
+            <span>Found <em>locally</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-row" data-idx="4">
+      <div class="svc-num">v.</div>
+      <div class="svc-title">Landing <em>pages</em> <span class="svc-sub">5-day turnaround for campaigns and launches.</span></div>
+      <div class="svc-toggle"></div>
+      <div class="svc-expand">
+        <div class="svc-expand-inner">
+          <div>
+            <p>One-page campaign sites for launches, ads, or seasonal promos. Designed, built, and live in a week. Optional A/B testing setup.</p>
+            <div class="svc-tags"><span>Framer</span><span>A/B testing</span><span>Analytics</span></div>
+          </div>
+          <div class="svc-visual svc-v5">
+            <span class="label">▸ campaign.fast</span>
+            <span>Ship in a <em>week</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-row" data-idx="5">
+      <div class="svc-num">vi.</div>
+      <div class="svc-title"><em>Branding</em> &amp; logo <span class="svc-sub">Wordmarks, palettes, guidelines.</span></div>
+      <div class="svc-toggle"></div>
+      <div class="svc-expand">
+        <div class="svc-expand-inner">
+          <div>
+            <p>Identity work that outlives trends. Small, focused packages for small, focused teams — logo, palette, type, and a brand book you can actually hand off.</p>
+            <div class="svc-tags"><span>Identity</span><span>Wordmarks</span><span>Guidelines</span></div>
+          </div>
+          <div class="svc-visual svc-v6">
+            <span class="label">✦ brand.book</span>
+            <span>Marks that <em>last</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-row" data-idx="6">
+      <div class="svc-num">vii.</div>
+      <div class="svc-title"><em>Maintenance</em> &amp; care <span class="svc-sub">Updates, backups, the 11pm phone calls.</span></div>
+      <div class="svc-toggle"></div>
+      <div class="svc-expand">
+        <div class="svc-expand-inner">
+          <div>
+            <p>Monthly plans for updates, backups, speed checks, and those late-night "the site is down" emergencies. Cancel anytime.</p>
+            <div class="svc-tags"><span>Uptime</span><span>Backups</span><span>Support</span><span>Security</span></div>
+          </div>
+          <div class="svc-visual svc-v7">
+            <span class="label">◉ status.ok</span>
+            <span>We stay <em>on-call</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-row" data-idx="7">
+      <div class="svc-num">viii.</div>
+      <div class="svc-title"><em>Google</em> &amp; Meta Ads <span class="svc-sub">Paid search &amp; social that feeds pipeline.</span></div>
+      <div class="svc-toggle"></div>
+      <div class="svc-expand">
+        <div class="svc-expand-inner">
+          <div>
+            <p>Paid search and paid social managed with transparent monthly reporting. No hidden fees, no mystery audiences — just campaigns that bring warm leads to your door.</p>
+            <div class="svc-tags"><span>Google Ads</span><span>Meta Ads</span><span>GA4</span><span>Reporting</span></div>
+          </div>
+          <div class="svc-visual svc-v8">
+            <span class="label">⌘ ads.ROI</span>
+            <span>Pipeline, <em>on tap</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="svc-footer">
+    <span>— 8 services · 1 studio · North Park, SD</span>
+    <a href="#contact" style="color:#111318">Start a project ↗</a>
+  </div>
+</section>
+
+<!-- ===================== PRICING ===================== -->
+<section class="block" id="pricing">
+  <div style="display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap">
+    <div>
+      <span class="kicker">Pricing · Paquetes</span>
+      <h2 class="section-title">Three ways to <em>start</em>.<br/>No hidden retainers.</h2>
+    </div>
+    <p style="max-width:420px;color:#3a414f;font-size:16px;line-height:1.55;margin:0">Flat pricing, fixed timelines. Everything billed 50% up front, 50% on launch. Optional care plans after that — cancel anytime.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="plan">
+      <div class="pname">Corner Shop</div>
+      <div class="psub">Marquee site for a single-location business.</div>
+      <div class="price"><span class="cur">$</span>2,400<span class="per">flat</span></div>
+      <ul>
+        <li class="check">Up to 5 pages, custom-designed</li>
+        <li class="check">Mobile-perfect &amp; accessible</li>
+        <li class="check">Bilingual setup (EN / ES)</li>
+        <li class="check">Google Business + local SEO basics</li>
+        <li class="check">Launches in 3 weeks</li>
+        <li>E-commerce &amp; booking</li>
+      </ul>
+      <div class="plan-cta"><a class="btn ghost" href="#contact" style="border-color:#111318">Start a Corner Shop →</a></div>
+    </div>
+
+    <div class="plan featured">
+      <div class="pname">Main Street</div>
+      <div class="psub">Our most popular — a growing business, online.</div>
+      <div class="price"><span class="cur">$</span>6,800<span class="per">flat</span></div>
+      <ul>
+        <li class="check">Up to 12 pages + CMS for blog / menu / listings</li>
+        <li class="check">Booking, forms, Stripe / Square integration</li>
+        <li class="check">Bilingual setup + content polishing</li>
+        <li class="check">Full local SEO + schema + GA4</li>
+        <li class="check">6 weeks, 2 rounds of revisions</li>
+        <li class="check">90 days of free care after launch</li>
+      </ul>
+      <div class="plan-cta"><a class="btn" href="#contact">Book Main Street →</a></div>
+    </div>
+
+    <div class="plan">
+      <div class="pname">Harbor</div>
+      <div class="psub">Multi-location, e-commerce, or custom app work.</div>
+      <div class="price"><span class="cur">$</span>14k<span class="per">from</span></div>
+      <ul>
+        <li class="check">Full Shopify / headless commerce</li>
+        <li class="check">Multi-location &amp; multi-language</li>
+        <li class="check">Custom integrations &amp; dashboards</li>
+        <li class="check">Dedicated PM + weekly check-ins</li>
+        <li class="check">Ads &amp; SEO retainer optional</li>
+        <li class="check">8–14 week build</li>
+      </ul>
+      <div class="plan-cta"><a class="btn ghost" href="#contact" style="border-color:#111318">Talk to us →</a></div>
+    </div>
+  </div>
+
+  <p class="mono" style="text-align:center;margin-top:40px;font-size:12px;color:#6a7080;letter-spacing:.06em">
+    MAINTENANCE PLANS · FROM $180/MO  &nbsp;·&nbsp;  ADS MANAGEMENT · FROM $950/MO  &nbsp;·&nbsp;  NONPROFIT DISCOUNT · 15%
+  </p>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="contact">
+  <!-- Clouds -->
+  <div class="cloud" style="top:40px;left:5%;width:110px;opacity:.8">
+    <svg viewBox="0 0 130 60"><ellipse cx="40" cy="38" rx="36" ry="18" fill="#fff"/><ellipse cx="74" cy="30" rx="40" ry="22" fill="#fff"/><ellipse cx="104" cy="40" rx="22" ry="14" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:80px;right:12%;width:140px;opacity:.9">
+    <svg viewBox="0 0 130 60"><ellipse cx="40" cy="38" rx="36" ry="18" fill="#fff"/><ellipse cx="74" cy="30" rx="40" ry="22" fill="#fff"/><ellipse cx="104" cy="40" rx="22" ry="14" fill="#fff"/></svg>
+  </div>
+
+  <div class="contact-inner">
+    <div>
+      <span class="kicker">Say hi · Escríbenos</span>
+      <h2 class="section-title">Let's build <em>something</em><br/>good together.</h2>
+      <p class="lead">Tell us a little about your business and we'll get back within one working day. Free quote, no pressure — hablamos español.</p>
+      <div class="meta-list">
+        <div class="row"><span class="label">Email</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0c8cfccc1e0ccd5cdc9cfd3c58ed3d4d5c4c9cf">[email&#160;protected]</a></div>
+        <div class="row"><span class="label">Phone</span> (619) 555-0148</div>
+        <div class="row"><span class="label">Studio</span> North Park, San Diego, CA 92104</div>
+        <div class="row"><span class="label">Hours</span> Mon–Fri · 9–6 PT</div>
+      </div>
+    </div>
+    <form class="cform" onsubmit="event.preventDefault(); this.querySelector('.submit-row .note').textContent='Thanks — we\\'ll be in touch within a day.';">
+      <div class="row2">
+        <div class="field">
+          <label>Your name</label>
+          <input type="text" placeholder="Jane Rivera" required />
+        </div>
+        <div class="field">
+          <label>Business</label>
+          <input type="text" placeholder="Barrio Coastal Café" />
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" placeholder="jane@bcc.com" required />
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" placeholder="(619) 555-0128" />
+        </div>
+      </div>
+      <div class="field">
+        <label>What do you need?</label>
+        <select>
+          <option>A new website (Corner Shop)</option>
+          <option selected>A full build (Main Street)</option>
+          <option>Something bigger (Harbor)</option>
+          <option>Just SEO / Ads help</option>
+          <option>Not sure yet — let's talk</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Tell us a bit more</label>
+        <textarea placeholder="A few lines about your business and what you're hoping for..."></textarea>
+      </div>
+      <div class="submit-row">
+        <span class="note mono">Replies within 1 business day · Respuesta en 1 día</span>
+        <button class="btn" type="submit">Send →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="logo"><span class="mark"></span> Lumiose</div>
+      <p>A small web studio in North Park, San Diego — building websites, stores, and marketing systems for the businesses we live next door to.</p>
+    </div>
+    <div>
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Web development</a></li>
+        <li><a href="#services">Web design</a></li>
+        <li><a href="#services">Shopify &amp; e-commerce</a></li>
+        <li><a href="#services">Local SEO</a></li>
+        <li><a href="#services">Google &amp; Meta Ads</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Studio</h5>
+      <ul>
+        <li><a href="#work">Recent work</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Elsewhere</h5>
+      <ul>
+        <li><a>Instagram</a></li>
+        <li><a>LinkedIn</a></li>
+        <li><a>Dribbble</a></li>
+        <li><a>GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 LUMIOSE STUDIO · NORTH PARK, SAN DIEGO, CA</span>
+    <span>HECHO CON ☀ + ☕ EN SAN DIEGO</span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Smooth scroll for anchor links
+  document.documentElement.style.scrollBehavior = 'smooth';
+
+  // Enhanced smooth scroll with easing + offset
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href.length < 2) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      const startY = window.scrollY;
+      const endY = target.getBoundingClientRect().top + window.scrollY - 12;
+      const distance = endY - startY;
+      const duration = Math.min(1400, Math.max(700, Math.abs(distance) * 0.55));
+      const startT = performance.now();
+      // easeInOutCubic
+      const ease = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+      function step(now){
+        const t = Math.min(1, (now - startT) / duration);
+        window.scrollTo(0, startY + distance * ease(t));
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  });
+
+  // Services accordion
+  document.querySelectorAll('#svc-index .svc-row').forEach(row => {
+    row.addEventListener('click', (e) => {
+      // Ignore clicks on links inside expand
+      if (e.target.closest('a')) return;
+      const wasOpen = row.classList.contains('open');
+      document.querySelectorAll('#svc-index .svc-row.open').forEach(r => r.classList.remove('open'));
+      if (!wasOpen) row.classList.add('open');
+    });
+  });
+
+  // Hover preview + click-to-immersive transition
+  (function(){
+    const preview = document.getElementById('preview');
+    const backdrop = document.getElementById('immersive-backdrop');
+    const immersive = document.getElementById('immersive');
+    const closeBtn = document.getElementById('immersive-close');
+    const cases = document.querySelectorAll('#cases .case');
+    if(!preview || !cases.length || !immersive) return;
+    const slides = preview.querySelectorAll('.pslide');
+
+    // ---- Site content data for the full-page mocks
+    const SITES = [
+      {
+        url:'barriocoastal.com', brand:'Barrio Coastal',
+        nav:['Menu','Reserve','Order','About','Contact'],
+        hero:{ eyebrow:'OCEAN BEACH · RESTAURANT', h1:'Coastal <em>comfort</em>,<br/>made in Ocean Beach.', body:'A small beach-front kitchen serving seasonal Baja-Cal fare, craft cocktails, and ocean-view brunch. Walk-ins welcome — but a reservation never hurts.', primary:'Reserve a table', secondary:'View menu' },
+        rowTitle:'What the kitchen is <em>cooking</em> this week.',
+        cards:[
+          {thumb:'#f0c7c2', title:'Morning Menu', body:'Huevos rancheros, agua de jamaica, house churros.', tag:'SERVED 8 — 11am'},
+          {thumb:'#e9a59f', title:'Dinner Menu', body:'Baja fish of the day, mole short-rib, bone-marrow tortillas.', tag:'SERVED 5 — 10pm'},
+          {thumb:'#f6efde', title:'Bar & Cocktails', body:'Tepache spritz, mezcal negroni, low-ABV coolers.', tag:'ALL DAY'}
+        ]
+      },
+      {
+        url:'pacificironworks.fit', brand:'Pacific Ironworks',
+        nav:['Classes','Memberships','Coaches','Schedule','Book'],
+        hero:{ eyebrow:'NORTH PARK · STRENGTH GYM', h1:'Get <em>stronger</em>.<br/>Train with us.', body:'Boutique strength-and-conditioning in the heart of North Park. Small classes, real coaches, 365 days a year.', primary:'Start 7-day trial', secondary:'See schedule' },
+        rowTitle:'Classes built for <em>real</em> progress.',
+        cards:[
+          {thumb:'#2b2f3b', title:'Barbell 101', body:'Squat, bench, deadlift. Four weeks, every fundamental.', tag:'BEGINNER · 45 MIN'},
+          {thumb:'#3a414f', title:'Metcon', body:'Engine-building conditioning. Work, rest, repeat.', tag:'ALL LEVELS · 55 MIN'},
+          {thumb:'#1a1f2b', title:'Open Gym', body:'Unstructured. Your plan, our platforms, our coaches.', tag:'MEMBERS · 90 MIN'}
+        ]
+      },
+      {
+        url:'lajollarealty.co', brand:'La Jolla Realty Co.',
+        nav:['Listings','Agents','Journal','Sell','Contact'],
+        hero:{ eyebrow:'LA JOLLA · REAL ESTATE', h1:'Homes on <em>the coast</em>.<br/>A quieter way to buy.', body:'A boutique brokerage covering La Jolla, Del Mar, and the coastal neighborhoods of San Diego. No billboards. No bus benches. Just a very good address book.', primary:'Browse listings', secondary:'Meet our agents' },
+        rowTitle:'Recent <em>listings</em> on the coast.',
+        cards:[
+          {thumb:'#f3e29a', title:'1728 Coast Blvd', body:'3 bd · 3 ba · 2,400 sqft · ocean view', tag:'$3.45M · LA JOLLA'},
+          {thumb:'#e9c565', title:'404 Marine St', body:'4 bd · 3 ba · 2,800 sqft · walk to beach', tag:'$2.95M · LA JOLLA'},
+          {thumb:'#f6efde', title:'60 Camino Real', body:'5 bd · 5 ba · 4,100 sqft · private pool', tag:'$5.2M · DEL MAR'}
+        ]
+      },
+      {
+        url:'sandovallaw.com', brand:'Sandoval Law',
+        nav:['Practice','Attorneys','Resources','EN / ES','Contact'],
+        hero:{ eyebrow:'CHULA VISTA · INMIGRACIÓN · EN / ES', h1:'Immigration law,<br/>done with <em>care</em>.', body:'Sandoval Law is a bilingual immigration practice serving families in South Bay and greater San Diego. Primera consulta gratis — hablamos español.', primary:'Consulta gratis', secondary:'Our practice areas' },
+        rowTitle:'Where we <em>help</em>.',
+        cards:[
+          {thumb:'#cfe3cf', title:'Family petitions', body:'Green cards, fiancé visas, adjustment of status.', tag:'PRACTICE AREA'},
+          {thumb:'#9cc69c', title:'DACA & TPS', body:'Renewals, appeals, and first-time applications.', tag:'PRACTICE AREA'},
+          {thumb:'#eef6ee', title:'Citizenship', body:'Naturalization interviews, test prep, appeals.', tag:'PRACTICE AREA'}
+        ]
+      },
+      {
+        url:'costamarcontractors.com', brand:'Costa Mar Contractors',
+        nav:['Residential','Commercial','Projects','Team','Estimate'],
+        hero:{ eyebrow:'ENCINITAS · LICENSED BUILDER', h1:'Built <em>coastal</em>.<br/>Built to last.', body:'A family-run general contractor serving North County San Diego since 2004. Remodels, ADUs, custom homes, and commercial tenant improvements.', primary:'Request an estimate', secondary:'See past projects' },
+        rowTitle:'A few recent <em>builds</em>.',
+        cards:[
+          {thumb:'#c8d8ec', title:'Leucadia ADU', body:'860 sqft detached unit · designed for rental.', tag:'RESIDENTIAL · 2025'},
+          {thumb:'#8ec4e8', title:'Cardiff Remodel', body:'Full-home reno for a growing family of five.', tag:'RESIDENTIAL · 2025'},
+          {thumb:'#eaf2fb', title:'Downtown Studio', body:'3,400 sqft tenant improvement for a design firm.', tag:'COMMERCIAL · 2024'}
+        ]
+      },
+      {
+        url:'alvaradodental.com', brand:'Alvarado Family Dental',
+        nav:['Services','Our team','New patients','EN / ES','Book'],
+        hero:{ eyebrow:'CITY HEIGHTS · FAMILY DENTISTRY', h1:'Gentle, <em>thoughtful</em><br/>family dentistry.', body:'Three generations of San Diego dentists in one modern clinic. We treat kids, adults, and everyone in between — se habla español.', primary:'Book a visit', secondary:'Meet the doctors' },
+        rowTitle:'The <em>care</em> we provide.',
+        cards:[
+          {thumb:'#f6efde', title:'Cleanings & Exams', body:'Every six months. Insurance welcome, cash plans available.', tag:'PREVENTIVE'},
+          {thumb:'#e9dcba', title:'Family dentistry', body:'From the first tooth to the last. All ages, all needs.', tag:'FAMILY'},
+          {thumb:'#fbf3e7', title:'Cosmetic & restorative', body:'Whitening, veneers, crowns — done in-house.', tag:'COSMETIC'}
+        ]
+      }
+    ];
+
+    function buildSite(s){
+      return `
+        <div class="fullsite">
+          <div class="fs-chrome">
+            <span class="dd" style="background:#ff6058"></span>
+            <span class="dd" style="background:#ffbd2e"></span>
+            <span class="dd" style="background:#29ca42"></span>
+            <span class="fs-url">🔒 ${s.url}</span>
+            <span style="width:48px"></span>
+          </div>
+          <div class="fs-nav">
+            <div class="brand">${s.brand}</div>
+            <ul>${s.nav.map(n=>`<li>${n}</li>`).join('')}</ul>
+            <a class="btn-sm">${s.hero.primary} →</a>
+          </div>
+          <div class="fs-hero">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#6a7080;margin-bottom:20px">✦ ${s.hero.eyebrow}</div>
+            <h1>${s.hero.h1}</h1>
+            <p>${s.hero.body}</p>
+            <div class="hero-ctas">
+              <a class="primary">${s.hero.primary} →</a>
+              <a class="secondary">${s.hero.secondary}</a>
+            </div>
+          </div>
+          <div class="fs-row">
+            <h2>${s.rowTitle}</h2>
+            <div class="fs-grid-3">
+              ${s.cards.map(c=>`
+                <div class="fs-card">
+                  <div class="fs-thumb" style="background:${c.thumb}">${c.title}</div>
+                  <div>
+                    <h3>${c.title}</h3>
+                    <p>${c.body}</p>
+                    <div class="tag">${c.tag}</div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          <div class="fs-footer">
+            <span>© 2026 ${s.brand}</span>
+            <span>Built by Lumiose · San Diego</span>
+          </div>
+        </div>
+      `;
+    }
+
+    // Floating hover preview
+    let targetX = 0, targetY = 0, curX = 0, curY = 0, raf = null;
+
+    function animate(){
+      curX += (targetX - curX) * 0.18;
+      curY += (targetY - curY) * 0.18;
+      preview.style.left = curX + 'px';
+      preview.style.top = curY + 'px';
+      if (Math.abs(targetX - curX) > 0.5 || Math.abs(targetY - curY) > 0.5){
+        raf = requestAnimationFrame(animate);
+      } else { raf = null; }
+    }
+
+    cases.forEach(c => {
+      c.addEventListener('mouseenter', () => {
+        const idx = parseInt(c.dataset.preview, 10);
+        slides.forEach((s, i) => s.classList.toggle('on', i === idx));
+        preview.classList.add('on');
+      });
+      c.addEventListener('mouseleave', () => {
+        if (!isOpen) preview.classList.remove('on');
+      });
+      c.addEventListener('mousemove', (e) => {
+        targetX = e.clientX + 180;
+        targetY = e.clientY;
+        if (!raf){
+          curX = targetX; curY = targetY;
+          preview.style.left = curX + 'px';
+          preview.style.top = curY + 'px';
+          raf = requestAnimationFrame(animate);
+        }
+      });
+      c.addEventListener('click', (e) => {
+        e.preventDefault();
+        lastCase = c;
+        const idx = parseInt(c.dataset.preview, 10);
+        openImmersive(idx);
+      });
+    });
+
+    // Immersive transition
+    let isOpen = false;
+    let lastCase = null;
+
+    function openImmersive(idx){
+      if (isOpen) return;
+      isOpen = true;
+      const site = SITES[idx];
+
+      // Snapshot preview position/size (visible floating panel)
+      const rect = preview.getBoundingClientRect();
+      const slide = slides[idx];
+      const bg = slide ? (slide.style.background || slide.style.backgroundImage || '') : '';
+
+      // Hide hover preview
+      preview.classList.remove('on');
+
+      // Set immersive to exactly the starting rect
+      immersive.setAttribute('data-site', String(idx));
+      immersive.style.background = bg || '#f7f4ec';
+      immersive.style.transition = 'none';
+      immersive.style.left = rect.left + 'px';
+      immersive.style.top = rect.top + 'px';
+      immersive.style.width = rect.width + 'px';
+      immersive.style.height = rect.height + 'px';
+      immersive.style.borderRadius = '10px';
+      immersive.innerHTML = '';
+      immersive.classList.add('active');
+      immersive.setAttribute('aria-hidden','false');
+
+      // Force reflow
+      void immersive.offsetWidth;
+
+      // Show backdrop & expand
+      backdrop.classList.add('on');
+      immersive.style.transition = '';
+      requestAnimationFrame(() => {
+        immersive.style.left = '0px';
+        immersive.style.top = '0px';
+        immersive.style.width = window.innerWidth + 'px';
+        immersive.style.height = window.innerHeight + 'px';
+        immersive.style.borderRadius = '0px';
+
+        setTimeout(() => {
+          immersive.innerHTML = buildSite(site);
+          immersive.classList.add('reveal');
+          closeBtn.classList.add('on');
+          document.body.style.overflow = 'hidden';
+        }, 420);
+      });
+    }
+
+    function closeImmersive(){
+      if (!isOpen) return;
+      isOpen = false;
+
+      // Fade the content out immediately so the shrink isn't distracting
+      immersive.classList.remove('reveal');
+      closeBtn.classList.remove('on');
+      document.body.style.overflow = '';
+
+      // Shrink back toward the originating row (or cursor as fallback)
+      const shrinkW = 340, shrinkH = 230;
+      let tx, ty;
+      if (lastCase){
+        const r = lastCase.getBoundingClientRect();
+        tx = r.left + r.width / 2 - shrinkW / 2;
+        ty = r.top + r.height / 2 - shrinkH / 2;
+      } else {
+        tx = (window.innerWidth - shrinkW) / 2;
+        ty = (window.innerHeight - shrinkH) / 2 - 40;
+      }
+
+      immersive.style.left = tx + 'px';
+      immersive.style.top = ty + 'px';
+      immersive.style.width = shrinkW + 'px';
+      immersive.style.height = shrinkH + 'px';
+      immersive.style.borderRadius = '10px';
+      immersive.style.opacity = '0';
+
+      backdrop.classList.remove('on');
+
+      setTimeout(() => {
+        immersive.classList.remove('active');
+        immersive.setAttribute('aria-hidden','true');
+        immersive.innerHTML = '';
+        immersive.style.opacity = '';
+        immersive.style.left = '-9999px';
+        immersive.style.top = '-9999px';
+        immersive.style.width = '0px';
+        immersive.style.height = '0px';
+      }, 520);
+    }
+
+    closeBtn.addEventListener('click', closeImmersive);
+    backdrop.addEventListener('click', closeImmersive);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) closeImmersive();
+    });
+  })();
+</script>
+
+</body>
+</html>
