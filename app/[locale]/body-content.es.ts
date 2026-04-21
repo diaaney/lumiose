@@ -506,7 +506,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     </div>
 
     <div class="plan">
-      <div class="pname">Harbor</div>
+      <div class="pname">Enterprise</div>
       <div class="psub">Multi-ubicación, e-commerce o trabajo de app custom.</div>
       <div class="price"><span class="cur">$</span>{{PRICE_HARBOR}}<span class="per">from</span></div>
       <ul>
@@ -574,7 +574,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
         <select>
           <option>Un sitio nuevo (Corner Shop)</option>
           <option selected>Un build completo (Main Street)</option>
-          <option>Algo más grande (Harbor)</option>
+          <option>Algo más grande (Enterprise)</option>
           <option>Solo ayuda con SEO / Ads</option>
           <option>No estoy seguro aún — hablemos</option>
         </select>
