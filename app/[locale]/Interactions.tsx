@@ -27,14 +27,14 @@ const SITES: Site[] = [
       eyebrow: 'OCEAN BEACH · RESTAURANT',
       h1: 'Coastal <em>comfort</em>,<br/>made in Ocean Beach.',
       body:
-        'A small beach-front kitchen serving seasonal Baja-Cal fare, craft cocktails, and ocean-view brunch. Walk-ins welcome — but a reservation never hurts.',
+        'A small beach-front kitchen serving seasonal Baja-Cal fare, craft cocktails, and ocean-view brunch. Walk-ins welcome, but a reservation never hurts.',
       primary: 'Reserve a table',
       secondary: 'View menu',
     },
     rowTitle: 'What the kitchen is <em>cooking</em> this week.',
     cards: [
-      { thumb: '#f0c7c2', title: 'Morning Menu', body: 'Huevos rancheros, agua de jamaica, house churros.', tag: 'SERVED 8 — 11am' },
-      { thumb: '#e9a59f', title: 'Dinner Menu', body: 'Baja fish of the day, mole short-rib, bone-marrow tortillas.', tag: 'SERVED 5 — 10pm' },
+      { thumb: '#f0c7c2', title: 'Morning Menu', body: 'Huevos rancheros, agua de jamaica, house churros.', tag: 'SERVED 8 TO 11am' },
+      { thumb: '#e9a59f', title: 'Dinner Menu', body: 'Baja fish of the day, mole short-rib, bone-marrow tortillas.', tag: 'SERVED 5 TO 10pm' },
       { thumb: '#f6efde', title: 'Bar & Cocktails', body: 'Tepache spritz, mezcal negroni, low-ABV coolers.', tag: 'ALL DAY' },
     ],
   },
@@ -84,7 +84,7 @@ const SITES: Site[] = [
       eyebrow: 'CHULA VISTA · INMIGRACIÓN · EN / ES',
       h1: 'Immigration law,<br/>done with <em>care</em>.',
       body:
-        'Sandoval Law is a bilingual immigration practice serving families in South Bay and greater San Diego. Primera consulta gratis — hablamos español.',
+        'Sandoval Law is a bilingual immigration practice serving families in South Bay and greater San Diego. Primera consulta gratis. Hablamos español.',
       primary: 'Consulta gratis',
       secondary: 'Our practice areas',
     },
@@ -122,7 +122,7 @@ const SITES: Site[] = [
       eyebrow: 'CITY HEIGHTS · FAMILY DENTISTRY',
       h1: 'Gentle, <em>thoughtful</em><br/>family dentistry.',
       body:
-        'Three generations of San Diego dentists in one modern clinic. We treat kids, adults, and everyone in between — se habla español.',
+        'Three generations of San Diego dentists in one modern clinic. We treat kids, adults, and everyone in between. Se habla español.',
       primary: 'Book a visit',
       secondary: 'Meet the doctors',
     },
@@ -130,7 +130,7 @@ const SITES: Site[] = [
     cards: [
       { thumb: '#f6efde', title: 'Cleanings & Exams', body: 'Every six months. Insurance welcome, cash plans available.', tag: 'PREVENTIVE' },
       { thumb: '#e9dcba', title: 'Family dentistry', body: 'From the first tooth to the last. All ages, all needs.', tag: 'FAMILY' },
-      { thumb: '#fbf3e7', title: 'Cosmetic & restorative', body: 'Whitening, veneers, crowns — done in-house.', tag: 'COSMETIC' },
+      { thumb: '#fbf3e7', title: 'Cosmetic & restorative', body: 'Whitening, veneers, crowns. Done in-house.', tag: 'COSMETIC' },
     ],
   },
 ];

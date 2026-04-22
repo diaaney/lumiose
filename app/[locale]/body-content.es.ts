@@ -5,7 +5,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 <!-- Top banner -->
 <div class="banner">
   <a href="#contact">
-    <span class="serif" style="font-style:italic">Oferta de primavera · 20% off en tu primer sitio — disponible para reservas de mayo</span>
+    <span class="serif" style="font-style:italic">Oferta de primavera · 20% off en tu primer sitio, disponible para reservas de mayo</span>
     <span class="arrow">→</span>
   </a>
 </div>
@@ -16,14 +16,26 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   <div class="cloud" style="top:80px;left:6%;width:130px;opacity:.9">
     <svg viewBox="0 0 130 60"><ellipse cx="40" cy="38" rx="36" ry="18" fill="#fff"/><ellipse cx="74" cy="30" rx="40" ry="22" fill="#fff"/><ellipse cx="104" cy="40" rx="22" ry="14" fill="#fff"/></svg>
   </div>
-  <div class="cloud" style="top:130px;right:8%;width:160px;opacity:.95">
+  <div class="cloud" style="top:130px;right:8%;width:190px;opacity:.95">
+    <svg viewBox="0 0 200 50"><ellipse cx="48" cy="32" rx="44" ry="14" fill="#fff"/><ellipse cx="110" cy="24" rx="54" ry="18" fill="#fff"/><ellipse cx="168" cy="30" rx="32" ry="14" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:12px;left:42%;width:55px;opacity:.85">
+    <svg viewBox="0 0 50 24"><ellipse cx="15" cy="16" rx="14" ry="8" fill="#fff"/><ellipse cx="34" cy="12" rx="15" ry="10" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:250px;left:3%;width:120px;opacity:.75">
+    <svg viewBox="0 0 120 80"><ellipse cx="36" cy="55" rx="32" ry="18" fill="#fff"/><ellipse cx="72" cy="38" rx="38" ry="24" fill="#fff"/><ellipse cx="98" cy="56" rx="22" ry="16" fill="#fff"/><ellipse cx="56" cy="22" rx="20" ry="12" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:22px;right:22%;width:60px;opacity:.6">
+    <svg viewBox="0 0 50 24"><ellipse cx="15" cy="16" rx="14" ry="8" fill="#fff"/><ellipse cx="34" cy="12" rx="15" ry="10" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:180px;left:26%;width:160px;opacity:.82">
+    <svg viewBox="0 0 200 50"><ellipse cx="48" cy="32" rx="44" ry="14" fill="#fff"/><ellipse cx="110" cy="24" rx="54" ry="18" fill="#fff"/><ellipse cx="168" cy="30" rx="32" ry="14" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:305px;right:16%;width:150px;opacity:.78">
     <svg viewBox="0 0 160 70"><ellipse cx="46" cy="44" rx="44" ry="20" fill="#fff"/><ellipse cx="92" cy="32" rx="50" ry="26" fill="#fff"/><ellipse cx="130" cy="46" rx="26" ry="16" fill="#fff"/></svg>
   </div>
-  <div class="cloud" style="top:40px;left:44%;width:90px;opacity:.85">
-    <svg viewBox="0 0 100 40"><ellipse cx="30" cy="26" rx="26" ry="12" fill="#fff"/><ellipse cx="60" cy="20" rx="30" ry="14" fill="#fff"/><ellipse cx="82" cy="28" rx="16" ry="10" fill="#fff"/></svg>
-  </div>
-  <div class="cloud" style="top:260px;left:3%;width:90px;opacity:.7">
-    <svg viewBox="0 0 100 40"><ellipse cx="30" cy="26" rx="26" ry="12" fill="#fff"/><ellipse cx="60" cy="20" rx="30" ry="14" fill="#fff"/><ellipse cx="82" cy="28" rx="16" ry="10" fill="#fff"/></svg>
+  <div class="cloud" style="top:148px;left:72%;width:85px;opacity:.7">
+    <svg viewBox="0 0 120 80"><ellipse cx="36" cy="55" rx="32" ry="18" fill="#fff"/><ellipse cx="72" cy="38" rx="38" ry="24" fill="#fff"/><ellipse cx="98" cy="56" rx="22" ry="16" fill="#fff"/><ellipse cx="56" cy="22" rx="20" ry="12" fill="#fff"/></svg>
   </div>
 
   <!-- Navigation -->
@@ -45,9 +57,9 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 
   <!-- Headline -->
   <div class="hero-inner">
-    <span class="eyebrow"><span class="dot"></span> Reservando ahora · Mayo 2026 · San Diego, CA</span>
-    <h1 class="display">Sitios web que hacen <em>brillar</em><br/>a los negocios de <em>San Diego</em>.</h1>
-    <p class="sub">Un estudio de desarrollo web para restaurantes, contratistas, inmobiliarias y clínicas que mantienen viva esta ciudad. Hechos a medida, rápidos como el Pacífico, en inglés y español.</p>
+    <span class="eyebrow"><span class="dot"></span> Reservando ahora · Mayo 2026</span>
+    <h1 class="display">Mejores sitios web.<br/><em>Hechos para vender</em>. Punto.</h1>
+    <p class="sub">Programados a mano, obsesivamente rápidos, diseñados para convertir visitas en clientes. Para negocios pequeños que ya no se conforman con "más o menos".</p>
     <div class="hero-ctas">
       <a class="btn pill-lg" href="#contact">Cotización gratis</a>
       <a class="btn pill-lg ghost" href="#work">Ver proyectos →</a>
@@ -191,10 +203,10 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   <div style="max-width:1240px;margin:0 auto">
     <div class="portfolio-head">
       <div>
-        <span class="kicker">02 · Trabajo reciente · Recent work</span>
-        <h2 class="section-title">Algunos <em>vecinos</em> para<br/>los que construimos recién.</h2>
+        <span class="kicker">02 · Trabajo reciente</span>
+        <h2 class="section-title">Algunos <em>clientes</em> para<br/>los que construimos recién.</h2>
       </div>
-      <p>Pasá el mouse sobre un proyecto para ver una vista previa. Cada sitio fue diseñado y construido a mano en San Diego, para San Diego — sin page builders, sin plantillas compartidas.</p>
+      <p>Pasa el mouse sobre un proyecto para ver una vista previa. Cada sitio fue diseñado y programado desde cero. Sin page builders, sin plantillas compartidas, sin atajos.</p>
     </div>
 
     <div class="cases" id="cases">
@@ -222,8 +234,8 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <a href="#" class="case" data-preview="3">
         <span class="num">→ 04</span>
         <span class="name">Sandoval Law <em>↗</em></span>
-        <span class="desc">Sitio bilingüe (EN/ES) para despacho de inmigración en Chula Vista.</span>
-        <span class="tags"><span class="case-tag">Legal</span><span class="case-tag">EN/ES</span><span class="case-tag">SEO</span></span>
+        <span class="desc">Sitio con intake de consultas para despacho de inmigración.</span>
+        <span class="tags"><span class="case-tag">Legal</span><span class="case-tag">Inmigración</span><span class="case-tag">SEO</span></span>
         <span class="yr">2025</span>
       </a>
       <a href="#" class="case" data-preview="4">
@@ -236,14 +248,14 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <a href="#" class="case" data-preview="5">
         <span class="num">→ 06</span>
         <span class="name">Alvarado Family Dental <em>↗</em></span>
-        <span class="desc">Sitio clínico + reservas online para consultorio dental bilingüe.</span>
+        <span class="desc">Sitio clínico con reservas online para consultorio dental familiar.</span>
         <span class="tags"><span class="case-tag">Healthcare</span><span class="case-tag">Booking</span></span>
         <span class="yr">2025</span>
       </a>
     </div>
 
     <div class="cases-footer">
-      <span>— 6 de 40+ proyectos locales</span>
+      <span>6 de 40+ proyectos</span>
       <a href="#contact">Ver el archivo completo ↗</a>
     </div>
   </div>
@@ -274,7 +286,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <div class="pslide" style="background:linear-gradient(180deg,#cfe3cf 0%,#9cc69c 100%)">
       <div class="pchrome"><span class="pd"></span><span class="pd"></span><span class="pd"></span><span style="margin-left:auto">sandovallaw.com</span></div>
       <div class="pcontent" style="color:#1e3a1e">
-        <div><div class="plabel">EN / ES · IMMIGRATION</div><div class="ptitle">Sandoval <em>Law</em></div></div>
+        <div><div class="plabel">INMIGRACIÓN</div><div class="ptitle">Sandoval <em>Law</em></div></div>
         <span class="pcta">Consulta gratis →</span>
       </div>
     </div>
@@ -288,7 +300,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <div class="pslide" style="background:linear-gradient(180deg,#f6efde 0%,#e9dcba 100%)">
       <div class="pchrome"><span class="pd"></span><span class="pd"></span><span class="pd"></span><span style="margin-left:auto">alvaradodental.com</span></div>
       <div class="pcontent">
-        <div><div class="plabel">FAMILY DENTISTRY · EN/ES</div><div class="ptitle">Alvarado <em>Family</em></div></div>
+        <div><div class="plabel">DENTISTA FAMILIAR</div><div class="ptitle">Alvarado <em>Family</em></div></div>
         <span class="pcta">Book →</span>
       </div>
     </div>
@@ -306,22 +318,22 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 <section class="services-section" id="services">
   <div class="services-head">
     <div>
-      <span class="kicker">03 · Lo que hacemos · What we do</span>
-      <h2 class="section-title">Ocho servicios,<br/>un estudio <em>meticuloso</em>.</h2>
+      <span class="kicker">03 · Lo que hacemos</span>
+      <h2 class="section-title">Cinco servicios,<br/>un estudio <em>implacable</em>.</h2>
     </div>
-    <p>Somos un equipo pequeño de San Diego — diseñadores y desarrolladores — construyendo sitios web y sistemas de marketing que trabajan duro para los negocios locales. Hacé click en cualquier fila para expandir.</p>
+    <p>Somos un equipo pequeño de diseñadores y desarrolladores, construyendo sitios web y sistemas de marketing que trabajan duro para los negocios que nos contratan. Haz clic en cualquier fila para expandir.</p>
   </div>
 
   <div class="svc-index" id="svc-index">
     <div class="svc-row open" data-idx="0">
       <div class="svc-num">i.</div>
-      <div class="svc-title">Desarrollo <em>web</em> <span class="svc-sub">Código a medida en Next.js, Astro o WordPress.</span></div>
+      <div class="svc-title">Desarrollo <em>web</em> <span class="svc-sub">Sitios a medida en Next.js, Astro o WordPress.</span></div>
       <div class="svc-toggle" aria-label="Toggle"></div>
       <div class="svc-expand">
         <div class="svc-expand-inner">
           <div>
-            <p>Sitios programados a mano sobre stacks modernos. Rápidos, accesibles, fáciles de actualizar — y la propiedad siempre queda en tus manos. Es nuestro servicio principal y donde aterrizan la mayoría de nuestros proyectos.</p>
-            <div class="svc-tags"><span>Next.js</span><span>Astro</span><span>Headless CMS</span><span>A11y AA</span><span>Core Web Vitals</span></div>
+            <p>Sitios programados a mano sobre stacks modernos. Rápidos, accesibles, fáciles de actualizar, y la propiedad siempre es tuya. La base sobre la que se monta todo lo demás.</p>
+            <div class="svc-tags"><span>Next.js</span><span>Astro</span><span>WordPress</span><span>Headless CMS</span><span>Core Web Vitals</span></div>
           </div>
           <div class="svc-visual svc-v1">
             <span class="label">&lt;/&gt; index.tsx</span>
@@ -333,17 +345,17 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 
     <div class="svc-row" data-idx="1">
       <div class="svc-num">ii.</div>
-      <div class="svc-title">Diseño <em>web</em> <span class="svc-sub">UI guiada por marca, wireframes, design systems.</span></div>
+      <div class="svc-title">SEO y <em>GEO</em> <span class="svc-sub">Rankea en Google. Y dentro de ChatGPT.</span></div>
       <div class="svc-toggle"></div>
       <div class="svc-expand">
         <div class="svc-expand-inner">
           <div>
-            <p>Diseño de sitio guiado por marca que refleja tu negocio. Wireframes, mocks en alta fidelidad y un design system que vas a seguir usando mucho después de que lanzemos.</p>
-            <div class="svc-tags"><span>UX</span><span>UI</span><span>Figma</span><span>Prototyping</span><span>Design Systems</span></div>
+            <p>SEO clásico (schema, plomería técnica, estrategia de contenido) más Generative Engine Optimization, para que aparezcas cuando la gente busca en Google y cuando le pregunta a ChatGPT, Perplexity o a las AI Overviews. Dos rankings, un solo playbook.</p>
+            <div class="svc-tags"><span>SEO Técnico</span><span>Schema.org</span><span>AI Overviews</span><span>Contenido</span><span>Perplexity</span></div>
           </div>
-          <div class="svc-visual svc-v2">
-            <span class="label">◐ figma/mock</span>
-            <span>Dirección <em>de arte</em></span>
+          <div class="svc-visual svc-v4">
+            <span class="label">◈ rank / ai</span>
+            <span>Encontrado <em>dos veces</em></span>
           </div>
         </div>
       </div>
@@ -351,17 +363,17 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 
     <div class="svc-row" data-idx="2">
       <div class="svc-num">iii.</div>
-      <div class="svc-title">Shopify y <em>e-commerce</em> <span class="svc-sub">Desde el primer SKU al checkout — y más allá.</span></div>
+      <div class="svc-title">Google <em>Ads</em> <span class="svc-sub">Tráfico pago que convierte, no presupuesto que se quema.</span></div>
       <div class="svc-toggle"></div>
       <div class="svc-expand">
         <div class="svc-expand-inner">
           <div>
-            <p>Temas de Shopify a medida, suscripciones y merchandising que saca el producto del estante. Headless cuando tiene sentido.</p>
-            <div class="svc-tags"><span>Shopify 2.0</span><span>Stripe</span><span>Klaviyo</span><span>Headless</span></div>
+            <p>Campañas de búsqueda, Performance Max y remarketing manejadas con reporte mensual transparente. Sin fees ocultos, sin audiencias misteriosas. Solo clicks que se convierten en clientes y números que sí se pueden leer.</p>
+            <div class="svc-tags"><span>Google Ads</span><span>Performance Max</span><span>GA4</span><span>Reporting</span></div>
           </div>
-          <div class="svc-visual svc-v3">
-            <span class="label">◎ checkout.v2</span>
-            <span>Tiendas que <em>venden</em></span>
+          <div class="svc-visual svc-v8">
+            <span class="label">⌘ ads.ROI</span>
+            <span>Pipeline, <em>a demanda</em></span>
           </div>
         </div>
       </div>
@@ -369,17 +381,17 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 
     <div class="svc-row" data-idx="3">
       <div class="svc-num">iv.</div>
-      <div class="svc-title">SEO <em>local</em> <span class="svc-sub">Aparecé cuando tus vecinos buscan.</span></div>
+      <div class="svc-title">Gestión de <em>dominio</em> <span class="svc-sub">DNS, correo, SSL. La plomería, resuelta.</span></div>
       <div class="svc-toggle"></div>
       <div class="svc-expand">
         <div class="svc-expand-inner">
           <div>
-            <p>Schema, Google Business Profile, citaciones locales y la plomería técnica para rankear por "mejor [cosa] en San Diego". Reporte mensual, sin jerga.</p>
-            <div class="svc-tags"><span>Google Business</span><span>Schema.org</span><span>Citations</span><span>Content</span></div>
+            <p>Gestión completa de dominio e infraestructura: registros DNS, certificados SSL, correo profesional, redirecciones y renovaciones monitoreadas para que nada expire un viernes a las 11 de la noche. Tú duermes tranquilo, nosotros nos encargamos.</p>
+            <div class="svc-tags"><span>DNS</span><span>SSL</span><span>Correo</span><span>Cloudflare</span><span>Renovaciones</span></div>
           </div>
-          <div class="svc-visual svc-v4">
-            <span class="label">◈ rank / sd</span>
-            <span>Encontrado <em>localmente</em></span>
+          <div class="svc-visual svc-v7">
+            <span class="label">◉ dns.ok</span>
+            <span>Siempre <em>arriba</em></span>
           </div>
         </div>
       </div>
@@ -387,71 +399,17 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 
     <div class="svc-row" data-idx="4">
       <div class="svc-num">v.</div>
-      <div class="svc-title">Landing <em>pages</em> <span class="svc-sub">Entrega en 5 días para campañas y lanzamientos.</span></div>
+      <div class="svc-title">Google <em>Business</em> <span class="svc-sub">Auditoría y gestión mensual de tu ficha del mapa, trabajando 24/7.</span></div>
       <div class="svc-toggle"></div>
       <div class="svc-expand">
         <div class="svc-expand-inner">
           <div>
-            <p>Sitios de una página para lanzamientos, anuncios o promos de temporada. Diseñadas, construidas y en vivo en una semana. Setup de A/B testing opcional.</p>
-            <div class="svc-tags"><span>Framer</span><span>A/B testing</span><span>Analytics</span></div>
+            <p>Auditoría y gestión mensual de tu Google Business Profile: fotos, reseñas, publicaciones, categorías, preguntas frecuentes, áreas de servicio. La diferencia entre "aparecer en el mapa" y "aparecer primero".</p>
+            <div class="svc-tags"><span>GBP</span><span>Reseñas</span><span>Google Maps</span><span>SEO Local</span></div>
           </div>
-          <div class="svc-visual svc-v5">
-            <span class="label">▸ campaign.fast</span>
-            <span>Listas en una <em>semana</em></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="svc-row" data-idx="5">
-      <div class="svc-num">vi.</div>
-      <div class="svc-title"><em>Branding</em> y logo <span class="svc-sub">Wordmarks, paletas, guidelines.</span></div>
-      <div class="svc-toggle"></div>
-      <div class="svc-expand">
-        <div class="svc-expand-inner">
-          <div>
-            <p>Trabajo de identidad que sobrevive a las tendencias. Paquetes pequeños y enfocados para equipos pequeños y enfocados — logo, paleta, tipografía y un brand book que podés pasar a alguien más.</p>
-            <div class="svc-tags"><span>Identity</span><span>Wordmarks</span><span>Guidelines</span></div>
-          </div>
-          <div class="svc-visual svc-v6">
-            <span class="label">✦ brand.book</span>
-            <span>Marcas que <em>duran</em></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="svc-row" data-idx="6">
-      <div class="svc-num">vii.</div>
-      <div class="svc-title"><em>Mantenimiento</em> y cuidado <span class="svc-sub">Updates, backups, las llamadas de las 11 pm.</span></div>
-      <div class="svc-toggle"></div>
-      <div class="svc-expand">
-        <div class="svc-expand-inner">
-          <div>
-            <p>Planes mensuales para updates, backups, chequeos de velocidad y esas emergencias nocturnas de "el sitio está caído". Cancelás cuando quieras.</p>
-            <div class="svc-tags"><span>Uptime</span><span>Backups</span><span>Support</span><span>Security</span></div>
-          </div>
-          <div class="svc-visual svc-v7">
-            <span class="label">◉ status.ok</span>
-            <span>Siempre <em>de guardia</em></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="svc-row" data-idx="7">
-      <div class="svc-num">viii.</div>
-      <div class="svc-title"><em>Google</em> y Meta Ads <span class="svc-sub">Búsqueda paga y social que alimenta el pipeline.</span></div>
-      <div class="svc-toggle"></div>
-      <div class="svc-expand">
-        <div class="svc-expand-inner">
-          <div>
-            <p>Búsqueda paga y social paga manejadas con reporte mensual transparente. Sin fees ocultos, sin audiencias misteriosas — solo campañas que traen leads tibios a tu puerta.</p>
-            <div class="svc-tags"><span>Google Ads</span><span>Meta Ads</span><span>GA4</span><span>Reporting</span></div>
-          </div>
-          <div class="svc-visual svc-v8">
-            <span class="label">⌘ ads.ROI</span>
-            <span>Pipeline, <em>al grifo</em></span>
+          <div class="svc-visual svc-v3">
+            <span class="label">◎ gmb.live</span>
+            <span>Top del <em>mapa</em></span>
           </div>
         </div>
       </div>
@@ -459,7 +417,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   </div>
 
   <div class="svc-footer">
-    <span>— 8 servicios · 1 estudio · North Park, SD</span>
+    <span>5 servicios · 1 estudio</span>
     <a href="#contact" style="color:#111318">Iniciar un proyecto ↗</a>
   </div>
 </section>
@@ -468,61 +426,66 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 <section class="block" id="pricing">
   <div style="display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap">
     <div>
-      <span class="kicker">Precios · Paquetes</span>
+      <span class="kicker">Precios</span>
       <h2 class="section-title">Tres formas de <em>empezar</em>.<br/>Sin retainers ocultos.</h2>
     </div>
-    <p style="max-width:420px;color:#3a414f;font-size:16px;line-height:1.55;margin:0">Precio fijo, timelines fijos. Todo se factura 50% al inicio, 50% al lanzar. Planes de cuidado opcionales después — cancelás cuando quieras.</p>
+    <p style="max-width:420px;color:#3a414f;font-size:16px;line-height:1.55;margin:0">Setup + mensualidad. El setup se factura 50% al inicio, 50% al lanzar. La mensualidad cubre hosting, cuidado y actualizaciones. Cancela cuando quieras.</p>
   </div>
+
+  <div id="region-toggle-mount"></div>
 
   <div class="pricing-grid">
     <div class="plan">
       <div class="pname">Corner Shop</div>
       <div class="psub">Sitio vitrina para un negocio de una sola ubicación.</div>
-      <div class="price"><span class="cur">$</span>{{PRICE_CORNER_SHOP}}<span class="per">flat</span></div>
+      <div class="price"><span class="cur">$</span>{{PRICE_CORNER_SHOP}}{{CURRENCY_SUFFIX}}</div>
+      <div class="price-mo">+ \${{PRICE_CORNER_SHOP_MO}}{{CURRENCY_SUFFIX}}/mes</div>
       <ul>
         <li class="check">Hasta 5 páginas, diseñadas a medida</li>
         <li class="check">Mobile-perfect y accesible</li>
         <li class="check">Setup bilingüe (EN / ES)</li>
-        <li class="check">Google Business + básicos de SEO local</li>
-        <li class="check">Lanza en 3 semanas</li>
-        <li>E-commerce y reservas</li>
+        <li class="check">Google Business Audit + SEO local</li>
+        <li class="check">Lanza en 1 semana</li>
+        <li class="upsell"><a href="#pricing">→ ¿Necesitas reservas? Ver Main Street</a></li>
       </ul>
       <div class="plan-cta"><a class="btn ghost" href="#contact" style="border-color:#111318">Empezar Corner Shop →</a></div>
     </div>
 
     <div class="plan featured">
-      <div class="pname">Main Street</div>
-      <div class="psub">Nuestro más popular — un negocio creciendo, online.</div>
-      <div class="price"><span class="cur">$</span>{{PRICE_MAIN_STREET}}<span class="per">flat</span></div>
+      <div class="pname">Main Street <span class="badge">El más elegido</span></div>
+      <div class="psub">Nuestro más popular. Un negocio creciendo, online.</div>
+      <div class="price"><span class="cur">$</span>{{PRICE_MAIN_STREET}}{{CURRENCY_SUFFIX}}</div>
+      <div class="price-mo">+ \${{PRICE_MAIN_STREET_MO}}{{CURRENCY_SUFFIX}}/mes</div>
       <ul>
-        <li class="check">Hasta 12 páginas + CMS para blog / menú / listados</li>
-        <li class="check">Reservas, formularios, integración Stripe / Square</li>
+        <li class="check">Hasta 12 páginas + CMS para blog / menú / servicios</li>
+        <li class="check">Reservas, formularios, integración Stripe / Conekta</li>
         <li class="check">Setup bilingüe + pulido de contenido</li>
-        <li class="check">SEO local completo + schema + GA4</li>
-        <li class="check">6 semanas, 2 rondas de revisiones</li>
-        <li class="check">90 días de cuidado gratis post-lanzamiento</li>
+        <li class="check">SEO local completo + GEO (ChatGPT, AI)</li>
+        <li class="check">2 semanas, 2 rondas de revisiones</li>
+        <li class="check">Gestión mensual de Google Business incluida</li>
       </ul>
       <div class="plan-cta"><a class="btn" href="#contact">Reservar Main Street →</a></div>
     </div>
 
     <div class="plan">
       <div class="pname">Enterprise</div>
-      <div class="psub">Multi-ubicación, e-commerce o trabajo de app custom.</div>
-      <div class="price"><span class="cur">$</span>{{PRICE_HARBOR}}<span class="per">from</span></div>
+      <div class="psub">Multi-ubicación, e-commerce o integraciones custom.</div>
+      <div class="price"><span class="from">Desde </span><span class="cur">$</span>{{PRICE_ENTERPRISE}}{{CURRENCY_SUFFIX}}</div>
+      <div class="price-mo">+ \${{PRICE_ENTERPRISE_MO}}{{CURRENCY_SUFFIX}}/mes</div>
       <ul>
-        <li class="check">Shopify completo / commerce headless</li>
-        <li class="check">Multi-ubicación y multi-idioma</li>
-        <li class="check">Integraciones y dashboards a medida</li>
-        <li class="check">PM dedicado + check-ins semanales</li>
-        <li class="check">Retainer de Ads y SEO opcional</li>
-        <li class="check">Construcción de 8–14 semanas</li>
+        <li class="check">Diseño custom y sucursales ilimitadas</li>
+        <li class="check">Reservas nativas con calendario + pagos</li>
+        <li class="check">Integraciones POS y sistemas externos</li>
+        <li class="check">Correos corporativos + dashboard avanzado</li>
+        <li class="check">PM dedicado + onboarding 1:1</li>
+        <li class="check">Construcción de 4–6 semanas</li>
       </ul>
       <div class="plan-cta"><a class="btn ghost" href="#contact" style="border-color:#111318">Hablemos →</a></div>
     </div>
   </div>
 
   <p class="mono" style="text-align:center;margin-top:40px;font-size:12px;color:#6a7080;letter-spacing:.06em">
-    PLANES DE MANTENIMIENTO · DESDE \${{PRICE_MAINTENANCE}}/MO  &nbsp;·&nbsp;  GESTIÓN DE ADS · DESDE \${{PRICE_ADS}}/MO  &nbsp;·&nbsp;  DESCUENTO ONG · 15%
+    PLANES DE MANTENIMIENTO · DESDE \${{PRICE_MAINTENANCE}}{{CURRENCY_SUFFIX}}/MES  &nbsp;·&nbsp;  GESTIÓN DE ADS · DESDE \${{PRICE_ADS}}{{CURRENCY_SUFFIX}}/MES  &nbsp;·&nbsp;  DESCUENTO ONG · 15%
   </p>
 </section>
 
@@ -532,15 +495,24 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   <div class="cloud" style="top:40px;left:5%;width:110px;opacity:.8">
     <svg viewBox="0 0 130 60"><ellipse cx="40" cy="38" rx="36" ry="18" fill="#fff"/><ellipse cx="74" cy="30" rx="40" ry="22" fill="#fff"/><ellipse cx="104" cy="40" rx="22" ry="14" fill="#fff"/></svg>
   </div>
-  <div class="cloud" style="top:80px;right:12%;width:140px;opacity:.9">
-    <svg viewBox="0 0 130 60"><ellipse cx="40" cy="38" rx="36" ry="18" fill="#fff"/><ellipse cx="74" cy="30" rx="40" ry="22" fill="#fff"/><ellipse cx="104" cy="40" rx="22" ry="14" fill="#fff"/></svg>
+  <div class="cloud" style="top:80px;right:12%;width:170px;opacity:.9">
+    <svg viewBox="0 0 200 50"><ellipse cx="48" cy="32" rx="44" ry="14" fill="#fff"/><ellipse cx="110" cy="24" rx="54" ry="18" fill="#fff"/><ellipse cx="168" cy="30" rx="32" ry="14" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:170px;left:2%;width:95px;opacity:.68">
+    <svg viewBox="0 0 120 80"><ellipse cx="36" cy="55" rx="32" ry="18" fill="#fff"/><ellipse cx="72" cy="38" rx="38" ry="24" fill="#fff"/><ellipse cx="98" cy="56" rx="22" ry="16" fill="#fff"/><ellipse cx="56" cy="22" rx="20" ry="12" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:230px;right:6%;width:65px;opacity:.6">
+    <svg viewBox="0 0 50 24"><ellipse cx="15" cy="16" rx="14" ry="8" fill="#fff"/><ellipse cx="34" cy="12" rx="15" ry="10" fill="#fff"/></svg>
+  </div>
+  <div class="cloud" style="top:280px;left:68%;width:105px;opacity:.62">
+    <svg viewBox="0 0 120 80"><ellipse cx="36" cy="55" rx="32" ry="18" fill="#fff"/><ellipse cx="72" cy="38" rx="38" ry="24" fill="#fff"/><ellipse cx="98" cy="56" rx="22" ry="16" fill="#fff"/><ellipse cx="56" cy="22" rx="20" ry="12" fill="#fff"/></svg>
   </div>
 
   <div class="contact-inner">
     <div>
-      <span class="kicker">Escríbenos · Say hi</span>
-      <h2 class="section-title">Construyamos <em>algo</em><br/>bueno juntos.</h2>
-      <p class="lead">Contanos un poco sobre tu negocio y respondemos en un día hábil. Cotización gratis, sin presión — hablamos español.</p>
+      <span class="kicker">Escríbenos</span>
+      <h2 class="section-title">Construyamos <em>algo</em><br/>que valga la pena.</h2>
+      <p class="lead">Cuéntanos un poco sobre tu negocio y te respondemos en un día hábil. Cotización gratis. Sin presión. Sin trucos de venta.</p>
       <div class="meta-list">
         <div class="row"><span class="label">Correo</span> <a href="mailto:hola@lumiose.studio">hola@lumiose.studio</a></div>
         <div class="row"><span class="label">Teléfono</span> (619) 555-0148</div>
@@ -548,7 +520,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
         <div class="row"><span class="label">Horario</span> Lun–Vie · 9–6 PT</div>
       </div>
     </div>
-    <form class="cform" onsubmit="event.preventDefault(); this.querySelector('.submit-row .note').textContent='Thanks — we\\\\'ll be in touch within a day.';">
+    <form class="cform" onsubmit="event.preventDefault(); this.querySelector('.submit-row .note').textContent='Thanks! We\\\\'ll be in touch within a day.';">
       <div class="row2">
         <div class="field">
           <label>Tu nombre</label>
@@ -570,21 +542,21 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
         </div>
       </div>
       <div class="field">
-        <label>¿Qué necesitás?</label>
+        <label>¿Qué necesitas?</label>
         <select>
           <option>Un sitio nuevo (Corner Shop)</option>
           <option selected>Un build completo (Main Street)</option>
           <option>Algo más grande (Enterprise)</option>
           <option>Solo ayuda con SEO / Ads</option>
-          <option>No estoy seguro aún — hablemos</option>
+          <option>No estoy seguro aún, hablemos</option>
         </select>
       </div>
       <div class="field">
-        <label>Contanos un poco más</label>
+        <label>Cuéntanos un poco más</label>
         <textarea placeholder="Unas líneas sobre tu negocio y qué estás buscando..."></textarea>
       </div>
       <div class="submit-row">
-        <span class="note mono">Respuesta en 1 día hábil · Replies within 1 business day</span>
+        <span class="note mono">Respuesta en 1 día hábil</span>
         <button class="btn" type="submit">Enviar →</button>
       </div>
     </form>
@@ -596,16 +568,16 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   <div class="foot-inner">
     <div class="foot-brand">
       <div class="logo"><span class="mark"></span> Lumiose</div>
-      <p>Un pequeño estudio web en North Park, San Diego — construyendo sitios, tiendas y sistemas de marketing para los negocios que tenemos al lado.</p>
+      <p>Un pequeño estudio web en North Park, San Diego, construyendo sitios, tiendas y sistemas de marketing para los negocios que tenemos al lado.</p>
     </div>
     <div>
       <h5>Servicios</h5>
       <ul>
         <li><a href="#services">Desarrollo web</a></li>
-        <li><a href="#services">Diseño web</a></li>
-        <li><a href="#services">Shopify y e-commerce</a></li>
-        <li><a href="#services">SEO local</a></li>
-        <li><a href="#services">Google y Meta Ads</a></li>
+        <li><a href="#services">SEO y GEO</a></li>
+        <li><a href="#services">Google Ads</a></li>
+        <li><a href="#services">Gestión de dominio</a></li>
+        <li><a href="#services">Google Business</a></li>
       </ul>
     </div>
     <div>
@@ -614,7 +586,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
         <li><a href="#work">Trabajo reciente</a></li>
         <li><a href="#pricing">Precios</a></li>
         <li><a href="#contact">Contacto</a></li>
-        <li><a href="#contact">Trabajá con nosotros</a></li>
+        <li><a href="#contact">Trabaja con nosotros</a></li>
       </ul>
     </div>
     <div>
@@ -629,7 +601,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   </div>
   <div class="foot-bottom">
     <span>© 2026 LUMIOSE STUDIO · NORTH PARK, SAN DIEGO, CA</span>
-    <span>HECHO CON ☀ + ☕ EN SAN DIEGO</span>
+    <span>HECHO CON ☀ + ☕</span>
   </div>
 </footer>
 

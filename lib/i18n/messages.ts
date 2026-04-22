@@ -25,6 +25,11 @@ export type Messages = {
       emerging: string;
     };
   };
+  regionToggle: {
+    us: string;
+    mx: string;
+    help: string;
+  };
 };
 
 const en: Messages = {
@@ -34,14 +39,14 @@ const en: Messages = {
     close: 'Close',
   },
   banner: {
-    detected: (region) => `Viewing pricing for ${region} — change region`,
+    detected: (region) => `Viewing pricing for ${region} · change region`,
     change: 'Change',
     dismiss: 'Dismiss',
   },
   metadata: {
-    title: 'Lumiose — Web Development Studio · San Diego',
+    title: 'Lumiose · Web Development Studio',
     description:
-      'A web development studio for the restaurants, contractors, realtors and clinics that keep San Diego running.',
+      'Custom-coded, obsessively fast websites for small businesses that are done settling for "good enough."',
   },
   pricing: {
     shownFor: (country) => `Prices shown for ${country}`,
@@ -53,6 +58,11 @@ const en: Messages = {
       emerging: 'Emerging markets',
     },
   },
+  regionToggle: {
+    us: 'US (USD)',
+    mx: 'MX (MXN)',
+    help: 'Prices auto-detected. Click to switch.',
+  },
 };
 
 const es: Messages = {
@@ -62,14 +72,14 @@ const es: Messages = {
     close: 'Cerrar',
   },
   banner: {
-    detected: (region) => `Mostrando precios para ${region} — cambiar región`,
+    detected: (region) => `Mostrando precios para ${region} · cambiar región`,
     change: 'Cambiar',
     dismiss: 'Cerrar',
   },
   metadata: {
-    title: 'Lumiose — Estudio de Desarrollo Web · San Diego',
+    title: 'Lumiose · Estudio de Desarrollo Web',
     description:
-      'Un estudio de desarrollo web para restaurantes, contratistas, inmobiliarias y clínicas que mantienen viva a San Diego.',
+      'Sitios web programados a mano, obsesivamente rápidos, para negocios pequeños que ya no se conforman con "más o menos".',
   },
   pricing: {
     shownFor: (country) => `Precios mostrados para ${country}`,
@@ -80,6 +90,11 @@ const es: Messages = {
       'latam-sea': 'LATAM / SEA',
       emerging: 'Mercados emergentes',
     },
+  },
+  regionToggle: {
+    us: 'US (USD)',
+    mx: 'MX (MXN)',
+    help: 'Precios auto-detectados. Haz clic para cambiar.',
   },
 };
 
