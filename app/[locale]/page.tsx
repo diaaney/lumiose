@@ -5,8 +5,7 @@ import { BODY_HTML as BODY_ES } from './body-content.es';
 import Interactions from './Interactions';
 import LocaleSwitcher from '@/components/LocaleSwitcher';
 import DetectionBanner from '@/components/DetectionBanner';
-import RegionToggle from '@/components/RegionToggle';
-import { REGION_LABELS, isLocale, parseLocale, type Locale } from '@/lib/i18n/config';
+import { LOCALE_LABELS, isLocale, parseLocale, type Locale } from '@/lib/i18n/config';
 import { getMessages } from '@/lib/i18n/messages';
 import { buildPriceSet, injectPrices } from '@/lib/pricing/prices';
 
@@ -28,6 +27,7 @@ export default async function Page({ params }: { params: Params }) {
   const prices = buildPriceSet(region);
   const body = injectPrices(BODIES[lang], prices);
   const messages = getMessages(lang);
+  const studioCity = region === 'mx' ? 'Mexicali' : 'Calexico';
 
   return (
     <>
@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: Params }) {
       <LocaleSwitcher
         currentLocale={locale as Locale}
         labels={{
-          title: messages.switcher.region,
+          title: messages.switcher.title,
           help: messages.switcher.help,
         }}
       />
@@ -45,14 +45,10 @@ export default async function Page({ params }: { params: Params }) {
         labels={{
           change: messages.banner.change,
           dismiss: messages.banner.dismiss,
-          message: messages.banner.detected(REGION_LABELS[region]),
+          message: messages.banner.detected(LOCALE_LABELS[locale as Locale]),
         }}
       />
-      <RegionToggle
-        currentLocale={locale as Locale}
-        labels={messages.regionToggle}
-      />
-      <Interactions />
+      <Interactions studioCity={studioCity} />
     </>
   );
 }

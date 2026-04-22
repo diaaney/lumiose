@@ -135,7 +135,7 @@ const SITES: Site[] = [
   },
 ];
 
-function buildSite(s: Site): string {
+function buildSite(s: Site, studioCity: string): string {
   return `
     <div class="fullsite">
       <div class="fs-chrome">
@@ -180,13 +180,13 @@ function buildSite(s: Site): string {
       </div>
       <div class="fs-footer">
         <span>© 2026 ${s.brand}</span>
-        <span>Built by Lumiose · San Diego</span>
+        <span>Built by Lumiose · ${studioCity}</span>
       </div>
     </div>
   `;
 }
 
-export default function Interactions() {
+export default function Interactions({ studioCity }: { studioCity: string }) {
   useEffect(() => {
     const cleanups: Array<() => void> = [];
 
@@ -206,6 +206,10 @@ export default function Interactions() {
         const target = document.querySelector(href);
         if (!target) return;
         e.preventDefault();
+
+        // Close mobile burger menu on nav click.
+        const details = a.closest<HTMLDetailsElement>('details.nav-mobile');
+        if (details) details.open = false;
 
         if (scrollRaf !== null) cancelAnimationFrame(scrollRaf);
 
@@ -314,7 +318,7 @@ export default function Interactions() {
           immersive!.style.borderRadius = '0px';
 
           setTimeout(() => {
-            immersive!.innerHTML = buildSite(site);
+            immersive!.innerHTML = buildSite(site, studioCity);
             immersive!.classList.add('reveal');
             closeBtn!.classList.add('on');
             document.body.style.overflow = 'hidden';

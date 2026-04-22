@@ -52,6 +52,16 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <div class="nav-cta">
         <a class="btn" href="#contact">Agendar llamada</a>
       </div>
+      <details class="nav-mobile">
+        <summary class="nav-burger" aria-label="Menú"><span></span><span></span><span></span></summary>
+        <div class="nav-mobile-menu">
+          <a href="#services">Servicios</a>
+          <a href="#work">Proyectos</a>
+          <a href="#pricing">Precios</a>
+          <a href="#contact">Contacto</a>
+          <a href="#contact" class="btn nav-mobile-cta">Agendar llamada</a>
+        </div>
+      </details>
     </div>
   </nav>
 
@@ -432,13 +442,11 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <p style="max-width:420px;color:#3a414f;font-size:16px;line-height:1.55;margin:0">Setup + mensualidad. El setup se factura 50% al inicio, 50% al lanzar. La mensualidad cubre hosting, cuidado y actualizaciones. Cancela cuando quieras.</p>
   </div>
 
-  <div id="region-toggle-mount"></div>
-
   <div class="pricing-grid">
     <div class="plan">
       <div class="pname">Corner Shop</div>
       <div class="psub">Sitio vitrina para un negocio de una sola ubicación.</div>
-      <div class="price"><span class="cur">$</span>{{PRICE_CORNER_SHOP}}{{CURRENCY_SUFFIX}}</div>
+      <div class="price"><span class="cur">$</span>{{PRICE_CORNER_SHOP}}<span class="cur-suffix">{{CURRENCY_SUFFIX}}</span></div>
       <div class="price-mo">+ \${{PRICE_CORNER_SHOP_MO}}{{CURRENCY_SUFFIX}}/mes</div>
       <ul>
         <li class="check">Hasta 5 páginas, diseñadas a medida</li>
@@ -454,7 +462,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <div class="plan featured">
       <div class="pname">Main Street <span class="badge">El más elegido</span></div>
       <div class="psub">Nuestro más popular. Un negocio creciendo, online.</div>
-      <div class="price"><span class="cur">$</span>{{PRICE_MAIN_STREET}}{{CURRENCY_SUFFIX}}</div>
+      <div class="price"><span class="cur">$</span>{{PRICE_MAIN_STREET}}<span class="cur-suffix">{{CURRENCY_SUFFIX}}</span></div>
       <div class="price-mo">+ \${{PRICE_MAIN_STREET_MO}}{{CURRENCY_SUFFIX}}/mes</div>
       <ul>
         <li class="check">Hasta 12 páginas + CMS para blog / menú / servicios</li>
@@ -470,7 +478,8 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <div class="plan">
       <div class="pname">Enterprise</div>
       <div class="psub">Multi-ubicación, e-commerce o integraciones custom.</div>
-      <div class="price"><span class="from">Desde </span><span class="cur">$</span>{{PRICE_ENTERPRISE}}{{CURRENCY_SUFFIX}}</div>
+      <div class="price-from">Desde</div>
+      <div class="price"><span class="cur">$</span>{{PRICE_ENTERPRISE}}<span class="cur-suffix">{{CURRENCY_SUFFIX}}</span></div>
       <div class="price-mo">+ \${{PRICE_ENTERPRISE_MO}}{{CURRENCY_SUFFIX}}/mes</div>
       <ul>
         <li class="check">Diseño custom y sucursales ilimitadas</li>
@@ -516,7 +525,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <div class="meta-list">
         <div class="row"><span class="label">Correo</span> <a href="mailto:hola@lumiose.studio">hola@lumiose.studio</a></div>
         <div class="row"><span class="label">Teléfono</span> (619) 555-0148</div>
-        <div class="row"><span class="label">Estudio</span> North Park, San Diego, CA 92104</div>
+        <div class="row"><span class="label">Estudio</span> Mexicali, BC, México</div>
         <div class="row"><span class="label">Horario</span> Lun–Vie · 9–6 PT</div>
       </div>
     </div>
@@ -568,7 +577,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   <div class="foot-inner">
     <div class="foot-brand">
       <div class="logo"><span class="mark"></span> Lumiose</div>
-      <p>Un pequeño estudio web en North Park, San Diego, construyendo sitios, tiendas y sistemas de marketing para los negocios que tenemos al lado.</p>
+      <p>Un estudio en Baja California, construyendo sitios, tiendas y sistemas de marketing para los negocios que tenemos al lado.</p>
     </div>
     <div>
       <h5>Servicios</h5>
@@ -600,7 +609,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     </div>
   </div>
   <div class="foot-bottom">
-    <span>© 2026 LUMIOSE STUDIO · NORTH PARK, SAN DIEGO, CA</span>
+    <span>© 2026 LUMIOSE STUDIO · BAJA CALIFORNIA</span>
     <span>HECHO CON ☀ + ☕</span>
   </div>
 </footer>

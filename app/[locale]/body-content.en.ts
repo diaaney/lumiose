@@ -54,6 +54,16 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <div class="nav-cta">
         <a class="btn" href="#contact">Book a call</a>
       </div>
+      <details class="nav-mobile">
+        <summary class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></summary>
+        <div class="nav-mobile-menu">
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact" class="btn nav-mobile-cta">Book a call</a>
+        </div>
+      </details>
     </div>
   </nav>
 
@@ -434,13 +444,11 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <p style="max-width:420px;color:#3a414f;font-size:16px;line-height:1.55;margin:0">Setup + monthly. Setup billed 50% up front, 50% on launch. Monthly covers hosting, care and updates. Cancel anytime.</p>
   </div>
 
-  <div id="region-toggle-mount"></div>
-
   <div class="pricing-grid">
     <div class="plan">
       <div class="pname">Corner Shop</div>
       <div class="psub">Marquee site for a single-location business.</div>
-      <div class="price"><span class="cur">$</span>{{PRICE_CORNER_SHOP}}{{CURRENCY_SUFFIX}}</div>
+      <div class="price"><span class="cur">$</span>{{PRICE_CORNER_SHOP}}<span class="cur-suffix">{{CURRENCY_SUFFIX}}</span></div>
       <div class="price-mo">+ \${{PRICE_CORNER_SHOP_MO}}{{CURRENCY_SUFFIX}}/mo</div>
       <ul>
         <li class="check">Up to 5 pages, custom-designed</li>
@@ -456,7 +464,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <div class="plan featured">
       <div class="pname">Main Street <span class="badge">Most chosen</span></div>
       <div class="psub">Our most popular. A growing business, online.</div>
-      <div class="price"><span class="cur">$</span>{{PRICE_MAIN_STREET}}{{CURRENCY_SUFFIX}}</div>
+      <div class="price"><span class="cur">$</span>{{PRICE_MAIN_STREET}}<span class="cur-suffix">{{CURRENCY_SUFFIX}}</span></div>
       <div class="price-mo">+ \${{PRICE_MAIN_STREET_MO}}{{CURRENCY_SUFFIX}}/mo</div>
       <ul>
         <li class="check">Up to 12 pages + CMS for blog / menu / services</li>
@@ -472,7 +480,8 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <div class="plan">
       <div class="pname">Enterprise</div>
       <div class="psub">Multi-location, e-commerce, or custom integrations.</div>
-      <div class="price"><span class="from">From </span><span class="cur">$</span>{{PRICE_ENTERPRISE}}{{CURRENCY_SUFFIX}}</div>
+      <div class="price-from">From</div>
+      <div class="price"><span class="cur">$</span>{{PRICE_ENTERPRISE}}<span class="cur-suffix">{{CURRENCY_SUFFIX}}</span></div>
       <div class="price-mo">+ \${{PRICE_ENTERPRISE_MO}}{{CURRENCY_SUFFIX}}/mo</div>
       <ul>
         <li class="check">Custom design, unlimited locations</li>
@@ -518,7 +527,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <div class="meta-list">
         <div class="row"><span class="label">Email</span> <a href="mailto:hola@lumiose.studio">hola@lumiose.studio</a></div>
         <div class="row"><span class="label">Phone</span> (619) 555-0148</div>
-        <div class="row"><span class="label">Studio</span> North Park, San Diego, CA 92104</div>
+        <div class="row"><span class="label">Studio</span> Calexico, CA, United States</div>
         <div class="row"><span class="label">Hours</span> Mon–Fri · 9–6 PT</div>
       </div>
     </div>
@@ -570,7 +579,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   <div class="foot-inner">
     <div class="foot-brand">
       <div class="logo"><span class="mark"></span> Lumiose</div>
-      <p>A small web studio in North Park, San Diego, building websites, stores, and marketing systems for the businesses we live next door to.</p>
+      <p>A studio in California, building websites, stores, and marketing systems for the businesses we live next door to.</p>
     </div>
     <div>
       <h5>Services</h5>
@@ -602,7 +611,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     </div>
   </div>
   <div class="foot-bottom">
-    <span>© 2026 LUMIOSE STUDIO · NORTH PARK, SAN DIEGO, CA</span>
+    <span>© 2026 LUMIOSE STUDIO · CALIFORNIA</span>
     <span>MADE WITH ☀ + ☕</span>
   </div>
 </footer>

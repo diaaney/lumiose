@@ -854,14 +854,22 @@
     box-shadow:0 1.5px 0 #0a0c10, 0 4px 10px -6px rgba(17,19,24,.35);
   }
   .plan .psub{color:#6a7080;font-size:13.5px;margin-top:4px;line-height:1.4}
+  .plan .price-from{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    font-size:22px;color:#3a414f;letter-spacing:-0.01em;
+    margin:26px 0 -6px;line-height:1;
+  }
   .plan .price{
     font-family:'Fraunces',serif;font-weight:400;font-size:52px;
     margin:26px 0 0;line-height:1;letter-spacing:-0.02em;color:#111318;
+    white-space:nowrap;
   }
+  .plan .price-from + .price{margin-top:8px}
   .plan .price .cur{font-size:22px;vertical-align:top;position:relative;top:8px;margin-right:2px}
-  .plan .price .from{
-    display:inline;font-family:'Fraunces',serif;font-style:italic;font-weight:400;
-    font-size:26px;color:#3a414f;margin-right:6px;letter-spacing:-0.01em;
+  .plan .price .cur-suffix{
+    font-family:'Fraunces',serif;font-size:22px;font-weight:400;
+    color:#3a414f;letter-spacing:-0.01em;margin-left:4px;
+    vertical-align:baseline;
   }
   .plan .price-mo{
     font-family:'Inter',sans-serif;font-size:13.5px;color:#3a414f;
@@ -952,6 +960,7 @@
   .cform label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#6a7080;text-transform:uppercase}
   .cform .field{display:flex;flex-direction:column;gap:6px}
   .cform input, .cform select, .cform textarea{
+    width:100%;box-sizing:border-box;
     border:none;border-bottom:1.5px solid #1a1f2b;background:transparent;
     font-family:'Fraunces',serif;font-size:19px;color:#111318;padding:8px 2px;outline:none;
   }
@@ -1057,5 +1066,137 @@
     .mock-body{grid-template-columns:1fr}
     .side{display:none}
     .navbar ul{display:none}
+    .navbar .nav-cta{display:none}
+    .nav-mobile{display:flex}
+  }
+
+  /* ===== Mobile hamburger menu ===== */
+  .nav-mobile{display:none;position:relative;margin-left:auto;align-items:center}
+  .nav-mobile[open] .nav-mobile-menu{display:flex}
+  .nav-burger{
+    list-style:none;cursor:pointer;outline:none;
+    display:flex;flex-direction:column;gap:4px;
+    width:40px;height:40px;
+    align-items:center;justify-content:center;
+    border-radius:999px;background:#111318;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 6px 14px -6px rgba(20,16,12,.4);
+  }
+  .nav-burger::-webkit-details-marker{display:none}
+  .nav-burger::marker{content:""}
+  .nav-burger span{
+    display:block;width:16px;height:1.5px;background:#fafafa;border-radius:1px;
+    transition:transform .22s ease, opacity .22s ease;
+  }
+  .nav-mobile[open] .nav-burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+  .nav-mobile[open] .nav-burger span:nth-child(2){opacity:0}
+  .nav-mobile[open] .nav-burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+  .nav-mobile-menu{
+    display:none;
+    position:absolute;top:calc(100% + 12px);right:-6px;
+    background:#fdfbf5;border-radius:20px;padding:10px;
+    min-width:220px;
+    flex-direction:column;gap:2px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.95),
+      0 22px 44px -20px rgba(20,30,50,.32),
+      0 40px 70px -28px rgba(227,100,100,.22);
+    border:1px solid rgba(14,16,20,.08);
+    z-index:10;
+  }
+  .nav-mobile-menu a{
+    text-decoration:none;padding:10px 16px;border-radius:999px;
+    font-family:'Inter',sans-serif;font-size:14px;color:#1a1f2b;font-weight:500;
+    transition:background .2s ease;
+  }
+  .nav-mobile-menu a:hover{background:rgba(20,30,50,.045)}
+  .nav-mobile-menu a.nav-mobile-cta{margin-top:6px;text-align:center;color:#fafafa;font-weight:600}
+
+  /* ===== Mobile refinements ≤640px ===== */
+  @media (max-width:640px){
+    /* Hero */
+    .hero{margin:8px;min-height:auto;padding-bottom:40px;border-radius:22px}
+    nav.top{padding:16px 10px}
+    .navbar{padding:8px 8px 8px 18px;gap:10px}
+    .logo{font-size:18px}
+    .hero-inner{padding:0 18px}
+    .hero-ctas{flex-direction:column;align-items:stretch;gap:10px}
+    .hero-ctas .btn{text-align:center;justify-content:center}
+
+    /* Hide IDE mockup — too complex for small screens */
+    .sd-art{display:none}
+
+    /* Marquee */
+    .marquee{padding:18px 0}
+    .marquee-track{gap:26px;font-size:18px}
+    .marquee-track span{gap:16px}
+    .marquee-track .star{font-size:14px}
+
+    /* Section titles — prevent horizontal overflow */
+    h2.section-title{font-size:clamp(28px, 7.5vw, 42px);overflow-wrap:break-word;word-break:break-word}
+
+    /* Generic sections */
+    section.block{padding:56px 18px}
+
+    /* Services section */
+    .services-section{margin:8px;padding:72px 16px 56px;border-radius:22px}
+    .services-head{margin-bottom:40px}
+
+    /* Services rows: stack vertically, toggle absolute */
+    .svc-row{
+      display:block;position:relative;
+      padding:22px 52px 22px 10px;
+      border-bottom:1px solid rgba(20,40,70,.22);
+    }
+    .svc-row:hover{padding-left:10px}
+    .svc-row.open{padding-left:10px;padding-top:26px;padding-bottom:26px}
+    .svc-row .svc-num{display:block;font-size:26px;margin-bottom:4px}
+    .svc-row .svc-title{
+      display:block;font-size:22px;line-height:1.15;gap:0;
+    }
+    .svc-row .svc-sub{
+      display:block;font-size:14px;margin-top:8px;
+    }
+    .svc-row .svc-toggle{
+      position:absolute;top:22px;right:6px;
+      width:34px;height:34px;
+    }
+    .svc-row .svc-toggle::before{width:11px}
+    .svc-row .svc-toggle::after{height:11px}
+    .svc-row.open .svc-toggle{top:26px}
+    .svc-row.open .svc-expand{max-height:1200px}
+    .svc-expand-inner{gap:24px;padding:18px 0 4px}
+    .svc-visual{aspect-ratio:16/10}
+
+    /* Pricing */
+    .plan{padding:24px}
+    .plan .pname{font-size:24px}
+    .plan .price{font-size:clamp(36px, 10vw, 52px)}
+
+    /* Contact section */
+    .contact{margin:0 8px 8px;padding:64px 20px;border-radius:22px}
+    .contact-inner{gap:36px}
+    .contact .lead{font-size:15px}
+    form.cform{padding:22px}
+    .cform .row2{grid-template-columns:1fr;gap:16px}
+    .cform input,.cform select,.cform textarea{font-size:16px}
+    .cform textarea{font-size:14px}
+    .meta-list .row{flex-wrap:wrap;font-size:14px}
+    .meta-list .label{min-width:70px}
+
+    /* Footer */
+    footer{padding:0}
+    .foot-inner{grid-template-columns:1fr;gap:28px;padding:50px 24px}
+    .foot-bottom{flex-direction:column;gap:6px;text-align:center;padding:18px 24px}
+    .foot-brand p{max-width:none}
+
+    /* Banner */
+    .banner{font-size:13px;padding:8px 14px;gap:8px}
+
+    /* LocaleSwitcher tighter */
+    .ls-root{top:14px;right:14px}
+    .ls-flag-img{width:38px;height:27px}
+
+    /* Detection banner */
+    .db-root{font-size:12px;padding:7px 14px;gap:10px;flex-wrap:wrap}
   }
 

@@ -19,9 +19,9 @@ const CURRENCIES: Record<Region, CurrencyConfig> = {
 
 const PRICES: Record<Region, Record<PlanId, PriceValues>> = {
   us: {
-    cornerShop:  { setup: 399,   monthly: 39 },
-    mainStreet:  { setup: 899,   monthly: 79 },
-    enterprise:  { setup: 2499,  monthly: 199 },
+    cornerShop:  { setup: 1800,  monthly: 59 },
+    mainStreet:  { setup: 4500,  monthly: 129 },
+    enterprise:  { setup: 9500,  monthly: 299 },
     maintenance: { setup: 39 },
     ads:         { setup: 299 },
   },
