@@ -409,9 +409,7 @@
 
   /* ============ Services — editorial index, refined ============ */
   .services-section{
-    background:
-      radial-gradient(ellipse 70% 50% at 0% 100%, rgba(240,199,194,.22) 0%, transparent 58%),
-      linear-gradient(180deg, #f3efe1 0%, #e8e2cf 50%, #f3efe1 100%);
+    background:linear-gradient(180deg, #f3eee0 0%, #e6dfc9 55%, #d4cbb1 100%);
     border-radius:32px;margin:14px;padding:110px 48px 90px;position:relative;overflow:hidden;
   }
   .services-section::before{
@@ -969,7 +967,6 @@
     position:relative;
     background:
       radial-gradient(ellipse 60% 40% at 85% 8%, rgba(243,226,154,.06) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 50% at 10% 100%, rgba(217,79,58,.08) 0%, transparent 60%),
       linear-gradient(180deg,#0b0d12 0%,#111318 50%,#0c0e14 100%);
     color:#d7d3c4;padding:100px 40px 38px;
     border-radius:28px 28px 0 0;

@@ -5,6 +5,7 @@ export type Messages = {
     language: string;
     region: string;
     close: string;
+    help: string;
   };
   banner: {
     detected: (region: string) => string;
@@ -37,6 +38,7 @@ const en: Messages = {
     language: 'Language',
     region: 'Country',
     close: 'Close',
+    help: 'Changes language and pricing',
   },
   banner: {
     detected: (region) => `Viewing pricing for ${region} · change region`,
@@ -70,6 +72,7 @@ const es: Messages = {
     language: 'Idioma',
     region: 'País',
     close: 'Cerrar',
+    help: 'Cambia idioma y precios',
   },
   banner: {
     detected: (region) => `Mostrando precios para ${region} · cambiar región`,

@@ -35,9 +35,8 @@ export default async function Page({ params }: { params: Params }) {
       <LocaleSwitcher
         currentLocale={locale as Locale}
         labels={{
-          language: messages.switcher.language,
-          region: messages.switcher.region,
-          close: messages.switcher.close,
+          title: messages.switcher.region,
+          help: messages.switcher.help,
         }}
       />
       <DetectionBanner

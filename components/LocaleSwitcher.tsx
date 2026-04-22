@@ -4,10 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import {
-  LANGUAGES,
   REGIONS,
-  LOCALES,
-  LANGUAGE_LABELS,
   REGION_LABELS,
   buildLocale,
   isLocale,
@@ -19,7 +16,13 @@ import {
 
 type Props = {
   currentLocale: Locale;
-  labels: { language: string; region: string; close: string };
+  labels: { title: string; help: string };
+};
+
+// Each country maps to its default language so clicking MX → es-mx, US → en-us.
+const REGION_TO_LANG: Record<Region, Language> = {
+  us: 'en',
+  mx: 'es',
 };
 
 const LOCALE_COOKIE = 'lumiose-locale';
@@ -84,16 +87,8 @@ export default function LocaleSwitcher({ currentLocale, labels }: Props) {
     setOpen(false);
   };
 
-  const pickLang = (newLang: Language) => {
-    const candidate = buildLocale(newLang, region);
-    if (LOCALES.includes(candidate)) go(candidate);
-    else go(buildLocale(newLang, 'us'));
-  };
-
-  const pickRegion = (newRegion: Region) => {
-    const candidate = buildLocale(lang, newRegion);
-    if (LOCALES.includes(candidate)) go(candidate);
-    else go(buildLocale('en', newRegion));
+  const pickCountry = (newRegion: Region) => {
+    go(buildLocale(REGION_TO_LANG[newRegion], newRegion));
   };
 
   if (!mounted || !target) return null;
@@ -124,28 +119,8 @@ export default function LocaleSwitcher({ currentLocale, labels }: Props) {
       {open && (
         <div className="ls-pop" role="menu">
           <div className="ls-pop-tab" aria-hidden />
+          <div className="ls-group-label">{labels.title}</div>
           <div className="ls-group">
-            <div className="ls-group-label">{labels.language}</div>
-            {LANGUAGES.map((l) => (
-              <button
-                key={l}
-                type="button"
-                role="menuitemradio"
-                aria-checked={l === lang}
-                className={`ls-opt${l === lang ? ' is-active' : ''}`}
-                onClick={() => pickLang(l)}
-              >
-                <span className="ls-opt-glyph" aria-hidden>
-                  {l === 'en' ? 'En' : 'Es'}
-                </span>
-                <span className="ls-opt-label">{LANGUAGE_LABELS[l]}</span>
-                {l === lang && <span className="ls-check" aria-hidden>✓</span>}
-              </button>
-            ))}
-          </div>
-          <div className="ls-divider" aria-hidden />
-          <div className="ls-group">
-            <div className="ls-group-label">{labels.region}</div>
             {REGIONS.map((r) => (
               <button
                 key={r}
@@ -153,15 +128,15 @@ export default function LocaleSwitcher({ currentLocale, labels }: Props) {
                 role="menuitemradio"
                 aria-checked={r === region}
                 className={`ls-opt${r === region ? ' is-active' : ''}`}
-                onClick={() => pickRegion(r)}
+                onClick={() => pickCountry(r)}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   className="ls-opt-flag"
                   src={FLAG_URL(REGION_FLAG_CODES[r])}
                   alt=""
-                  width={26}
-                  height={18}
+                  width={34}
+                  height={24}
                   loading="lazy"
                 />
                 <span className="ls-opt-label">{REGION_LABELS[r]}</span>
@@ -169,6 +144,7 @@ export default function LocaleSwitcher({ currentLocale, labels }: Props) {
               </button>
             ))}
           </div>
+          <div className="ls-help">{labels.help}</div>
         </div>
       )}
       <style>{`
@@ -197,105 +173,97 @@ export default function LocaleSwitcher({ currentLocale, labels }: Props) {
 
         .ls-pop{
           position:absolute;top:calc(100% + 14px);right:-6px;z-index:121;
-          min-width:252px;padding:14px 12px 16px;
-          background:linear-gradient(180deg, #ffffff 0%, #fafaf7 100%);
-          border-radius:18px;
+          min-width:240px;padding:14px;
+          background:#fdfbf5;
+          border:1px solid rgba(14,16,20,.08);
+          border-radius:22px;
           box-shadow:
-            0 28px 60px -24px rgba(20,30,50,.25),
-            0 6px 14px -10px rgba(20,30,50,.12),
-            inset 0 1px 0 rgba(255,255,255,1),
-            0 0 0 1px rgba(20,30,50,.06);
-          display:flex;flex-direction:column;gap:10px;
-          animation:ls-pop-in .24s cubic-bezier(.2,.8,.2,1);
+            inset 0 1px 0 rgba(255,255,255,.95),
+            0 1px 0 rgba(14,16,20,.05),
+            0 22px 44px -20px rgba(20,30,50,.32),
+            0 40px 70px -28px rgba(227,100,100,.26);
+          display:flex;flex-direction:column;gap:6px;
+          animation:ls-pop-in .28s cubic-bezier(.2,.8,.2,1);
           transform-origin:top right;
         }
         @keyframes ls-pop-in{
-          from{opacity:0;transform:translateY(-6px) scale(.97)}
+          from{opacity:0;transform:translateY(-6px) scale(.96)}
           to{opacity:1;transform:translateY(0) scale(1)}
         }
-        /* little paper tab pointing up to the flag */
         .ls-pop-tab{
           position:absolute;top:-7px;right:22px;
           width:14px;height:14px;
-          background:#ffffff;
+          background:#fdfbf5;
           transform:rotate(45deg);
-          box-shadow:-1px -1px 0 rgba(20,30,50,.06);
+          box-shadow:-1px -1px 0 rgba(14,16,20,.08);
           border-top-left-radius:3px;
         }
 
-        .ls-group{display:flex;flex-direction:column;gap:2px}
         .ls-group-label{
-          font-family:'Fraunces',Georgia,serif;
-          font-style:italic;font-weight:400;
-          font-size:13.5px;color:#6a7080;
-          padding:4px 12px 6px;
-          letter-spacing:.005em;
+          font-family:'JetBrains Mono',monospace;font-weight:500;
+          font-size:10px;color:#6a7080;
+          padding:2px 14px 6px;
+          letter-spacing:.2em;text-transform:uppercase;
         }
-
-        .ls-divider{
-          height:1px;margin:2px 14px;
-          background:linear-gradient(90deg, transparent, rgba(20,30,50,.1), transparent);
-        }
+        .ls-group{display:flex;flex-direction:column;gap:4px}
 
         .ls-opt{
           position:relative;
-          display:flex;align-items:center;gap:12px;
+          display:flex;align-items:center;gap:11px;
           text-align:left;background:transparent;border:none;cursor:pointer;
-          font-family:'Inter',sans-serif;font-size:14px;color:#1a1f2b;
-          padding:9px 12px;border-radius:12px;width:100%;
-          transition:background .18s ease, color .18s ease, transform .18s ease, letter-spacing .18s ease;
+          font-family:'Inter',sans-serif;font-size:13.5px;color:#3a414f;font-weight:500;
+          padding:10px 14px;border-radius:999px;width:100%;letter-spacing:-0.005em;
+          transition:
+            background .28s cubic-bezier(.2,.7,.2,1.2),
+            color .28s ease,
+            box-shadow .28s ease;
         }
         .ls-opt:hover{
-          background:rgba(20,30,50,.055);
-          transform:translateX(2px);
+          color:#111318;
+          background:rgba(20,30,50,.045);
         }
         .ls-opt:focus-visible{
           outline:none;
-          box-shadow:0 0 0 2px rgba(106,112,128,.4);
+          box-shadow:0 0 0 2px rgba(106,112,128,.35);
         }
         .ls-opt.is-active{
-          background:#1a1f2b;color:#ffffff;
-          box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),
-                     0 8px 18px -12px rgba(20,30,50,.55);
+          background:linear-gradient(180deg,#1f242f 0%,#0d0f14 100%);
+          color:#fdfbf5;font-weight:600;
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.2),
+            inset 0 -1px 0 rgba(0,0,0,.32),
+            0 1.5px 0 #0a0c10,
+            0 6px 14px -6px rgba(20,16,12,.4);
         }
         .ls-opt.is-active:hover{
-          background:#1a1f2b;transform:translateX(2px);
-        }
-
-        .ls-opt-glyph{
-          display:inline-flex;align-items:center;justify-content:center;
-          width:24px;height:24px;border-radius:50%;
-          background:#ffffff;color:#3a414f;
-          font-family:'Fraunces',serif;font-style:italic;font-weight:500;
-          font-size:12px;line-height:1;
-          flex-shrink:0;
-          box-shadow:inset 0 0 0 1px rgba(20,30,50,.08),
-                     inset 0 -1px 0 rgba(20,30,50,.05);
-        }
-        .ls-opt.is-active .ls-opt-glyph{
-          background:rgba(255,255,255,.12);color:#ffffff;
-          box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);
+          background:linear-gradient(180deg,#1f242f 0%,#0d0f14 100%);
+          color:#fdfbf5;
         }
 
         .ls-opt-flag{
-          width:26px;height:18px;display:block;
-          object-fit:contain;flex-shrink:0;border-radius:3px;
-          box-shadow:0 1px 0 rgba(20,30,50,.08);
+          width:34px;height:24px;display:block;
+          object-fit:contain;flex-shrink:0;
         }
         .ls-opt-label{
           flex:1;
-          font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:15px;
+          font-family:'Inter',sans-serif;font-weight:500;font-size:13.5px;
           letter-spacing:-.005em;
         }
-        .ls-opt.is-active .ls-opt-label{font-weight:500}
+        .ls-opt.is-active .ls-opt-label{font-weight:600}
         .ls-check{
-          font-family:'Fraunces',serif;font-size:13px;
-          opacity:.7;color:#ffffff;line-height:1;
+          font-family:'Fraunces',serif;font-size:13px;font-style:italic;
+          line-height:1;color:#fdfbf5;
         }
-        .ls-opt:not(.is-active) .ls-check{color:#6a7080;opacity:.65}
+        .ls-opt:not(.is-active) .ls-check{display:none}
+
+        .ls-help{
+          font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+          font-size:13px;letter-spacing:-0.005em;color:#6a7080;
+          padding:8px 14px 2px;text-align:center;
+        }
 
         @media (max-width:480px){
-          .ls-pop{min-width:232px;right:-4px}
+          .ls-pop{min-width:220px;right:-4px}
           .ls-root{right:20px}
         }
       `}</style>
