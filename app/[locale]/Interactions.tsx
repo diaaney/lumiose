@@ -421,6 +421,41 @@ export default function Interactions({ studioCity }: { studioCity: string }) {
       cleanups.push(() => document.removeEventListener('keydown', onKey));
     }
 
+    // Count-up animation for [data-count-to] — triggers once on first viewport entry
+    const statsBlock = document.querySelector<HTMLElement>('.work-stats');
+    if (statsBlock) {
+      const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+      const runCounters = (root: HTMLElement) => {
+        const els = root.querySelectorAll<HTMLElement>('[data-count-to]');
+        els.forEach((el) => {
+          const target = parseFloat(el.dataset.countTo || '0');
+          const decimals = parseInt(el.dataset.countDecimals || '0', 10);
+          const prefix = el.dataset.countPrefix || '';
+          const start = performance.now();
+          const duration = 1500;
+          const step = (now: number) => {
+            const t = Math.min(1, (now - start) / duration);
+            const v = target * easeOutCubic(t);
+            el.textContent = prefix + v.toFixed(decimals);
+            if (t < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+      };
+      const io = new IntersectionObserver(
+        (entries, observer) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            observer.unobserve(entry.target);
+            runCounters(entry.target as HTMLElement);
+          }
+        },
+        { threshold: 0.35 }
+      );
+      io.observe(statsBlock);
+      cleanups.push(() => io.disconnect());
+    }
+
     return () => {
       cleanups.forEach((fn) => fn());
     };

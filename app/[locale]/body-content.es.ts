@@ -104,13 +104,12 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   <!-- Code editor + live preview mockup -->
   <div class="sd-art" role="img" aria-label="Lumiose code editor with live preview of a client site">
     <div class="ide-bar">
-      <div class="ide-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
       <div class="ide-tabs">
         <span class="ide-tab active"><span class="ide-dot-mod"></span>index.html</span>
         <span class="ide-tab">styles.css</span>
         <span class="ide-tab">menu.ts</span>
       </div>
-      <div class="ide-url"><span class="ide-lock"></span>barriocoastal.com · localhost:3000</div>
+      <div class="ide-url"><span class="ide-lock"></span>barriocoastal.com</div>
     </div>
 
     <div class="ide-body">
@@ -119,8 +118,8 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
         <div class="ide-file"><span class="ide-ficon folder"></span>barrio-coastal</div>
         <div class="ide-file" style="padding-left:22px"><span class="ide-ficon folder"></span>components</div>
         <div class="ide-file" style="padding-left:22px"><span class="ide-ficon folder"></span>styles</div>
-        <div class="ide-file active" style="padding-left:22px"><span class="ide-ficon html"></span>index.html</div>
-        <div class="ide-file" style="padding-left:22px"><span class="ide-ficon css"></span>globals.css</div>
+        <div class="ide-file active" style="padding-left:22px"><span class="ide-ficon html"></span>index.html<span class="ide-file-mark">●</span></div>
+        <div class="ide-file" style="padding-left:22px"><span class="ide-ficon css"></span>globals.css<span class="ide-file-mark m">M</span></div>
         <div class="ide-file" style="padding-left:22px"><span class="ide-ficon js"></span>menu.ts</div>
         <h6>Deployments</h6>
         <div class="ide-file" style="color:#c5ccd9"><span class="ide-ficon" style="background:#2db073"></span>prod · live</div>
@@ -136,22 +135,25 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
         <div class="ide-row"><span class="ide-ln">6</span><span class="ide-tx">  <span class="tag">&lt;p&gt;</span><span class="txt">Family recipes, Pacific fish,</span></span></div>
         <div class="ide-row"><span class="ide-ln">7</span><span class="ide-tx">    <span class="txt">a long patio sunset.</span><span class="tag">&lt;/p&gt;</span></span></div>
         <div class="ide-row"><span class="ide-ln">8</span><span class="ide-tx">  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"/reserve"</span> <span class="attr">class</span>=<span class="str">"btn"</span><span class="tag">&gt;</span></span></div>
-        <div class="ide-row"><span class="ide-ln">9</span><span class="ide-tx">    <span class="txt">Reservar mesa →</span><span class="tag">&lt;/a&gt;</span><span class="cursor-blink"></span></span></div>
+        <div class="ide-row is-active"><span class="ide-ln">9</span><span class="ide-tx">    <span class="txt">Reservar mesa →</span><span class="tag">&lt;/a&gt;</span><span class="cursor-blink"></span><span class="ide-ghost">&nbsp;// onClick=&#123;abrirReserva&#125;</span></span></div>
         <div class="ide-row"><span class="ide-ln">10</span><span class="ide-tx">  <span class="tag">&lt;Menu</span> <span class="attr">today</span>=<span class="kw">{seasonal}</span> <span class="tag">/&gt;</span></span></div>
         <div class="ide-row"><span class="ide-ln">11</span><span class="ide-tx"><span class="tag">&lt;/section&gt;</span></span></div>
         <div class="ide-row"><span class="ide-ln">12</span><span class="ide-tx"></span></div>
-        <div class="ide-row"><span class="ide-ln">13</span><span class="ide-tx"><span class="com">// 98 PageSpeed · 0.8s FCP · a11y AA</span></span></div>
+        <div class="ide-row"><span class="ide-ln">13</span><span class="ide-tx"><span class="com ide-typing">// desplegado · 98 PageSpeed · 0.8s FCP · a11y AA</span></span></div>
       </div>
 
       <div class="ide-preview">
         <div class="prev-label"><span class="live"></span>VISTA EN VIVO</div>
         <div class="prev-site">
           <div class="prev-nav">
-            <span>Barrio Coastal</span>
-            <span class="prev-links"><span>Menu</span><span>Reserve</span><span>Order</span></span>
+            <span class="prev-brand">Barrio Coastal <span class="prev-open">Abierto</span></span>
+            <span class="prev-links"><span>Menú</span><span>Reservar</span><span>Orden</span></span>
           </div>
           <div class="prev-hero">
-            <span class="prev-eyebrow">✦ Ocean Beach · desde 2019</span>
+            <div class="prev-top">
+              <span class="prev-eyebrow">✦ Ocean Beach · desde 2019</span>
+              <span class="prev-rating">★ 4.9 <span class="prev-rating-count">· 248 reseñas</span></span>
+            </div>
             <div class="prev-h1">Mexicano costero, <em>a fuego lento.</em></div>
             <div class="prev-sub">Recetas de familia, pescado del Pacífico, atardeceres largos en el patio. Abierto de 11 a 10 todos los días.</div>
             <div class="prev-ctas">
@@ -159,29 +161,36 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
               <span class="prev-btn ghost">Ver menú</span>
             </div>
           </div>
+          <div class="prev-dish" aria-hidden="true">
+            <span class="prev-dish-badge">Hoy</span>
+            <span class="prev-dish-title">Chowder Baja</span>
+          </div>
           <div class="prev-metrics">
             <div class="pm"><span class="v">98</span><span class="l">PageSpeed</span></div>
             <div class="pm"><span class="v">0.8<span style="font-size:.55em">s</span></span><span class="l">Primer render</span></div>
             <div class="pm"><span class="v">AA</span><span class="l">Accesibilidad</span></div>
-            <div class="pm"><span class="v">+34<span style="font-size:.55em">%</span></span><span class="l">Reservas</span></div>
+            <div class="pm"><span class="v">+34<span style="font-size:.55em">%</span><span class="up">↑</span></span><span class="l">Reservas</span></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="ide-status">
-      <div class="ide-st-l">
-        <span><span class="ide-st-dot"></span> main</span>
-        <span>⎇ 0 conflicts</span>
-        <span>● saved</span>
-      </div>
-      <div class="ide-st-r">
-        <span>Next.js 15.1</span>
-        <span>Ln 9, Col 42</span>
-        <span>UTF-8</span>
-        <span style="color:#2db073">✓ deployed · 2m ago</span>
-      </div>
-    </div>
+    <!-- Animated pointer — cream paper-plane arrow, looks like someone is working on the IDE -->
+    <svg class="ide-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="lumiose-pointer-grad-es" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fdfbf5"/>
+          <stop offset="1" stop-color="#d8cdb2"/>
+        </linearGradient>
+        <radialGradient id="lumiose-pointer-halo-es" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="rgba(253,251,245,.35)"/>
+          <stop offset="1" stop-color="rgba(253,251,245,0)"/>
+        </radialGradient>
+      </defs>
+      <circle class="ide-pointer-halo" cx="4" cy="3" r="11" fill="url(#lumiose-pointer-halo-es)"/>
+      <circle class="ide-click-ring" cx="4" cy="3" r="3" fill="none" stroke="#d94f3a" stroke-width="1.6"/>
+      <path class="ide-pointer-arrow" d="M3.2 3 L21 11 L13 13.2 L10.8 21 Z" fill="url(#lumiose-pointer-grad-es)"/>
+    </svg>
   </div>
 </header>
 
@@ -217,6 +226,27 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
         <h2 class="section-title">Algunos <em>clientes</em> para<br/>los que construimos recién.</h2>
       </div>
       <p>Pasa el mouse sobre un proyecto para ver una vista previa. Cada sitio fue diseñado y programado desde cero. Sin page builders, sin plantillas compartidas, sin atajos.</p>
+    </div>
+
+    <div class="work-stats" aria-label="Stats del estudio">
+      <div class="ws-grid">
+        <div class="ws-item ws-lead">
+          <span class="ws-value"><em data-count-to="2.4" data-count-decimals="1">2.4</em><span class="ws-unit">×</span></span>
+          <span class="ws-label"><span class="ws-l-key">Reservas</span> tras lanzar · promedio</span>
+        </div>
+        <div class="ws-item">
+          <span class="ws-value"><span data-count-to="58" data-count-prefix="+">+58</span><span class="ws-unit">%</span></span>
+          <span class="ws-label"><span class="ws-l-key">Tráfico</span> orgánico · en 90 días</span>
+        </div>
+        <div class="ws-item">
+          <span class="ws-value"><span data-count-to="14">14</span><span class="ws-unit">d</span></span>
+          <span class="ws-label"><span class="ws-l-key">Inicio</span> a lanzamiento · prom</span>
+        </div>
+        <div class="ws-item">
+          <span class="ws-value"><span data-count-to="91">91</span><span class="ws-unit">%</span></span>
+          <span class="ws-label"><span class="ws-l-key">Clientes</span> siguen año 2+</span>
+        </div>
+      </div>
     </div>
 
     <div class="cases" id="cases">
