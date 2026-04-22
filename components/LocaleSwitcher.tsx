@@ -4,12 +4,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import {
-  REGIONS,
-  REGION_LABELS,
-  buildLocale,
-  isLocale,
+  LOCALES,
+  LOCALE_LABELS,
   parseLocale,
-  type Language,
   type Locale,
   type Region,
 } from '@/lib/i18n/config';
@@ -19,22 +16,12 @@ type Props = {
   labels: { title: string; help: string };
 };
 
-// Each country maps to its default language so clicking MX → es-mx, US → en-us.
-const REGION_TO_LANG: Record<Region, Language> = {
-  us: 'en',
-  mx: 'es',
-};
-
 const LOCALE_COOKIE = 'lumiose-locale';
 const ONE_YEAR = 60 * 60 * 24 * 365;
 
-const REGION_FLAG_CODES: Record<Region, string> = {
-  us: 'US',
-  mx: 'MX',
-};
+const REGION_FLAG: Record<Region, string> = { us: 'US', mx: 'MX' };
 
 // Twemoji = Twitter's cartoonish/illustrated flag emojis as SVGs via jsdelivr CDN.
-// Each country code becomes two regional-indicator codepoints joined with a hyphen.
 function twemojiCode(countryCode: string): string {
   return countryCode
     .toUpperCase()
@@ -56,7 +43,7 @@ export default function LocaleSwitcher({ currentLocale, labels }: Props) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
-  const { lang, region } = useMemo(() => parseLocale(currentLocale), [currentLocale]);
+  const { region } = useMemo(() => parseLocale(currentLocale), [currentLocale]);
 
   useEffect(() => {
     setMounted(true);
@@ -81,14 +68,9 @@ export default function LocaleSwitcher({ currentLocale, labels }: Props) {
   }, [open]);
 
   const go = (next: Locale) => {
-    if (!isLocale(next)) return;
     setCookie(LOCALE_COOKIE, next);
     router.push(`/${next}`);
     setOpen(false);
-  };
-
-  const pickCountry = (newRegion: Region) => {
-    go(buildLocale(REGION_TO_LANG[newRegion], newRegion));
   };
 
   if (!mounted || !target) return null;
@@ -109,7 +91,7 @@ export default function LocaleSwitcher({ currentLocale, labels }: Props) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="ls-flag-img"
-          src={FLAG_URL(REGION_FLAG_CODES[region])}
+          src={FLAG_URL(REGION_FLAG[region])}
           alt=""
           width={46}
           height={32}
@@ -121,28 +103,32 @@ export default function LocaleSwitcher({ currentLocale, labels }: Props) {
           <div className="ls-pop-tab" aria-hidden />
           <div className="ls-group-label">{labels.title}</div>
           <div className="ls-group">
-            {REGIONS.map((r) => (
-              <button
-                key={r}
-                type="button"
-                role="menuitemradio"
-                aria-checked={r === region}
-                className={`ls-opt${r === region ? ' is-active' : ''}`}
-                onClick={() => pickCountry(r)}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  className="ls-opt-flag"
-                  src={FLAG_URL(REGION_FLAG_CODES[r])}
-                  alt=""
-                  width={34}
-                  height={24}
-                  loading="lazy"
-                />
-                <span className="ls-opt-label">{REGION_LABELS[r]}</span>
-                {r === region && <span className="ls-check" aria-hidden>✓</span>}
-              </button>
-            ))}
+            {LOCALES.map((l) => {
+              const { region: r } = parseLocale(l);
+              const active = l === currentLocale;
+              return (
+                <button
+                  key={l}
+                  type="button"
+                  role="menuitemradio"
+                  aria-checked={active}
+                  className={`ls-opt${active ? ' is-active' : ''}`}
+                  onClick={() => go(l)}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    className="ls-opt-flag"
+                    src={FLAG_URL(REGION_FLAG[r])}
+                    alt=""
+                    width={34}
+                    height={24}
+                    loading="lazy"
+                  />
+                  <span className="ls-opt-label">{LOCALE_LABELS[l]}</span>
+                  {active && <span className="ls-check" aria-hidden>✓</span>}
+                </button>
+              );
+            })}
           </div>
           <div className="ls-help">{labels.help}</div>
         </div>

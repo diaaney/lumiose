@@ -18,11 +18,11 @@ function pathHasLocale(pathname: string): Locale | null {
 
 function readCountry(req: NextRequest): string | null {
   // Vercel geo header (preferred). Fallbacks for other hosts.
-  const vercel = req.headers.get('x-vercel-ip-country');
-  if (vercel) return vercel;
-  const cf = req.headers.get('cf-ipcountry');
-  if (cf) return cf;
-  return null;
+  return (
+    req.headers.get('x-vercel-ip-country') ||
+    req.headers.get('cf-ipcountry') ||
+    null
+  );
 }
 
 export function proxy(req: NextRequest) {
@@ -46,8 +46,7 @@ export function proxy(req: NextRequest) {
   const explicitLocale = cookieLocale && isLocale(cookieLocale) ? (cookieLocale as Locale) : null;
 
   const country = readCountry(req);
-  const acceptLanguage = req.headers.get('accept-language');
-  const target: Locale = explicitLocale ?? detectLocale({ acceptLanguage, country });
+  const target: Locale = explicitLocale ?? detectLocale(country);
 
   const url = req.nextUrl.clone();
   url.pathname = `/${target}${pathname === '/' ? '' : pathname}`;
