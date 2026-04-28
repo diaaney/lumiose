@@ -168,14 +168,16 @@ export default async function SubpagePage({ params }: { params: Params }) {
       <header className="sp-nav">
         <a href={homeHref} className="sp-brand">
           <span className="sp-mark" aria-hidden="true" />
-          Lumiose
+          <span className="sp-brand-name">Lumiose</span>
+          <span className="sp-brand-tag" aria-hidden="true">studio</span>
         </a>
         <nav className="sp-nav-links">
           <a href={`${homeHref}#services`}>{navLabels.services}</a>
           <a href={`${homeHref}#work`}>{navLabels.work}</a>
           <a href={`${homeHref}#pricing`}>{navLabels.pricing}</a>
           <a href={contactHref} className="sp-cta-pill">
-            {navLabels.ctaShort}
+            <span>{navLabels.ctaShort}</span>
+            <span className="sp-cta-arrow" aria-hidden="true">→</span>
           </a>
         </nav>
       </header>
