@@ -1753,13 +1753,11 @@
     color:var(--accent);
   }
 
-  /* ========== HOMEPAGE FAQ — editorial spread ========== */
+  /* ========== HOMEPAGE FAQ — editorial, page-flow ========== */
   .home-faq{
     position:relative;
-    padding:140px 28px 110px;
-    background:
-      radial-gradient(ellipse 60% 45% at 6% 92%, rgba(243,226,154,.22) 0%, transparent 62%),
-      linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+    padding:120px 28px 100px;
+    background:var(--cream);
     overflow:hidden;
     isolation:isolate;
   }
@@ -1768,14 +1766,14 @@
     background-image:radial-gradient(rgba(26,31,43,.045) 1px, transparent 1.2px);
     background-size:3px 3px;
     mix-blend-mode:multiply;
-    opacity:.4;
+    opacity:.35;
   }
   .home-faq::after{
     content:"";position:absolute;
-    top:-40px;right:-90px;
-    width:460px;height:460px;
+    top:-30px;right:-80px;
+    width:420px;height:420px;
     background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g fill='%231a1f2b' transform='rotate(30 12 12)'><rect x='11' y='2' width='2' height='20' rx='1'/><rect x='11' y='2' width='2' height='20' rx='1' transform='rotate(60 12 12)'/><rect x='11' y='2' width='2' height='20' rx='1' transform='rotate(-60 12 12)'/></g></svg>") center/contain no-repeat;
-    opacity:.028;
+    opacity:.025;
     pointer-events:none;
     z-index:-1;
   }
