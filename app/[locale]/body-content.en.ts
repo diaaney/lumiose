@@ -151,9 +151,9 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
                 <span class="flyout-eyebrow">we reply in 24h</span>
               </div>
               <div class="fly-contact-lines">
-                <a class="fly-c-line" href="mailto:hello@lumiose.studio">
-                  <span class="fcl-key">Email</span>
-                  <span class="fcl-val"><em>hello@lumiose.studio</em><small>same-day reply</small></span>
+                <a class="fly-c-line" href="https://wa.me/16195550148">
+                  <span class="fcl-key">WhatsApp</span>
+                  <span class="fcl-val"><em>(619) 555-0148</em><small>same-day reply</small></span>
                 </a>
                 <a class="fly-c-line" href="#contact">
                   <span class="fcl-key">Call</span>
