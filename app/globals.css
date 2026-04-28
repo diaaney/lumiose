@@ -1595,72 +1595,40 @@
   }
 
   /* ===== Subpage template (city / service / industry pages) ===== */
+  /* Reuses .logo (with the favicon mask mark) and the landing's <footer> markup. */
   .sp-nav{
     position:sticky;top:0;z-index:50;
     display:flex;justify-content:space-between;align-items:center;
-    padding:16px 28px;
-    background:rgba(246,239,222,.86);
-    backdrop-filter:saturate(160%) blur(14px);
-    -webkit-backdrop-filter:saturate(160%) blur(14px);
-    border-bottom:1px solid rgba(20,30,50,.06);
+    padding:18px 32px;
+    background:rgba(246,239,222,.82);
+    backdrop-filter:saturate(180%) blur(18px);
+    -webkit-backdrop-filter:saturate(180%) blur(18px);
+    border-bottom:1px solid rgba(20,30,50,.07);
     animation:sp-rise 520ms cubic-bezier(0.32,0.72,0.30,1) backwards;
   }
   @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
     .sp-nav{background:var(--cream)}
   }
-  .sp-brand{
-    display:inline-flex;align-items:baseline;gap:10px;
-    color:var(--ink);text-decoration:none;
-    transition:opacity 200ms ease;
-  }
-  .sp-brand:hover{opacity:.78}
-  .sp-mark{
-    display:inline-block;width:12px;height:12px;
-    background:var(--accent);border-radius:50%;
-    align-self:center;
-  }
-  .sp-brand-name{
-    font-family:var(--font-fraunces, 'Fraunces'),Georgia,serif;
-    font-size:22px;font-weight:500;letter-spacing:-0.01em;
-  }
-  .sp-brand-tag{
-    font-family:var(--font-jbmono, 'JetBrains Mono'),ui-monospace,monospace;
-    font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
-    color:#6a7080;position:relative;top:-1px;
-  }
+  .sp-logo-link{text-decoration:none}
   .sp-nav-links{
-    display:flex;align-items:center;gap:30px;
-    font-family:var(--font-inter, 'Inter'),sans-serif;font-size:13.5px;
+    display:flex;align-items:center;gap:28px;
+    font-family:var(--font-inter, 'Inter'),sans-serif;
+    font-size:14.5px;font-weight:500;color:#1a1f2b;
   }
-  .sp-nav-links a{
+  .sp-nav-links a:not(.sp-nav-cta){
     position:relative;
-    color:var(--ink);text-decoration:none;font-weight:400;
-    padding:6px 0;letter-spacing:.01em;
+    color:var(--ink);text-decoration:none;
+    padding:8px 2px;letter-spacing:.005em;
   }
-  .sp-nav-links a:not(.sp-cta-pill)::after{
+  .sp-nav-links a:not(.sp-nav-cta)::after{
     content:"";
-    position:absolute;left:0;right:0;bottom:0;height:1.5px;
+    position:absolute;left:0;right:0;bottom:2px;height:1.5px;
     background:var(--ink);
     transform:scaleX(0);transform-origin:left;
-    transition:transform 320ms cubic-bezier(0.32,0.72,0.30,1);
+    transition:transform 340ms cubic-bezier(0.32,0.72,0.30,1);
   }
-  .sp-nav-links a:not(.sp-cta-pill):hover::after{transform:scaleX(1)}
-  .sp-cta-pill{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--btn);color:var(--btn-ink) !important;
-    padding:9px 18px;border-radius:999px;
-    font-weight:500;font-size:13px;
-    transition:transform 220ms cubic-bezier(0.32,0.72,0.30,1),box-shadow 220ms ease;
-  }
-  .sp-cta-pill:hover{
-    transform:translateY(-1px);
-    box-shadow:0 10px 22px rgba(20,30,50,.18);
-  }
-  .sp-cta-arrow{
-    display:inline-block;
-    transition:transform 260ms cubic-bezier(0.32,0.72,0.30,1);
-  }
-  .sp-cta-pill:hover .sp-cta-arrow{transform:translateX(4px)}
+  .sp-nav-links a:not(.sp-nav-cta):hover::after{transform:scaleX(1)}
+  .sp-nav-cta{margin-left:6px}
 
   .sp-main{background:var(--cream)}
 
@@ -1803,17 +1771,6 @@
     font-size:17px;line-height:1.55;color:#26303f;
   }
 
-  .sp-footer{background:var(--cream);padding:34px 28px;border-top:1px solid rgba(20,30,50,.06)}
-  .sp-footer-inner{
-    max-width:1080px;margin:0 auto;
-    display:flex;justify-content:space-between;align-items:center;
-    gap:18px;flex-wrap:wrap;
-  }
-  .sp-footer-note,.sp-footer-copy{
-    font-family:var(--font-jbmono, 'JetBrains Mono'),monospace;
-    font-size:11px;letter-spacing:.08em;color:#6a7080;
-  }
-
   @media (max-width:720px){
     .sp-nav{flex-direction:column;gap:14px;padding:14px 20px}
     .sp-nav-links{gap:14px;flex-wrap:wrap;justify-content:center;font-size:13px}
@@ -1824,7 +1781,6 @@
     .sp-section,.sp-related{padding:60px 22px 20px}
     .sp-final-cta{padding:70px 22px;margin:60px 8px 8px}
     .sp-related-card{padding:22px 44px 22px 18px}
-    .sp-footer-inner{flex-direction:column;text-align:center;gap:10px}
   }
   @media (prefers-reduced-motion: reduce){
     .sp-hero-cloud{animation:none}

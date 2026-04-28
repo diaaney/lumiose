@@ -24,7 +24,6 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const url = `${SITE_URL}/${locale}/${slug}`;
   const { lang } = parseLocale(locale as Locale);
 
-  // Build hreflang map: include sibling-locale page only if it exists
   const languages: Record<string, string> = {};
   for (const l of LOCALES) {
     const sibling = getSubpage(l, slug);
@@ -63,18 +62,8 @@ function buildJsonLd(locale: Locale, page: SubpageContent) {
   const breadcrumb = {
     '@type': 'BreadcrumbList',
     itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Lumiose',
-        item: `${SITE_URL}/${locale}`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: page.hero.h1Pre.replace(/[,.]$/, ''),
-        item: url,
-      },
+      { '@type': 'ListItem', position: 1, name: 'Lumiose', item: `${SITE_URL}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: page.hero.h1Pre.replace(/[,.]$/, ''), item: url },
     ],
   };
 
@@ -125,6 +114,99 @@ function buildJsonLd(locale: Locale, page: SubpageContent) {
   };
 }
 
+type Strings = {
+  navServices: string;
+  navWork: string;
+  navPricing: string;
+  navCta: string;
+  ctaShort: string;
+  related: string;
+  footerTagline: string;
+  footerColServices: string;
+  footerColStudio: string;
+  footerColOther: string;
+  footerCopy: string;
+  footerSign: string;
+  fServices: { web: string; seo: string; ads: string; infra: string; consult: string };
+  fStudio: { work: string; pricing: string; contact: string; jobs: string };
+};
+
+const STRINGS: Record<Locale, Strings> = {
+  'es-mx': {
+    navServices: 'Servicios',
+    navWork: 'Proyectos',
+    navPricing: 'Precios',
+    navCta: 'Agendar llamada',
+    ctaShort: 'Cotización gratis',
+    related: 'Otras páginas del estudio',
+    footerTagline:
+      'Un estudio en Baja California, construyendo sitios, tiendas y sistemas de marketing para los negocios que tenemos al lado.',
+    footerColServices: 'Servicios',
+    footerColStudio: 'Estudio',
+    footerColOther: 'Otros',
+    footerCopy: '© 2026 LUMIOSE STUDIO · BAJA CALIFORNIA',
+    footerSign: 'HECHO CON ☀ + ☕',
+    fServices: {
+      web: 'Diseño web',
+      seo: 'SEO y GEO',
+      ads: 'Publicidad digital',
+      infra: 'Infraestructura',
+      consult: 'Consultoría',
+    },
+    fStudio: {
+      work: 'Trabajo reciente',
+      pricing: 'Precios',
+      contact: 'Contacto',
+      jobs: 'Trabaja con nosotros',
+    },
+  },
+  'en-us': {
+    navServices: 'Services',
+    navWork: 'Work',
+    navPricing: 'Pricing',
+    navCta: 'Book a call',
+    ctaShort: 'Free quote',
+    related: 'More from the studio',
+    footerTagline:
+      'A studio in Baja California, building sites, stores, and marketing systems for the businesses next door.',
+    footerColServices: 'Services',
+    footerColStudio: 'Studio',
+    footerColOther: 'Other',
+    footerCopy: '© 2026 LUMIOSE STUDIO · BAJA CALIFORNIA',
+    footerSign: 'MADE WITH ☀ + ☕',
+    fServices: {
+      web: 'Web design',
+      seo: 'SEO & GEO',
+      ads: 'Digital ads',
+      infra: 'Infrastructure',
+      consult: 'Consulting',
+    },
+    fStudio: {
+      work: 'Recent work',
+      pricing: 'Pricing',
+      contact: 'Contact',
+      jobs: 'Work with us',
+    },
+  },
+};
+
+const FOOTER_SERVICE_SLUGS: Record<Locale, { web: string; seo: string; ads: string; infra: string; consult: string }> = {
+  'es-mx': {
+    web: 'diseno-web',
+    seo: 'seo',
+    ads: 'publicidad-digital',
+    infra: 'infraestructura',
+    consult: 'consultoria',
+  },
+  'en-us': {
+    web: 'web-design',
+    seo: 'seo',
+    ads: 'digital-ads',
+    infra: 'infrastructure',
+    consult: 'consulting',
+  },
+};
+
 export default async function SubpagePage({ params }: { params: Params }) {
   const { locale, slug } = await params;
   if (!isLocale(locale)) notFound();
@@ -134,29 +216,8 @@ export default async function SubpagePage({ params }: { params: Params }) {
   const homeHref = `/${locale}`;
   const contactHref = `${homeHref}#contact`;
   const jsonLd = buildJsonLd(locale as Locale, page);
-
-  const navLabels =
-    locale === 'es-mx'
-      ? {
-          services: 'Servicios',
-          work: 'Proyectos',
-          pricing: 'Precios',
-          contact: 'Contacto',
-          ctaShort: 'Cotización gratis',
-          backHome: '← Volver al inicio',
-          related: 'Otras páginas',
-          footerNote: 'Estudio bilingüe · Mexicali · Calexico',
-        }
-      : {
-          services: 'Services',
-          work: 'Work',
-          pricing: 'Pricing',
-          contact: 'Contact',
-          ctaShort: 'Free quote',
-          backHome: '← Back to home',
-          related: 'Other pages',
-          footerNote: 'Bilingual studio · Calexico · Mexicali',
-        };
+  const t = STRINGS[locale as Locale];
+  const fSlugs = FOOTER_SERVICE_SLUGS[locale as Locale];
 
   return (
     <>
@@ -166,18 +227,16 @@ export default async function SubpagePage({ params }: { params: Params }) {
       />
 
       <header className="sp-nav">
-        <a href={homeHref} className="sp-brand">
-          <span className="sp-mark" aria-hidden="true" />
-          <span className="sp-brand-name">Lumiose</span>
-          <span className="sp-brand-tag" aria-hidden="true">studio</span>
+        <a href={homeHref} className="logo sp-logo-link">
+          <span className="mark" aria-hidden="true" />
+          <span>Lumiose</span>
         </a>
         <nav className="sp-nav-links">
-          <a href={`${homeHref}#services`}>{navLabels.services}</a>
-          <a href={`${homeHref}#work`}>{navLabels.work}</a>
-          <a href={`${homeHref}#pricing`}>{navLabels.pricing}</a>
-          <a href={contactHref} className="sp-cta-pill">
-            <span>{navLabels.ctaShort}</span>
-            <span className="sp-cta-arrow" aria-hidden="true">→</span>
+          <a href={`${homeHref}#services`}>{t.navServices}</a>
+          <a href={`${homeHref}#work`}>{t.navWork}</a>
+          <a href={`${homeHref}#pricing`}>{t.navPricing}</a>
+          <a href={contactHref} className="btn sp-nav-cta">
+            {t.navCta}
           </a>
         </nav>
       </header>
@@ -212,11 +271,11 @@ export default async function SubpagePage({ params }: { params: Params }) {
             </h1>
             <p className="sp-lead">{page.hero.lead}</p>
             <div className="sp-hero-ctas">
-              <a href={contactHref} className="btn sp-btn-fix">
-                {navLabels.ctaShort} →
+              <a href={contactHref} className="btn pill-lg sp-btn-fix">
+                {t.ctaShort} →
               </a>
-              <a href={homeHref} className="btn ghost sp-btn-fix">
-                {navLabels.backHome}
+              <a href={homeHref} className="btn pill-lg ghost sp-btn-fix">
+                Lumiose ←
               </a>
             </div>
           </div>
@@ -235,7 +294,7 @@ export default async function SubpagePage({ params }: { params: Params }) {
         {page.relatedSlugs && page.relatedSlugs.length > 0 && (
           <section className="sp-related">
             <div className="sp-related-inner">
-              <p className="sp-eyebrow sp-eyebrow-dark">{navLabels.related}</p>
+              <p className="sp-eyebrow sp-eyebrow-dark">{t.related}</p>
               <div className="sp-related-grid">
                 {page.relatedSlugs.map((relSlug) => {
                   const rel = getSubpage(locale as Locale, relSlug);
@@ -244,9 +303,7 @@ export default async function SubpagePage({ params }: { params: Params }) {
                     <Link key={relSlug} href={`${homeHref}/${relSlug}`} className="sp-related-card">
                       <span className="sp-related-eye">{rel.hero.eyebrow}</span>
                       <span className="sp-related-title">{rel.hero.h1Em}</span>
-                      <span className="sp-related-arrow" aria-hidden="true">
-                        →
-                      </span>
+                      <span className="sp-related-arrow" aria-hidden="true">→</span>
                     </Link>
                   );
                 })}
@@ -266,14 +323,46 @@ export default async function SubpagePage({ params }: { params: Params }) {
         </section>
       </main>
 
-      <footer className="sp-footer">
-        <div className="sp-footer-inner">
-          <a href={homeHref} className="sp-brand">
-            <span className="sp-mark" aria-hidden="true" />
-            Lumiose
-          </a>
-          <span className="sp-footer-note">{navLabels.footerNote}</span>
-          <span className="sp-footer-copy">© 2026 Lumiose Studio</span>
+      <footer>
+        <div className="foot-inner">
+          <div className="foot-brand">
+            <div className="logo">
+              <span className="mark" aria-hidden="true" /> Lumiose
+            </div>
+            <p>{t.footerTagline}</p>
+          </div>
+          <div>
+            <h5>{t.footerColServices}</h5>
+            <ul>
+              <li><Link href={`${homeHref}/${fSlugs.web}`}>{t.fServices.web}</Link></li>
+              <li><Link href={`${homeHref}/${fSlugs.seo}`}>{t.fServices.seo}</Link></li>
+              <li><Link href={`${homeHref}/${fSlugs.ads}`}>{t.fServices.ads}</Link></li>
+              <li><Link href={`${homeHref}/${fSlugs.infra}`}>{t.fServices.infra}</Link></li>
+              <li><Link href={`${homeHref}/${fSlugs.consult}`}>{t.fServices.consult}</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h5>{t.footerColStudio}</h5>
+            <ul>
+              <li><a href={`${homeHref}#work`}>{t.fStudio.work}</a></li>
+              <li><a href={`${homeHref}#pricing`}>{t.fStudio.pricing}</a></li>
+              <li><a href={contactHref}>{t.fStudio.contact}</a></li>
+              <li><a href={contactHref}>{t.fStudio.jobs}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>{t.footerColOther}</h5>
+            <ul>
+              <li><a>Instagram</a></li>
+              <li><a>LinkedIn</a></li>
+              <li><a>Dribbble</a></li>
+              <li><a>GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="foot-bottom">
+          <span>{t.footerCopy}</span>
+          <span>{t.footerSign}</span>
         </div>
       </footer>
     </>
