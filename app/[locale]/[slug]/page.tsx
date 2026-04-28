@@ -210,10 +210,10 @@ export default async function SubpagePage({ params }: { params: Params }) {
             </h1>
             <p className="sp-lead">{page.hero.lead}</p>
             <div className="sp-hero-ctas">
-              <a href={contactHref} className="sp-btn">
+              <a href={contactHref} className="btn sp-btn-fix">
                 {navLabels.ctaShort} →
               </a>
-              <a href={homeHref} className="sp-btn sp-btn-ghost">
+              <a href={homeHref} className="btn ghost sp-btn-fix">
                 {navLabels.backHome}
               </a>
             </div>
@@ -257,7 +257,7 @@ export default async function SubpagePage({ params }: { params: Params }) {
           <div className="sp-final-cta-inner">
             <h2 className="sp-h2">{page.finalCta.heading}</h2>
             <p className="sp-final-cta-sub">{page.finalCta.sub}</p>
-            <a href={contactHref} className="sp-btn sp-btn-large">
+            <a href={contactHref} className="btn pill-lg sp-btn-fix">
               {page.finalCta.button}
             </a>
           </div>
