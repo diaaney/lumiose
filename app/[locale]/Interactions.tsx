@@ -456,6 +456,42 @@ export default function Interactions({ studioCity }: { studioCity: string }) {
       cleanups.push(() => io.disconnect());
     }
 
+    const cform = document.querySelector<HTMLFormElement>('.cform');
+    if (cform) {
+      cform.onsubmit = null;
+      const noteEl = cform.querySelector<HTMLElement>('.submit-row .note');
+      const btnEl = cform.querySelector<HTMLButtonElement>('.submit-row button');
+      const locale = cform.dataset.locale === 'es' ? 'es' : 'en';
+      const t = {
+        sending: locale === 'es' ? 'Enviando…' : 'Sending…',
+        success: locale === 'es' ? '¡Gracias! Te respondemos en 1 día hábil.' : "Thanks! We'll reply within 1 business day.",
+        error: locale === 'es' ? 'Algo falló. Escríbenos a projects@lumiose.studio.' : 'Something went wrong. Email us at projects@lumiose.studio.',
+      };
+      const onContactSubmit = async (e: Event) => {
+        e.preventDefault();
+        if (!cform.reportValidity()) return;
+        const data = Object.fromEntries(new FormData(cform).entries());
+        if (noteEl) noteEl.textContent = t.sending;
+        if (btnEl) btnEl.disabled = true;
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...data, locale }),
+          });
+          if (!res.ok) throw new Error(String(res.status));
+          if (noteEl) noteEl.textContent = t.success;
+          cform.reset();
+        } catch {
+          if (noteEl) noteEl.textContent = t.error;
+        } finally {
+          if (btnEl) btnEl.disabled = false;
+        }
+      };
+      cform.addEventListener('submit', onContactSubmit);
+      cleanups.push(() => cform.removeEventListener('submit', onContactSubmit));
+    }
+
     return () => {
       cleanups.forEach((fn) => fn());
     };

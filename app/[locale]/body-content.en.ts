@@ -679,30 +679,30 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
         <div class="row"><span class="label">Hours</span> Mon–Fri · 9–6 PT</div>
       </div>
     </div>
-    <form class="cform" onsubmit="event.preventDefault(); this.querySelector('.submit-row .note').textContent='Thanks! We\\\\'ll be in touch within a day.';">
+    <form class="cform" data-locale="en" novalidate onsubmit="event.preventDefault(); this.querySelector('.submit-row .note').textContent='Thanks! We\\\\'ll be in touch within a day.';">
       <div class="row2">
         <div class="field">
           <label>Your name</label>
-          <input type="text" placeholder="Jane Rivera" required />
+          <input type="text" name="name" placeholder="Jane Rivera" required />
         </div>
         <div class="field">
           <label>Business</label>
-          <input type="text" placeholder="Barrio Coastal Café" />
+          <input type="text" name="business" placeholder="Barrio Coastal Café" />
         </div>
       </div>
       <div class="row2">
         <div class="field">
           <label>Email</label>
-          <input type="email" placeholder="jane@bcc.com" required />
+          <input type="email" name="email" placeholder="jane@bcc.com" required />
         </div>
         <div class="field">
           <label>Phone</label>
-          <input type="tel" placeholder="(619) 555-0128" />
+          <input type="tel" name="phone" placeholder="(619) 555-0128" />
         </div>
       </div>
       <div class="field">
         <label>What do you need?</label>
-        <select>
+        <select name="need">
           <option>A new website (Corner Shop)</option>
           <option selected>A full build (Main Street)</option>
           <option>Something bigger (Enterprise)</option>
@@ -712,8 +712,9 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       </div>
       <div class="field">
         <label>Tell us a bit more</label>
-        <textarea placeholder="A few lines about your business and what you're hoping for..."></textarea>
+        <textarea name="message" placeholder="A few lines about your business and what you're hoping for..."></textarea>
       </div>
+      <div class="hp" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
       <div class="submit-row">
         <span class="note mono">Replies within 1 business day</span>
         <button class="btn" type="submit">Send →</button>
