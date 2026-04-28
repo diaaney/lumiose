@@ -5,8 +5,9 @@ import { useEffect } from 'react';
 export default function NavScrollHide() {
   useEffect(() => {
     const SHOW_THRESHOLD = 80;
-    const DELTA = 6;
+    const TRIGGER = 6;
     let lastY = window.scrollY;
+    let accum = 0;
     let ticking = false;
 
     function update() {
@@ -15,10 +16,18 @@ export default function NavScrollHide() {
 
       if (y < SHOW_THRESHOLD) {
         document.body.classList.remove('nav-hidden');
-      } else if (diff > DELTA) {
-        document.body.classList.add('nav-hidden');
-      } else if (diff < -DELTA) {
-        document.body.classList.remove('nav-hidden');
+        accum = 0;
+      } else if (diff !== 0) {
+        if (Math.sign(diff) !== Math.sign(accum)) {
+          accum = diff;
+        } else {
+          accum += diff;
+        }
+        if (accum > TRIGGER) {
+          document.body.classList.add('nav-hidden');
+        } else if (accum < -TRIGGER) {
+          document.body.classList.remove('nav-hidden');
+        }
       }
 
       lastY = y;
