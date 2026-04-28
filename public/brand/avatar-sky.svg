@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <symbol id="mark" viewBox="0 0 24 24">
+      <g transform="rotate(30 12 12)">
+        <rect x="11" y="2" width="2" height="20" rx="1"/>
+        <rect x="11" y="2" width="2" height="20" rx="1" transform="rotate(60 12 12)"/>
+        <rect x="11" y="2" width="2" height="20" rx="1" transform="rotate(-60 12 12)"/>
+      </g>
+    </symbol>
+    <linearGradient id="skybg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bfe0f5"/>
+      <stop offset="55%" stop-color="#a7d2ee"/>
+      <stop offset="100%" stop-color="#8ec4e8"/>
+    </linearGradient>
+    <filter id="cloudblur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#skybg)"/>
+  <g filter="url(#cloudblur)" fill="#fdfbf5" opacity="0.65">
+    <ellipse cx="220" cy="780" rx="240" ry="55"/>
+    <ellipse cx="900" cy="220" rx="200" ry="48"/>
+    <ellipse cx="850" cy="850" rx="180" ry="42"/>
+  </g>
+  <g fill="#fdfbf5">
+    <use href="#mark" x="230" y="230" width="620" height="620"/>
+  </g>
+</svg>

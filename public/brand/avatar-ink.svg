@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <symbol id="mark" viewBox="0 0 24 24">
+      <g transform="rotate(30 12 12)">
+        <rect x="11" y="2" width="2" height="20" rx="1"/>
+        <rect x="11" y="2" width="2" height="20" rx="1" transform="rotate(60 12 12)"/>
+        <rect x="11" y="2" width="2" height="20" rx="1" transform="rotate(-60 12 12)"/>
+      </g>
+    </symbol>
+    <radialGradient id="inkglow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#2a3142" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#1a1f2b" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#inkglow)"/>
+  <g fill="#f6efde">
+    <use href="#mark" x="230" y="230" width="620" height="620"/>
+  </g>
+</svg>
