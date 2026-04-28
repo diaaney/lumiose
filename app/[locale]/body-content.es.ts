@@ -649,7 +649,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 <!-- ===================== FAQ ===================== -->
 <section class="home-faq" id="faq">
   <div class="home-faq-inner">
-    <span class="kicker">★ 04 · Preguntas frecuentes</span>
+    <span class="kicker">04 · Preguntas frecuentes</span>
     <h2 class="section-title">Lo que <em>preguntan</em><br/>antes de empezar.</h2>
     <div class="home-faq-list">
       <details class="home-faq-item">

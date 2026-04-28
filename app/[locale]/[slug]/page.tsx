@@ -308,7 +308,7 @@ export default async function SubpagePage({ params }: { params: Params }) {
         {page.faqs && page.faqs.length > 0 && (
           <section className="sp-faq">
             <div className="sp-faq-inner">
-              <p className="sp-eyebrow sp-eyebrow-dark">★ {page.faqHeading ?? 'FAQ'}</p>
+              <p className="sp-eyebrow sp-eyebrow-dark">{page.faqHeading ?? 'FAQ'}</p>
               <div className="sp-faq-list">
                 {page.faqs.map((f, i) => (
                   <details key={i} className="sp-faq-item">
