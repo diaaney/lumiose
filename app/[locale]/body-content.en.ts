@@ -673,8 +673,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <h2 class="section-title">Let's build <em>something</em><br/>worth shipping.</h2>
       <p class="lead">Tell us a little about your business and we'll get back within one working day. Free quote. No pressure. No sales tricks.</p>
       <div class="meta-list">
-        <div class="row"><span class="label">Email</span> <a href="mailto:hola@lumiose.studio">hola@lumiose.studio</a></div>
-        <div class="row"><span class="label">Phone</span> (619) 555-0148</div>
+        <div class="row"><span class="label">WhatsApp</span> <a href="https://wa.me/16195550148">(619) 555-0148</a></div>
         <div class="row"><span class="label">Studio</span> Calexico, CA, United States</div>
         <div class="row"><span class="label">Hours</span> Mon–Fri · 9–6 PT</div>
       </div>
@@ -696,7 +695,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
           <input type="email" name="email" placeholder="jane@bcc.com" required />
         </div>
         <div class="field">
-          <label>Phone</label>
+          <label>WhatsApp</label>
           <input type="tel" name="phone" placeholder="(619) 555-0128" />
         </div>
       </div>
@@ -718,6 +717,11 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <div class="submit-row">
         <span class="note mono">Replies within 1 business day</span>
         <button class="btn" type="submit">Send →</button>
+      </div>
+      <div class="cform-success" aria-hidden="true">
+        <p class="cform-success-eye"><span class="dot"></span>Message received</p>
+        <h3 class="cform-success-h">Your message <em>landed.</em></h3>
+        <p class="cform-success-body">We'll reply within 1 business day. A confirmation just landed in your inbox.</p>
       </div>
     </form>
   </div>

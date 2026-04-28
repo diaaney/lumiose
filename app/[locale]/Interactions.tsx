@@ -481,6 +481,7 @@ export default function Interactions({ studioCity }: { studioCity: string }) {
           });
           if (!res.ok) throw new Error(String(res.status));
           if (noteEl) noteEl.textContent = t.success;
+          cform.classList.add('sent');
           cform.reset();
         } catch {
           if (noteEl) noteEl.textContent = t.error;

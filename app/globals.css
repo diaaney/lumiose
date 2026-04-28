@@ -1531,6 +1531,69 @@
   .cform .submit-row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
   .cform .submit-row .note{font-size:12px;color:#6a7080}
 
+  /* ===== Contact form — success state ===== */
+  .cform{position:relative}
+  .cform > .row2,
+  .cform > .field,
+  .cform > .submit-row,
+  .cform > .hp{
+    transition:opacity 360ms cubic-bezier(0.32,0.72,0.30,1), transform 360ms cubic-bezier(0.32,0.72,0.30,1);
+  }
+  .cform.sent > .row2,
+  .cform.sent > .field,
+  .cform.sent > .submit-row,
+  .cform.sent > .hp{
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+  }
+  .cform-success{
+    position:absolute;inset:30px;
+    display:flex;flex-direction:column;justify-content:center;
+    opacity:0;pointer-events:none;
+    transition:opacity 460ms cubic-bezier(0.32,0.72,0.30,1) 220ms;
+  }
+  .cform.sent .cform-success{opacity:1;pointer-events:auto}
+  .cform-success > *{
+    opacity:0;transform:translateY(10px);
+    transition:opacity 420ms cubic-bezier(0.32,0.72,0.30,1), transform 480ms cubic-bezier(0.32,0.72,0.30,1);
+  }
+  .cform.sent .cform-success-eye{transition-delay:320ms}
+  .cform.sent .cform-success-h{transition-delay:420ms}
+  .cform.sent .cform-success-body{transition-delay:520ms}
+  .cform.sent .cform-success > *{opacity:1;transform:translateY(0)}
+  .cform-success-eye{
+    margin:0 0 18px;
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6a7080;
+  }
+  .cform-success-eye .dot{
+    display:inline-block;width:6px;height:6px;background:#d94f3a;border-radius:50%;
+    vertical-align:middle;margin-right:10px;
+  }
+  .cform.sent .cform-success-eye .dot{
+    animation:cform-dot-pulse 1400ms ease-out 900ms 2;
+  }
+  @keyframes cform-dot-pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.45)}
+  }
+  .cform-success-h{
+    margin:0 0 18px;
+    font-family:'Fraunces',Georgia,serif;font-weight:400;
+    font-size:clamp(28px,3.6vw,38px);line-height:1.05;letter-spacing:-0.02em;
+    color:#1a1f2b;
+  }
+  .cform-success-h em{font-style:italic;color:#3a414f}
+  .cform-success-body{
+    margin:0;font-size:16px;line-height:1.65;color:#3a414f;max-width:380px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cform > .row2,.cform > .field,.cform > .submit-row,.cform > .hp,
+    .cform-success,.cform-success > *,
+    .cform.sent .cform-success-eye .dot{
+      transition:none;animation:none;
+    }
+  }
+
   /* ============ Footer — inked paper, dark edition ============ */
   footer{
     position:relative;

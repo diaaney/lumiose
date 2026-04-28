@@ -57,15 +57,6 @@ function autoReplyHtml(locale: 'es' | 'en', name: string) {
         footerName: 'Lumiose Studio',
       };
 
-  // External SVG clouds hosted at lumiose.studio/email/.
-  // Loaded via <img> tag (Gmail/Apple Mail/Proton render external SVG; Outlook desktop falls back to alt text).
-  const ASSET_BASE = 'https://lumiose.studio/email';
-  const cloudImg = (file: string, w: number, h: number, op: number) =>
-    `<img src="${ASSET_BASE}/${file}" width="${w}" height="${h}" alt="" style="display:block;border:0;outline:none;text-decoration:none;opacity:${op};max-width:${w}px;" />`;
-  const cloud3 = (w: number, op: number) => cloudImg('cloud-3.svg', w, Math.round((w * 60) / 130), op);
-  const cloud2 = (w: number, op: number) => cloudImg('cloud-2.svg', w, Math.round((w * 40) / 100), op);
-  const cloud1 = (w: number, op: number) => cloudImg('cloud-1.svg', w, Math.round((w * 28) / 60), op);
-
   return `<!doctype html>
 <html lang="${c.lang}">
 <head>
@@ -79,33 +70,8 @@ function autoReplyHtml(locale: 'es' | 'en', name: string) {
   <div style="display:none;font-size:1px;color:#a7d2ee;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${c.preheader}</div>
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#a7d2ee;background:linear-gradient(180deg,#bfdcf3 0%,#a7d2ee 55%,#8ec4e8 100%);">
-    <tr><td align="center" style="padding:30px 16px 50px;">
+    <tr><td align="center" style="padding:80px 16px 90px;">
 
-      <!-- TOP CLOUDS — row 1 -->
-      <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;">
-        <tr>
-          <td align="left" valign="top" width="55%" style="padding:0 0 4px 8px;">
-            ${cloud3(150, 0.95)}
-          </td>
-          <td align="right" valign="top" width="45%" style="padding:14px 16px 4px 0;">
-            ${cloud1(54, 0.7)}
-          </td>
-        </tr>
-      </table>
-
-      <!-- TOP CLOUDS — row 2 -->
-      <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;">
-        <tr>
-          <td align="left" valign="top" width="38%" style="padding:0 0 18px 80px;">
-            ${cloud2(76, 0.78)}
-          </td>
-          <td align="right" valign="top" width="62%" style="padding:0 36px 18px 0;">
-            ${cloud3(100, 0.88)}
-          </td>
-        </tr>
-      </table>
-
-      <!-- CARD -->
       <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;background:#fffdf5;border-radius:24px;box-shadow:0 12px 28px rgba(26,31,43,0.10),0 2px 6px rgba(26,31,43,0.06);">
         <tr><td style="padding:44px 44px 40px;">
 
@@ -138,32 +104,10 @@ function autoReplyHtml(locale: 'es' | 'en', name: string) {
         </td></tr>
       </table>
 
-      <!-- BOTTOM CLOUDS — row 1 -->
       <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;">
         <tr>
-          <td align="left" valign="top" width="42%" style="padding:20px 0 0 32px;">
-            ${cloud2(80, 0.72)}
-          </td>
-          <td align="right" valign="top" width="58%" style="padding:26px 100px 0 0;">
-            ${cloud1(44, 0.6)}
-          </td>
-        </tr>
-      </table>
-
-      <!-- FOOTER LINK -->
-      <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;">
-        <tr>
-          <td align="center" style="padding:18px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12.5px;color:#26303f;letter-spacing:0.02em;">
+          <td align="center" style="padding:28px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12.5px;color:#26303f;letter-spacing:0.02em;">
             <a href="https://lumiose.studio" style="color:#26303f;text-decoration:none;opacity:0.85;">lumiose.studio</a>
-          </td>
-        </tr>
-      </table>
-
-      <!-- BOTTOM CLOUDS — row 2 (final big puff) -->
-      <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;">
-        <tr>
-          <td align="center" valign="top" style="padding:18px 0 0;">
-            ${cloud3(132, 0.7)}
           </td>
         </tr>
       </table>
@@ -208,7 +152,7 @@ export async function POST(req: Request) {
     `Name: ${name}`,
     business && `Business: ${business}`,
     `Email: ${email}`,
-    phone && `Phone: ${phone}`,
+    phone && `WhatsApp: ${phone}`,
     need && `Needs: ${need}`,
     `Locale: ${locale}`,
     '',
@@ -225,7 +169,7 @@ export async function POST(req: Request) {
         <tr><td style="padding:4px 16px 4px 0;color:#666">Nombre</td><td><strong>${escapeHtml(name)}</strong></td></tr>
         ${business ? `<tr><td style="padding:4px 16px 4px 0;color:#666">Negocio</td><td>${escapeHtml(business)}</td></tr>` : ''}
         <tr><td style="padding:4px 16px 4px 0;color:#666">Correo</td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
-        ${phone ? `<tr><td style="padding:4px 16px 4px 0;color:#666">Teléfono</td><td>${escapeHtml(phone)}</td></tr>` : ''}
+        ${phone ? `<tr><td style="padding:4px 16px 4px 0;color:#666">WhatsApp</td><td><a href="https://wa.me/${escapeHtml(phone.replace(/[^0-9]/g, ''))}">${escapeHtml(phone)}</a></td></tr>` : ''}
         ${need ? `<tr><td style="padding:4px 16px 4px 0;color:#666">Necesita</td><td>${escapeHtml(need)}</td></tr>` : ''}
         <tr><td style="padding:4px 16px 4px 0;color:#666">Idioma</td><td>${locale}</td></tr>
       </table>
@@ -262,6 +206,10 @@ export async function POST(req: Request) {
       subject: locale === 'es' ? 'Recibimos tu mensaje — Lumiose' : 'We got your message — Lumiose',
       text: autoReplyText(locale, name),
       html: autoReplyHtml(locale, name),
+      headers: {
+        'List-Unsubscribe': '<mailto:david.cintora@lumiose.studio?subject=unsubscribe>',
+        'Auto-Submitted': 'auto-replied',
+      },
     });
     if (reply.error) {
       console.error('[contact] auto-reply error:', reply.error);
