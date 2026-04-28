@@ -6,11 +6,16 @@ import { type Locale } from '@/lib/i18n/config';
 
 type Props = {
   currentLocale: Locale;
-  wasDetected: boolean;
   labels: { change: string; dismiss: string; message: string };
 };
 
 const DETECTED_FLAG_COOKIE = 'lumiose-detected';
+
+function readCookie(name: string): string | null {
+  if (typeof document === 'undefined') return null;
+  const match = document.cookie.split('; ').find((c) => c.startsWith(`${name}=`));
+  return match ? decodeURIComponent(match.slice(name.length + 1)) : null;
+}
 
 function clearCookie(name: string) {
   document.cookie = `${name}=; max-age=0; path=/; SameSite=Lax`;
@@ -19,7 +24,7 @@ function clearCookie(name: string) {
 const VISIBLE_MS = 3500;
 const FADE_MS = 320;
 
-export default function DetectionBanner({ wasDetected, labels }: Props) {
+export default function DetectionBanner({ labels }: Props) {
   const [mounted, setMounted] = useState(false);
   const [target, setTarget] = useState<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -28,7 +33,7 @@ export default function DetectionBanner({ wasDetected, labels }: Props) {
   useEffect(() => {
     setMounted(true);
     setTarget(document.getElementById('detection-banner-mount'));
-    if (!wasDetected) return;
+    if (readCookie(DETECTED_FLAG_COOKIE) !== '1') return;
     setVisible(true);
     const fadeT = setTimeout(() => setDismissing(true), VISIBLE_MS - FADE_MS);
     const hideT = setTimeout(() => {
@@ -39,7 +44,7 @@ export default function DetectionBanner({ wasDetected, labels }: Props) {
       clearTimeout(fadeT);
       clearTimeout(hideT);
     };
-  }, [wasDetected]);
+  }, []);
 
   if (!mounted || !target || !visible) return null;
 

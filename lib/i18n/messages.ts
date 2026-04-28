@@ -27,9 +27,9 @@ const en: Messages = {
     dismiss: 'Dismiss',
   },
   metadata: {
-    title: 'Lumiose · Web Development Studio',
+    title: 'Lumiose · Custom Web Development Studio · Calexico & Mexicali',
     description:
-      'Custom-coded, obsessively fast websites for small businesses that are done settling for "good enough."',
+      'Bilingual studio in Calexico and Mexicali hand-coding obsessively fast websites for small businesses. SEO-ready, free quote, response within one business day.',
   },
 };
 
@@ -44,9 +44,9 @@ const es: Messages = {
     dismiss: 'Cerrar',
   },
   metadata: {
-    title: 'Lumiose · Estudio de Desarrollo Web',
+    title: 'Lumiose · Estudio de Desarrollo Web · Mexicali y Calexico',
     description:
-      'Sitios web programados a mano, obsesivamente rápidos, para negocios pequeños que ya no se conforman con "más o menos".',
+      'Estudio bilingüe en Mexicali y Calexico que programa sitios web a mano, obsesivamente rápidos y optimizados para SEO. Cotización gratis, respuesta en 1 día hábil.',
   },
 };
 

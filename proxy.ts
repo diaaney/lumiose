@@ -17,7 +17,6 @@ function pathHasLocale(pathname: string): Locale | null {
 }
 
 function readCountry(req: NextRequest): string | null {
-  // Vercel geo header (preferred). Fallbacks for other hosts.
   return (
     req.headers.get('x-vercel-ip-country') ||
     req.headers.get('cf-ipcountry') ||
@@ -28,17 +27,9 @@ function readCountry(req: NextRequest): string | null {
 export function proxy(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
 
+  // Locale already in URL — pass through untouched so the response stays cacheable
+  // at the CDN. Country/detection state is read client-side from a separate hint.
   if (pathHasLocale(pathname)) {
-    const country = readCountry(req);
-    if (country && req.cookies.get(COUNTRY_COOKIE)?.value !== country) {
-      const res = NextResponse.next();
-      res.cookies.set(COUNTRY_COOKIE, country, {
-        maxAge: ONE_YEAR_SECONDS,
-        sameSite: 'lax',
-        path: '/',
-      });
-      return res;
-    }
     return NextResponse.next();
   }
 

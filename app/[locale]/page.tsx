@@ -1,4 +1,3 @@
-import { cookies } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { BODY_HTML as BODY_EN } from './body-content.en';
 import { BODY_HTML as BODY_ES } from './body-content.es';
@@ -16,13 +15,12 @@ const BODIES: Record<'en' | 'es', string> = {
   es: BODY_ES,
 };
 
+export const dynamic = 'force-static';
+
 export default async function Page({ params }: { params: Params }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const { lang, region } = parseLocale(locale as Locale);
-
-  const cookieStore = await cookies();
-  const wasDetected = cookieStore.get('lumiose-detected')?.value === '1';
 
   const prices = buildPriceSet(region);
   const body = injectPrices(BODIES[lang], prices);
@@ -41,7 +39,6 @@ export default async function Page({ params }: { params: Params }) {
       />
       <DetectionBanner
         currentLocale={locale as Locale}
-        wasDetected={wasDetected}
         labels={{
           change: messages.banner.change,
           dismiss: messages.banner.dismiss,
