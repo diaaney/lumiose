@@ -108,9 +108,23 @@ function buildJsonLd(locale: Locale, page: SubpageContent) {
               : undefined,
           };
 
+  const graph: unknown[] = [main, breadcrumb];
+
+  if (page.faqs && page.faqs.length > 0) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${url}#faq`,
+      mainEntity: page.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    });
+  }
+
   return {
     '@context': 'https://schema.org',
-    '@graph': [main, breadcrumb],
+    '@graph': graph,
   };
 }
 
@@ -290,6 +304,24 @@ export default async function SubpagePage({ params }: { params: Params }) {
             </div>
           </section>
         ))}
+
+        {page.faqs && page.faqs.length > 0 && (
+          <section className="sp-faq">
+            <div className="sp-faq-inner">
+              <p className="sp-eyebrow sp-eyebrow-dark">{page.faqHeading ?? 'FAQ'}</p>
+              <div className="sp-faq-list">
+                {page.faqs.map((f, i) => (
+                  <details key={i} className="sp-faq-item">
+                    <summary className="sp-faq-q">
+                      <span>{f.q}</span>
+                    </summary>
+                    <div className="sp-faq-a">{f.a}</div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {page.relatedSlugs && page.relatedSlugs.length > 0 && (
           <section className="sp-related">

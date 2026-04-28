@@ -53,11 +53,11 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
                 <span class="flyout-eyebrow">cinco servicios</span>
               </div>
               <div class="fly-services-list">
-                <a class="fly-svc" href="#services"><span class="n">i.</span><span class="nm">Desarrollo <em>web</em></span><span class="arr">→</span></a>
-                <a class="fly-svc" href="#services"><span class="n">ii.</span><span class="nm">SEO &amp; <em>GEO</em></span><span class="arr">→</span></a>
-                <a class="fly-svc" href="#services"><span class="n">iii.</span><span class="nm">Google <em>Ads</em></span><span class="arr">→</span></a>
-                <a class="fly-svc" href="#services"><span class="n">iv.</span><span class="nm">Gestión de <em>dominio</em></span><span class="arr">→</span></a>
-                <a class="fly-svc" href="#services"><span class="n">v.</span><span class="nm">Google <em>Business</em></span><span class="arr">→</span></a>
+                <a class="fly-svc" href="/es-mx/diseno-web"><span class="n">i.</span><span class="nm">Diseño <em>web</em></span><span class="arr">→</span></a>
+                <a class="fly-svc" href="/es-mx/seo"><span class="n">ii.</span><span class="nm">SEO &amp; <em>GEO</em></span><span class="arr">→</span></a>
+                <a class="fly-svc" href="/es-mx/publicidad-digital"><span class="n">iii.</span><span class="nm">Publicidad <em>digital</em></span><span class="arr">→</span></a>
+                <a class="fly-svc" href="/es-mx/infraestructura"><span class="n">iv.</span><span class="nm">Infraestructura</span><span class="arr">→</span></a>
+                <a class="fly-svc" href="/es-mx/consultoria"><span class="n">v.</span><span class="nm">Consultoría</span><span class="arr">→</span></a>
               </div>
               <a class="flyout-cta" href="#services">Ver el índice completo<span class="arr">↗</span></a>
             </div>
@@ -646,6 +646,40 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   </p>
 </section>
 
+<!-- ===================== FAQ ===================== -->
+<section class="home-faq" id="faq">
+  <div class="home-faq-inner">
+    <span class="kicker">04 · Preguntas frecuentes</span>
+    <h2 class="section-title">Lo que <em>preguntan</em><br/>antes de empezar.</h2>
+    <div class="home-faq-list">
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>¿Cuánto cuesta un sitio web con Lumiose?</span></summary>
+        <div class="home-faq-a">Tres rangos: Corner Shop desde $15,000 MXN / $900 USD para sitios pequeños, Main Street $40,000–$60,000 MXN / $2,500–$4,000 USD para builds completos, y Enterprise para operaciones más grandes. Cotización exacta gratis en 1 día hábil.</div>
+      </details>
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>¿Cuánto tarda construir mi sitio?</span></summary>
+        <div class="home-faq-a">Entre 2 y 6 semanas según el plan. Corner Shop: 2–3 semanas. Main Street (con CMS, blog, integraciones): 4–6 semanas. Te damos fecha exacta en la cotización.</div>
+      </details>
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>¿Trabajan en español e inglés?</span></summary>
+        <div class="home-faq-a">Sí. Somos un estudio bilingüe en la frontera Mexicali–Calexico. Construimos sitios en español, en inglés, o bilingües con SEO localizado en ambos idiomas. Cada idioma se escribe con voz propia, no con Google Translate.</div>
+      </details>
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>¿Necesito pagar mantenimiento mensual?</span></summary>
+        <div class="home-faq-a">No es obligatorio. Te entregamos el sitio funcionando sin lock-in. Si quieres mantenimiento, ofrecemos retainer desde $2,000 MXN / $120 USD al mes con monitoreo, backups y horas de cambios incluidas.</div>
+      </details>
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>¿Puedo editar el sitio yo mismo?</span></summary>
+        <div class="home-faq-a">Sí. Conectamos un CMS sencillo (Sanity / Notion) donde editas texto, imágenes y precios sin tocar código. Para cambios estructurales nos escribes y te cobramos por hora o por proyecto chico.</div>
+      </details>
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>¿Atienden negocios fuera de Mexicali y Calexico?</span></summary>
+        <div class="home-faq-a">Sí. Aunque nuestra especialidad es el corredor fronterizo, trabajamos remoto con clientes en cualquier lado de México y Estados Unidos. Hemos hecho proyectos para San Diego, Tijuana, CDMX y el Valle Imperial.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== CONTACT ===================== -->
 <section class="contact" id="contact">
   <!-- Clouds -->
@@ -735,11 +769,11 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <div>
       <h5>Servicios</h5>
       <ul>
-        <li><a href="#services">Desarrollo web</a></li>
-        <li><a href="#services">SEO y GEO</a></li>
-        <li><a href="#services">Google Ads</a></li>
-        <li><a href="#services">Gestión de dominio</a></li>
-        <li><a href="#services">Google Business</a></li>
+        <li><a href="/es-mx/diseno-web">Diseño web</a></li>
+        <li><a href="/es-mx/seo">SEO y GEO</a></li>
+        <li><a href="/es-mx/publicidad-digital">Publicidad digital</a></li>
+        <li><a href="/es-mx/infraestructura">Infraestructura</a></li>
+        <li><a href="/es-mx/consultoria">Consultoría</a></li>
       </ul>
     </div>
     <div>
@@ -747,8 +781,10 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <ul>
         <li><a href="#work">Trabajo reciente</a></li>
         <li><a href="#pricing">Precios</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
         <li><a href="#contact">Contacto</a></li>
-        <li><a href="#contact">Trabaja con nosotros</a></li>
+        <li><a href="/es-mx/mexicali">Mexicali</a></li>
+        <li><a href="/es-mx/calexico">Calexico</a></li>
       </ul>
     </div>
     <div>

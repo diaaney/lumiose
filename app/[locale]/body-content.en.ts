@@ -55,11 +55,11 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
                 <span class="flyout-eyebrow">five services</span>
               </div>
               <div class="fly-services-list">
-                <a class="fly-svc" href="#services"><span class="n">i.</span><span class="nm"><em>Web</em> development</span><span class="arr">→</span></a>
-                <a class="fly-svc" href="#services"><span class="n">ii.</span><span class="nm">SEO &amp; <em>GEO</em></span><span class="arr">→</span></a>
-                <a class="fly-svc" href="#services"><span class="n">iii.</span><span class="nm">Google <em>Ads</em></span><span class="arr">→</span></a>
-                <a class="fly-svc" href="#services"><span class="n">iv.</span><span class="nm">Domain <em>management</em></span><span class="arr">→</span></a>
-                <a class="fly-svc" href="#services"><span class="n">v.</span><span class="nm">Google <em>Business</em></span><span class="arr">→</span></a>
+                <a class="fly-svc" href="/en-us/web-design"><span class="n">i.</span><span class="nm"><em>Web</em> design</span><span class="arr">→</span></a>
+                <a class="fly-svc" href="/en-us/seo"><span class="n">ii.</span><span class="nm">SEO &amp; <em>GEO</em></span><span class="arr">→</span></a>
+                <a class="fly-svc" href="/en-us/digital-ads"><span class="n">iii.</span><span class="nm">Digital <em>ads</em></span><span class="arr">→</span></a>
+                <a class="fly-svc" href="/en-us/infrastructure"><span class="n">iv.</span><span class="nm">Infrastructure</span><span class="arr">→</span></a>
+                <a class="fly-svc" href="/en-us/consulting"><span class="n">v.</span><span class="nm">Consulting</span><span class="arr">→</span></a>
               </div>
               <a class="flyout-cta" href="#services">See the full index<span class="arr">↗</span></a>
             </div>
@@ -648,6 +648,40 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   </p>
 </section>
 
+<!-- ===================== FAQ ===================== -->
+<section class="home-faq" id="faq">
+  <div class="home-faq-inner">
+    <span class="kicker">04 · Frequently asked</span>
+    <h2 class="section-title">What people <em>ask</em><br/>before starting.</h2>
+    <div class="home-faq-list">
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>How much does a Lumiose website cost?</span></summary>
+        <div class="home-faq-a">Three tiers: Corner Shop from $900 USD / $15,000 MXN for small sites, Main Street $2,500–$4,000 USD / $40,000–$60,000 MXN for full builds, and Enterprise for larger operations. Free exact quote within one business day.</div>
+      </details>
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>How long does it take to build my site?</span></summary>
+        <div class="home-faq-a">2–6 weeks depending on scope. Corner Shop: 2–3 weeks. Main Street (with CMS, blog, integrations): 4–6 weeks. Exact timeline in your quote.</div>
+      </details>
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>Do you work in both English and Spanish?</span></summary>
+        <div class="home-faq-a">Yes. We are a bilingual studio on the Mexicali–Calexico border. We build in English, Spanish, or bilingual with localized SEO in both languages. Each language gets its own voice — never Google Translate.</div>
+      </details>
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>Do I have to pay monthly maintenance?</span></summary>
+        <div class="home-faq-a">Not required. You get the site working with zero lock-in. If you want maintenance, we offer a retainer from $120 USD / $2,000 MXN per month with monitoring, backups, and included change hours.</div>
+      </details>
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>Can I edit the site myself?</span></summary>
+        <div class="home-faq-a">Yes. We connect a simple CMS (Sanity / Notion) where you edit text, images, and prices without touching code. For structural changes, message us — billed hourly or as a small project.</div>
+      </details>
+      <details class="home-faq-item">
+        <summary class="home-faq-q"><span>Do you serve businesses outside Mexicali and Calexico?</span></summary>
+        <div class="home-faq-a">Yes. While our specialty is the border corridor, we work remote with clients across Mexico and the US. We have shipped projects for San Diego, Tijuana, Mexico City, and Imperial Valley businesses.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== CONTACT ===================== -->
 <section class="contact" id="contact">
   <!-- Clouds -->
@@ -737,11 +771,11 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <div>
       <h5>Services</h5>
       <ul>
-        <li><a href="#services">Web development</a></li>
-        <li><a href="#services">SEO &amp; GEO</a></li>
-        <li><a href="#services">Google Ads</a></li>
-        <li><a href="#services">Domain management</a></li>
-        <li><a href="#services">Google Business</a></li>
+        <li><a href="/en-us/web-design">Web design</a></li>
+        <li><a href="/en-us/seo">SEO &amp; GEO</a></li>
+        <li><a href="/en-us/digital-ads">Digital ads</a></li>
+        <li><a href="/en-us/infrastructure">Infrastructure</a></li>
+        <li><a href="/en-us/consulting">Consulting</a></li>
       </ul>
     </div>
     <div>
@@ -749,8 +783,10 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <ul>
         <li><a href="#work">Recent work</a></li>
         <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">Frequently asked</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#contact">Careers</a></li>
+        <li><a href="/en-us/mexicali">Mexicali</a></li>
+        <li><a href="/en-us/calexico">Calexico</a></li>
       </ul>
     </div>
     <div>
