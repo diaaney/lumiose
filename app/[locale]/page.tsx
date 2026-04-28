@@ -4,6 +4,7 @@ import { BODY_HTML as BODY_ES } from './body-content.es';
 import Interactions from './Interactions';
 import LocaleSwitcher from '@/components/LocaleSwitcher';
 import DetectionBanner from '@/components/DetectionBanner';
+import NavScrollHide from '@/components/NavScrollHide';
 import { LOCALE_LABELS, isLocale, parseLocale, type Locale } from '@/lib/i18n/config';
 import { getMessages } from '@/lib/i18n/messages';
 import { buildPriceSet, injectPrices } from '@/lib/pricing/prices';
@@ -46,6 +47,7 @@ export default async function Page({ params }: { params: Params }) {
         }}
       />
       <Interactions studioCity={studioCity} />
+      <NavScrollHide />
     </>
   );
 }

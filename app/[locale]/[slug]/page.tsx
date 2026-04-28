@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { LOCALES, isLocale, parseLocale, type Locale } from '@/lib/i18n/config';
 import { getSubpage, listAllSubpages, type SubpageContent } from '@/lib/pages/subpages';
+import NavScrollHide from '@/components/NavScrollHide';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://lumiose.studio';
 
@@ -408,6 +409,7 @@ export default async function SubpagePage({ params }: { params: Params }) {
           <span>{t.footerSign}</span>
         </div>
       </footer>
+      <NavScrollHide />
     </>
   );
 }
