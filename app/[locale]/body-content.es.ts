@@ -658,7 +658,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
           <span class="home-faq-text">¿Cuánto cuesta un sitio web con Lumiose?</span>
           <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
         </summary>
-        <div class="home-faq-a">Tres rangos: Corner Shop desde $15,000 MXN / $900 USD para sitios pequeños, Main Street $40,000–$60,000 MXN / $2,500–$4,000 USD para builds completos, y Enterprise para operaciones más grandes. Cotización exacta gratis en 1 día hábil.</div>
+        <div class="home-faq-a">Tres planes: Corner Shop $5,999 MXN + $499/mes (sitio vitrina, 1 semana). Main Street $14,999 MXN + $1,199/mes (12 páginas con CMS, reservas, integraciones). Enterprise desde $34,999 MXN + $2,999/mes (multi-ubicación, e-commerce, integraciones custom). Setup se factura 50% al inicio y 50% al lanzar.</div>
       </details>
       <details class="home-faq-item">
         <summary class="home-faq-q">
@@ -666,7 +666,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
           <span class="home-faq-text">¿Cuánto tarda construir mi sitio?</span>
           <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
         </summary>
-        <div class="home-faq-a">Entre 2 y 6 semanas según el plan. Corner Shop: 2–3 semanas. Main Street (con CMS, blog, integraciones): 4–6 semanas. Te damos fecha exacta en la cotización.</div>
+        <div class="home-faq-a">Corner Shop lanza en 1 semana. Main Street en 2 semanas con 2 rondas de revisiones. Enterprise entre 4 y 6 semanas. La fecha exacta queda confirmada en la cotización.</div>
       </details>
       <details class="home-faq-item">
         <summary class="home-faq-q">
@@ -682,7 +682,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
           <span class="home-faq-text">¿Necesito pagar mantenimiento mensual?</span>
           <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
         </summary>
-        <div class="home-faq-a">No es obligatorio. Te entregamos el sitio funcionando sin lock-in. Si quieres mantenimiento, ofrecemos retainer desde $2,000 MXN / $120 USD al mes con monitoreo, backups y horas de cambios incluidas.</div>
+        <div class="home-faq-a">La mensualidad de cada plan ya incluye hosting, cuidado y actualizaciones — desde $499 MXN al mes con Corner Shop. Si solo quieres mantenimiento sobre un sitio existente, ofrecemos retainer desde $499 MXN al mes. Cancelas cuando quieras, sin lock-in.</div>
       </details>
       <details class="home-faq-item">
         <summary class="home-faq-q">
@@ -690,7 +690,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
           <span class="home-faq-text">¿Puedo editar el sitio yo mismo?</span>
           <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
         </summary>
-        <div class="home-faq-a">Sí. Conectamos un CMS sencillo (Sanity / Notion) donde editas texto, imágenes y precios sin tocar código. Para cambios estructurales nos escribes y te cobramos por hora o por proyecto chico.</div>
+        <div class="home-faq-a">Sí. Construimos un panel custom hecho a la medida de tu sitio donde editas textos, imágenes, precios o productos sin tocar código. Para cambios estructurales nos escribes y los hacemos por hora o como proyecto chico.</div>
       </details>
       <details class="home-faq-item">
         <summary class="home-faq-q">

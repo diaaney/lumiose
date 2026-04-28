@@ -717,7 +717,7 @@ type FaqMap = Record<string, Array<{ q: string; a: string }>>;
 
 const FAQS_ES: FaqMap = {
   mexicali: [
-    { q: '¿Cuánto cuesta un sitio web en Mexicali?', a: 'Manejamos tres rangos: el plan Corner Shop arranca alrededor de $15,000 MXN, el build completo Main Street va entre $40,000 y $60,000 MXN, y Enterprise para operaciones más grandes pasa de $80,000 MXN. Te enviamos cotización exacta gratis en 1 día hábil.' },
+    { q: '¿Cuánto cuesta un sitio web en Mexicali?', a: 'Tres planes: Corner Shop $5,999 MXN + $499/mes (sitio vitrina, 1 semana). Main Street $14,999 MXN + $1,199/mes (12 páginas con CMS, integraciones). Enterprise desde $34,999 MXN + $2,999/mes (multi-ubicación, e-commerce). Cotización gratis en 1 día hábil.' },
     { q: '¿Atienden presencialmente o todo es remoto?', a: 'Trabajamos 100% remoto y eso nos permite cobrar menos. Coordinamos por WhatsApp, correo y video llamadas. Si tu proyecto lo justifica, agendamos un café en Mexicali centro o El Centenario.' },
     { q: '¿Aceptan pagos en pesos mexicanos?', a: 'Sí. Facturamos con CFDI en MXN para negocios mexicanos. Si vendes a ambos lados de la frontera, dejamos el sitio listo para cobrar en MXN y USD.' },
     { q: '¿Trabajan con negocios chicos o solo con empresas grandes?', a: 'La mayoría de nuestros clientes son negocios chicos de Mexicali y Calexico — restaurantes, despachos, inmobiliarias. El plan Corner Shop se diseñó precisamente para arrancar barato sin que el sitio se vea barato.' },
@@ -725,14 +725,14 @@ const FAQS_ES: FaqMap = {
   calexico: [
     { q: '¿Atienden a clientes en Calexico desde Mexicali?', a: 'Sí. Muchos de nuestros clientes operan en ambos lados de la frontera. Coordinamos remoto por WhatsApp y video llamadas, y si tu negocio está en el Valle Imperial te apoyamos con SEO local en inglés.' },
     { q: '¿Manejan facturación en USD para negocios en California?', a: 'Sí, facturamos en USD para clientes con negocio registrado en Estados Unidos. Si tu negocio opera en ambos lados, podemos dividir la facturación entre tu entidad MX y US.' },
-    { q: '¿Cuánto tarda un sitio web bilingüe?', a: 'Entre 3 y 6 semanas según el plan. Corner Shop sale en 2–3 semanas, Main Street en 4–6 semanas. Empezamos por el copy en inglés y español al mismo tiempo, no como traducción al final.' },
+    { q: '¿Cuánto tarda un sitio web bilingüe?', a: 'Corner Shop sale en 1 semana. Main Street en 2 semanas con 2 rondas de revisiones. Enterprise entre 4 y 6 semanas. Empezamos por el copy en inglés y español al mismo tiempo, no como traducción al final.' },
     { q: '¿Funciona su SEO en inglés y español al mismo tiempo?', a: 'Sí. Configuramos hreflang correcto, sitemap por idioma y schema localizado para que rankees en ambos mercados. Cada idioma se escribe con voz propia, no con Google Translate.' },
   ],
   'diseno-web': [
-    { q: '¿Qué incluye un sitio web hecho por Lumiose?', a: 'Diseño a medida, código a mano (sin templates de Wix), copy en español e inglés si lo necesitas, SEO técnico (sitemap, schema, Open Graph), hosting en CDN edge, y un panel para que edites contenido sin tocar código.' },
-    { q: '¿Cuánto tarda construir mi sitio?', a: 'Entre 2 y 6 semanas según el alcance. Corner Shop: 2–3 semanas. Main Street (incluye blog, e-commerce básico, integraciones): 4–6 semanas. Te damos fecha exacta en la cotización.' },
-    { q: '¿Usan WordPress o algo así?', a: 'No. Programamos a mano con Next.js y React. Por mucho más rápido que WordPress y no necesita actualizaciones de seguridad cada semana. Si necesitas un CMS, lo conectamos a Sanity o Notion.' },
-    { q: '¿Puedo editar el sitio yo mismo después?', a: 'Sí. Conectamos un panel sencillo (Sanity / Notion) donde puedes cambiar texto, imágenes y precios sin tocar código. Para cambios estructurales nos escribes y te cobramos por hora o por proyecto chico.' },
+    { q: '¿Qué incluye un sitio web hecho por Lumiose?', a: 'Diseño a medida, código a mano (sin templates de Wix), copy en español e inglés si lo necesitas, SEO técnico (sitemap, schema, Open Graph), hosting en CDN edge, y un panel custom hecho a la medida de tu sitio para que edites contenido sin tocar código.' },
+    { q: '¿Cuánto tarda construir mi sitio?', a: 'Corner Shop: 1 semana. Main Street: 2 semanas con 2 rondas de revisiones. Enterprise: 4–6 semanas. Te damos fecha exacta en la cotización.' },
+    { q: '¿Usan WordPress o algo así?', a: 'No. Programamos a mano con Next.js y React. Por mucho más rápido que WordPress y no necesita actualizaciones de seguridad cada semana. El panel para editar contenido lo construimos nosotros — custom para tu negocio.' },
+    { q: '¿Puedo editar el sitio yo mismo después?', a: 'Sí. Construimos un panel custom hecho a la medida del sitio donde editas textos, imágenes, precios o productos sin tocar código. Para cambios estructurales nos escribes y los hacemos por hora o como proyecto chico.' },
   ],
   seo: [
     { q: '¿Cuánto tarda en verse resultados de SEO?', a: 'Entre 3 y 6 meses para ver primeros resultados, 6–12 meses para resultados sostenidos. SEO no es publicidad pagada — es inversión de mediano plazo. Si necesitas tráfico ya, combínalo con Google Ads.' },
@@ -742,25 +742,25 @@ const FAQS_ES: FaqMap = {
   ],
   'publicidad-digital': [
     { q: '¿Manejan ustedes el presupuesto de publicidad?', a: 'Sí. Configuramos las campañas, optimizamos diariamente y reportamos cada semana. El presupuesto va directo de tu tarjeta a Google/Meta — nosotros nunca tocamos el dinero.' },
-    { q: '¿Cuánto debo invertir en Google Ads o Meta Ads?', a: 'Mínimo $4,000 MXN / $200 USD al mes para que el algoritmo tenga datos suficientes. Recomendamos arrancar con $10,000–$20,000 MXN / $500–$1,000 USD para un negocio local que busca leads.' },
+    { q: '¿Cuánto debo invertir en Google Ads o Meta Ads?', a: 'Mínimo $4,000 MXN / $200 USD al mes en gasto publicitario para que el algoritmo tenga datos suficientes. Recomendamos arrancar con $10,000–$20,000 MXN / $500–$1,000 USD al mes para un negocio local que busca leads.' },
     { q: '¿Solo Google Ads o también Meta (Facebook/Instagram)?', a: 'Ambos. Google funciona mejor para captar a quien YA está buscando ("abogado Mexicali"), Meta funciona mejor para descubrimiento ("dueños de restaurantes en Mexicali"). En la mayoría de casos hace falta una combinación.' },
-    { q: '¿Cuál es el costo del servicio de gestión de Ads?', a: 'Cobramos un fee fijo mensual desde $4,000 MXN / $250 USD. Sin porcentajes raros del gasto publicitario. Si crece tu inversión, no crece nuestro fee — a menos que crezca el alcance del trabajo.' },
+    { q: '¿Cuál es el costo del servicio de gestión de Ads?', a: 'Fee fijo mensual desde $4,999 MXN / $299 USD. Sin porcentajes del gasto publicitario. Si crece tu inversión, no crece nuestro fee — a menos que crezca el alcance del trabajo.' },
   ],
   infraestructura: [
     { q: '¿Quién hostea el sitio que me hagan?', a: 'Por defecto Vercel: hosting global con CDN edge, sub-segundo de carga, sin downtime. Pagas tú directo a Vercel (~$20 USD/mes para sitios chicos). Si prefieres otro hosting, lo configuramos.' },
     { q: '¿Manejan el dominio y los correos del negocio?', a: 'Sí. Te ayudamos a comprar el dominio (te queda a tu nombre) y a configurar correos profesionales con Google Workspace o iCloud Custom Domain. Cero plataformas raras tipo Zoho gratis.' },
     { q: '¿Qué pasa si quiero migrar a otro estudio después?', a: 'Te entregamos todo: código en tu GitHub, dominio a tu nombre, hosting a tu cuenta. Sin lock-in, sin "templates propietarios". Cualquier dev de Next.js puede continuar.' },
-    { q: '¿Hacen mantenimiento del sitio una vez entregado?', a: 'Sí, opcionalmente. Plan retainer desde $2,000 MXN / $120 USD al mes incluye monitoreo de uptime, actualizaciones de seguridad, backups y 1 hora de cambios menores. También cobramos por hora ($800 MXN / $50 USD) sin retainer.' },
+    { q: '¿Hacen mantenimiento del sitio una vez entregado?', a: 'Sí. La mensualidad de cada plan ya incluye hosting, cuidado y actualizaciones — desde $499 MXN / $39 USD al mes con Corner Shop. Si solo quieres mantenimiento sobre un sitio existente, ofrecemos retainer desde $499 MXN / $39 USD al mes. También cobramos por hora sin retainer.' },
   ],
   consultoria: [
     { q: '¿Qué tipo de consultoría ofrecen?', a: 'Auditorías de sitios existentes (qué arreglar, qué priorizar), estrategia de SEO/Ads para 6–12 meses, revisión de stack técnico, y consultoría de marca para nuevos lanzamientos. Sesiones de 1 hora a engagements de varias semanas.' },
-    { q: '¿Cuánto cuesta una consultoría?', a: 'Sesión única de 1 hora con reporte: $2,400 MXN / $150 USD. Auditoría completa de sitio (10 páginas + reporte de 20+ páginas + plan): $12,000 MXN / $750 USD. Engagement mensual desde $20,000 MXN / $1,200 USD.' },
+    { q: '¿Cuánto cuesta una consultoría?', a: 'Sesión de 1 hora con reporte: desde $2,400 MXN / $150 USD. Auditoría completa de sitio (10+ páginas, reporte y plan): desde $12,000 MXN / $750 USD. Engagement mensual a partir de $20,000 MXN / $1,200 USD según alcance.' },
     { q: '¿Dan consultoría sin construir el sitio?', a: 'Sí. Muchos clientes nos contratan solo para revisar lo que ya tienen, escribir el brief para otro estudio, o tomar decisiones técnicas (¿WordPress o Webflow? ¿necesito CMS?). No es requisito que después construyamos.' },
   ],
   restaurantes: [
-    { q: '¿Manejan menús digitales?', a: 'Sí. Construimos menús editables (cambias precios y platillos sin tocar código), QR para mesa, y versión bilingüe para clientela cross-border. Optimizado para mobile primero.' },
+    { q: '¿Manejan menús digitales?', a: 'Sí. Construimos menús editables desde un panel custom (cambias precios y platillos sin tocar código), QR para mesa, y versión bilingüe para clientela cross-border. Optimizado para mobile primero.' },
     { q: '¿Integran reservas o pedidos online?', a: 'Sí. Conectamos OpenTable, Resy o un sistema más simple si prefieres no pagar mensualidad. Para pedidos online integramos Stripe, Mercado Pago, o un WhatsApp directo a la cocina.' },
-    { q: '¿Cuánto cuesta un sitio para un restaurante?', a: 'Plan Corner Shop con menú + reservas: desde $20,000 MXN. Plan Main Street con pedidos online y multi-sucursal: $50,000–$80,000 MXN. Cotización exacta en 1 día hábil.' },
+    { q: '¿Cuánto cuesta un sitio para un restaurante?', a: 'Corner Shop $5,999 MXN + $499/mes para una sola sucursal con menú simple. Main Street $14,999 MXN + $1,199/mes con CMS, reservas y pedidos online. Enterprise desde $34,999 MXN + $2,999/mes para multi-sucursal con POS integrado. Cotización exacta en 1 día hábil.' },
   ],
   abogados: [
     { q: '¿Trabajan con despachos chicos o solo con firmas grandes?', a: 'Sobre todo con despachos chicos y abogados solos: 1–10 personas. Es donde más impacto tiene un sitio bien hecho — sin presupuesto de marketing tradicional, el SEO local y un sitio profesional son lo que mueve la aguja.' },
@@ -768,30 +768,30 @@ const FAQS_ES: FaqMap = {
     { q: '¿Tienen experiencia con sitios bilingües de inmigración?', a: 'Sí. Hemos trabajado con abogados de inmigración del corredor Mexicali–Calexico. Sitios en inglés y español con SEO en ambos idiomas, formularios de consulta inicial, y schema LegalService para Google.' },
   ],
   inmobiliarias: [
-    { q: '¿Integran listings o IDX en el sitio?', a: 'Sí para California (MLS). Para México, donde no hay MLS estándar, construimos un CMS para que subas tus propiedades manualmente. Filtros, mapas, fotos, tours virtuales.' },
+    { q: '¿Integran listings o IDX en el sitio?', a: 'Sí para California (MLS). Para México, donde no hay MLS estándar, construimos un panel custom para que subas tus propiedades manualmente. Filtros, mapas, fotos, tours virtuales.' },
     { q: '¿Pueden mostrar precios en USD y MXN?', a: 'Sí. Si vendes propiedades en ambos países, mostramos precio en moneda local con conversión actualizada. También dividimos las búsquedas por mercado.' },
-    { q: '¿Cuánto cuesta un sitio para una inmobiliaria?', a: 'Plan Main Street con CMS de propiedades, mapas y filtros: $60,000–$90,000 MXN. Si necesitas integración MLS / IDX, sumamos $15,000–$30,000 MXN según el provider. Cotización exacta en 1 día hábil.' },
+    { q: '¿Cuánto cuesta un sitio para una inmobiliaria?', a: 'Main Street $14,999 MXN + $1,199/mes con panel de propiedades, mapas y filtros. Si necesitas integración MLS / IDX o multi-mercado, vamos por Enterprise desde $34,999 MXN + $2,999/mes. Cotización exacta en 1 día hábil.' },
   ],
 };
 
 const FAQS_EN: FaqMap = {
   mexicali: [
     { q: 'Do you serve Mexicali clients in English?', a: 'Yes. Half of our work is in English — clients from Imperial Valley, San Diego, and US-based businesses with operations in Baja California. Same studio, both languages, same quality.' },
-    { q: 'How much does a website cost for a Mexicali business?', a: 'Three tiers: Corner Shop starts around $900 USD, Main Street build $2,500–$4,000 USD, Enterprise above $5,000 USD. Free quote within one business day, no pressure.' },
+    { q: 'How much does a website cost for a Mexicali business?', a: 'Three plans: Corner Shop $1,800 USD + $59/mo (showcase site, 1 week). Main Street $4,500 USD + $129/mo (12 pages with CMS, integrations). Enterprise from $9,500 USD + $299/mo (multi-location, e-commerce). Free quote within one business day.' },
     { q: 'Can you handle billing in USD?', a: 'Yes. We invoice in USD for US-based clients and in MXN for Mexico-based businesses. If your business operates on both sides, we can split billing across both entities.' },
     { q: 'Do you offer in-person meetings?', a: 'We work 100% remote, which lets us keep prices low. Communication is over WhatsApp, email, and video calls. If your project warrants it, we can meet in Mexicali or Calexico.' },
   ],
   calexico: [
     { q: 'Do you work with Calexico businesses?', a: 'Yes. Many of our clients operate in the Imperial Valley — Calexico, El Centro, Brawley. We coordinate fully remote and your site is optimized for local SEO in both English and Spanish.' },
-    { q: 'How much does a bilingual website cost?', a: 'Corner Shop starts at $900 USD with a fully bilingual site. Main Street at $2,500–$4,000 USD adds CMS, blog, e-commerce basics. We invoice in USD for US-based businesses.' },
-    { q: 'How long does a bilingual website take?', a: '3–6 weeks depending on scope. Corner Shop: 2–3 weeks. Main Street: 4–6 weeks. We write English and Spanish copy in parallel — not as an afterthought translation.' },
+    { q: 'How much does a bilingual website cost?', a: 'Corner Shop $1,800 USD + $59/mo for a fully bilingual showcase site. Main Street $4,500 USD + $129/mo adds CMS, integrations, and reservations. Enterprise from $9,500 USD + $299/mo for multi-location or e-commerce. We invoice in USD for US-based businesses.' },
+    { q: 'How long does a bilingual website take?', a: 'Corner Shop launches in 1 week. Main Street in 2 weeks with 2 review rounds. Enterprise in 4–6 weeks. We write English and Spanish copy in parallel — never an afterthought translation.' },
     { q: 'Do you handle SEO in both English and Spanish?', a: 'Yes. Correct hreflang setup, per-language sitemaps, localized schema. Both languages get their own voice, never a Google Translate copy. We track rankings in both markets.' },
   ],
   'web-design': [
-    { q: 'What does a Lumiose website include?', a: 'Custom design, hand-coded (no Wix templates), bilingual copy if needed, technical SEO (sitemap, schema, Open Graph), edge-deployed hosting, and a CMS so you can edit content without touching code.' },
-    { q: 'How long does it take to build my site?', a: '2–6 weeks depending on scope. Corner Shop: 2–3 weeks. Main Street (blog, basic e-commerce, integrations): 4–6 weeks. Exact timeline in your quote.' },
-    { q: 'Do you use WordPress?', a: 'No. We build with Next.js and React. Faster than WordPress, no weekly security patches, smaller attack surface. If you need a CMS for content edits, we connect Sanity or Notion.' },
-    { q: 'Can I edit the site myself afterward?', a: 'Yes. We hook up a simple CMS (Sanity / Notion) where you change text, images, and prices without code. For structural changes, you message us — billed by the hour or as a small project.' },
+    { q: 'What does a Lumiose website include?', a: 'Custom design, hand-coded (no Wix templates), bilingual copy if needed, technical SEO (sitemap, schema, Open Graph), edge-deployed hosting, and a custom admin panel built for your site so you can edit content without touching code.' },
+    { q: 'How long does it take to build my site?', a: 'Corner Shop: 1 week. Main Street: 2 weeks with 2 review rounds. Enterprise: 4–6 weeks. Exact timeline in your quote.' },
+    { q: 'Do you use WordPress?', a: 'No. We build with Next.js and React. Faster than WordPress, no weekly security patches, smaller attack surface. The admin panel for editing content is custom — built by us for your site.' },
+    { q: 'Can I edit the site myself afterward?', a: 'Yes. We build a custom admin panel tailored to your site so you change text, images, prices, or products without code. Structural changes you message us about — billed by the hour or as a small project.' },
   ],
   seo: [
     { q: 'How long until I see SEO results?', a: '3–6 months for first results, 6–12 months for sustained traffic. SEO is a medium-term investment. If you need traffic now, pair it with Google Ads.' },
@@ -801,25 +801,25 @@ const FAQS_EN: FaqMap = {
   ],
   'digital-ads': [
     { q: 'Do you manage the ad budget?', a: 'Yes. We set up campaigns, optimize daily, and report weekly. Ad spend goes directly from your card to Google/Meta — we never touch the money.' },
-    { q: 'How much should I spend on Google or Meta Ads?', a: 'Minimum $200 USD per month so the algorithm has enough data. We recommend $500–$1,000 USD per month for a local business chasing leads. Below that, you are essentially testing.' },
+    { q: 'How much should I spend on Google or Meta Ads?', a: 'Minimum $200 USD per month in ad spend so the algorithm has enough data. We recommend $500–$1,000 USD per month for a local business chasing leads. Below that, you are essentially testing.' },
     { q: 'Google Ads only, or Meta (Facebook/Instagram) too?', a: 'Both. Google captures intent ("immigration lawyer Calexico"), Meta drives discovery ("restaurant owners in Imperial Valley"). Most clients need a mix.' },
-    { q: 'What is your management fee?', a: 'Flat monthly fee starting at $250 USD. No percentage of ad spend. If your spend grows, our fee does not — unless the scope of work also grows.' },
+    { q: 'What is your management fee?', a: 'Flat monthly fee starting at $299 USD. No percentage of ad spend. If your spend grows, our fee does not — unless the scope of work also grows.' },
   ],
   infrastructure: [
     { q: 'Who hosts the site you build?', a: 'By default, Vercel: global CDN with edge nodes, sub-second loads, zero downtime. You pay Vercel directly (~$20/mo for small sites). If you prefer another host, we configure it.' },
     { q: 'Do you handle the domain and email?', a: 'Yes. We help you buy the domain (in your name) and set up professional email with Google Workspace or iCloud Custom Domain. No weird free Zoho-type platforms.' },
     { q: 'What if I want to switch studios later?', a: 'You get everything: code in your GitHub, domain in your name, hosting in your account. No lock-in, no proprietary templates. Any Next.js dev can pick it up.' },
-    { q: 'Do you do post-launch maintenance?', a: 'Optional retainer from $120/mo: uptime monitoring, security updates, backups, and 1 hour of small changes. We also bill hourly ($50/hr) without a retainer.' },
+    { q: 'Do you do post-launch maintenance?', a: 'Yes. Each plan\'s monthly fee already covers hosting, care, and updates — starting at $59/mo with Corner Shop. If you only want maintenance on an existing site, retainer starts at $39/mo. Hourly without a retainer also available.' },
   ],
   consulting: [
     { q: 'What kind of consulting do you offer?', a: 'Audits of existing sites (what to fix, in what order), 6–12 month SEO/Ads strategy, technical stack reviews, and brand consulting for new launches. From 1-hour calls to multi-week engagements.' },
-    { q: 'How much does consulting cost?', a: 'Single 1-hour session with report: $150 USD. Full site audit (10 pages + 20-page report + plan): $750 USD. Monthly engagement starts at $1,200 USD.' },
+    { q: 'How much does consulting cost?', a: '1-hour session with report: from $150 USD. Full site audit (10+ pages, report, and plan): from $750 USD. Monthly engagement starts at $1,200 USD depending on scope.' },
     { q: 'Do you consult without building the site?', a: 'Yes. Many clients hire us just to review what they have, write the brief for another studio, or make a technical call (WordPress or Webflow? Do I need a CMS?). No obligation to build with us afterward.' },
   ],
   restaurants: [
-    { q: 'Do you build digital menus?', a: 'Yes. Editable menus (change prices and dishes without code), table QR codes, bilingual versions for cross-border clientele. Mobile-first design.' },
+    { q: 'Do you build digital menus?', a: 'Yes. Editable menus through a custom admin panel (change prices and dishes without code), table QR codes, bilingual versions for cross-border clientele. Mobile-first design.' },
     { q: 'Can you integrate reservations or online ordering?', a: 'Yes. We connect OpenTable, Resy, or a simpler system if you prefer no monthly fees. Online ordering via Stripe, with WhatsApp direct-to-kitchen as a low-tech option.' },
-    { q: 'How much does a restaurant website cost?', a: 'Corner Shop with menu and reservations: from $1,200 USD. Main Street with online ordering and multi-location: $2,800–$4,500 USD. Free quote in one business day.' },
+    { q: 'How much does a restaurant website cost?', a: 'Corner Shop $1,800 USD + $59/mo for a single location with simple menu. Main Street $4,500 USD + $129/mo with CMS, reservations, and online ordering. Enterprise from $9,500 USD + $299/mo for multi-location with POS integration. Free quote in one business day.' },
   ],
   lawyers: [
     { q: 'Do you work with small firms?', a: 'Yes. Most of our legal clients are small firms or solo practitioners (1–10 people). That is where a well-built site has the biggest impact — without traditional marketing budgets, local SEO and a professional site move the needle.' },
@@ -827,9 +827,9 @@ const FAQS_EN: FaqMap = {
     { q: 'Do you have experience with bilingual immigration sites?', a: 'Yes. We have worked with immigration attorneys along the Mexicali–Calexico corridor. Sites in English and Spanish with parallel SEO, intake forms, and LegalService schema.' },
   ],
   'real-estate': [
-    { q: 'Do you integrate IDX or MLS feeds?', a: 'Yes for California (MLS). For Mexico, where there is no standard MLS, we build a CMS so you upload listings manually. Filters, maps, photos, virtual tours.' },
+    { q: 'Do you integrate IDX or MLS feeds?', a: 'Yes for California (MLS). For Mexico, where there is no standard MLS, we build a custom admin panel so you upload listings manually. Filters, maps, photos, virtual tours.' },
     { q: 'Can you show prices in USD and MXN?', a: 'Yes. If you sell on both sides of the border, we display prices in local currency with live conversion. Searches can be split by market.' },
-    { q: 'How much does a real estate website cost?', a: 'Main Street plan with property CMS, maps, and filters: $3,500–$5,500 USD. IDX/MLS integration adds $900–$1,800 USD depending on provider. Free quote in one business day.' },
+    { q: 'How much does a real estate website cost?', a: 'Main Street $4,500 USD + $129/mo with custom property panel, maps, and filters. If you need MLS / IDX integration or multi-market, Enterprise from $9,500 USD + $299/mo. Free quote in one business day.' },
   ],
 };
 

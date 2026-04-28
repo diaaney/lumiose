@@ -81,20 +81,20 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 }
 
 const HOME_FAQS_ES: Array<{ q: string; a: string }> = [
-  { q: '¿Cuánto cuesta un sitio web con Lumiose?', a: 'Tres rangos: Corner Shop desde $15,000 MXN / $900 USD para sitios pequeños, Main Street $40,000–$60,000 MXN / $2,500–$4,000 USD para builds completos, y Enterprise para operaciones más grandes. Cotización exacta gratis en 1 día hábil.' },
-  { q: '¿Cuánto tarda construir mi sitio?', a: 'Entre 2 y 6 semanas según el plan. Corner Shop: 2–3 semanas. Main Street (con CMS, blog, integraciones): 4–6 semanas. Te damos fecha exacta en la cotización.' },
+  { q: '¿Cuánto cuesta un sitio web con Lumiose?', a: 'Tres planes: Corner Shop $5,999 MXN + $499/mes (sitio vitrina, 1 semana). Main Street $14,999 MXN + $1,199/mes (12 páginas con CMS, reservas, integraciones). Enterprise desde $34,999 MXN + $2,999/mes (multi-ubicación, e-commerce, integraciones custom). Setup se factura 50% al inicio y 50% al lanzar.' },
+  { q: '¿Cuánto tarda construir mi sitio?', a: 'Corner Shop lanza en 1 semana. Main Street en 2 semanas con 2 rondas de revisiones. Enterprise entre 4 y 6 semanas. La fecha exacta queda confirmada en la cotización.' },
   { q: '¿Trabajan en español e inglés?', a: 'Sí. Somos un estudio bilingüe en la frontera Mexicali–Calexico. Construimos sitios en español, en inglés, o bilingües con SEO localizado en ambos idiomas. Cada idioma se escribe con voz propia, no con Google Translate.' },
-  { q: '¿Necesito pagar mantenimiento mensual?', a: 'No es obligatorio. Te entregamos el sitio funcionando sin lock-in. Si quieres mantenimiento, ofrecemos retainer desde $2,000 MXN / $120 USD al mes con monitoreo, backups y horas de cambios incluidas.' },
-  { q: '¿Puedo editar el sitio yo mismo?', a: 'Sí. Conectamos un CMS sencillo (Sanity / Notion) donde editas texto, imágenes y precios sin tocar código. Para cambios estructurales nos escribes y te cobramos por hora o por proyecto chico.' },
+  { q: '¿Necesito pagar mantenimiento mensual?', a: 'La mensualidad de cada plan ya incluye hosting, cuidado y actualizaciones — desde $499 MXN al mes con Corner Shop. Si solo quieres mantenimiento sobre un sitio existente, ofrecemos retainer desde $499 MXN al mes. Cancelas cuando quieras, sin lock-in.' },
+  { q: '¿Puedo editar el sitio yo mismo?', a: 'Sí. Construimos un panel custom hecho a la medida de tu sitio donde editas textos, imágenes, precios o productos sin tocar código. Para cambios estructurales nos escribes y los hacemos por hora o como proyecto chico.' },
   { q: '¿Atienden negocios fuera de Mexicali y Calexico?', a: 'Sí. Aunque nuestra especialidad es el corredor fronterizo, trabajamos remoto con clientes en cualquier lado de México y Estados Unidos. Hemos hecho proyectos para San Diego, Tijuana, CDMX y el Valle Imperial.' },
 ];
 
 const HOME_FAQS_EN: Array<{ q: string; a: string }> = [
-  { q: 'How much does a Lumiose website cost?', a: 'Three tiers: Corner Shop from $900 USD / $15,000 MXN for small sites, Main Street $2,500–$4,000 USD / $40,000–$60,000 MXN for full builds, and Enterprise for larger operations. Free exact quote within one business day.' },
-  { q: 'How long does it take to build my site?', a: '2–6 weeks depending on scope. Corner Shop: 2–3 weeks. Main Street (with CMS, blog, integrations): 4–6 weeks. Exact timeline in your quote.' },
+  { q: 'How much does a Lumiose website cost?', a: 'Three plans: Corner Shop $1,800 USD + $59/mo (showcase site, 1 week). Main Street $4,500 USD + $129/mo (12 pages with CMS, reservations, integrations). Enterprise from $9,500 USD + $299/mo (multi-location, e-commerce, custom integrations). Setup billed 50% upfront, 50% on launch.' },
+  { q: 'How long does it take to build my site?', a: 'Corner Shop launches in 1 week. Main Street in 2 weeks with 2 review rounds. Enterprise in 4–6 weeks. Exact timeline locked in your quote.' },
   { q: 'Do you work in both English and Spanish?', a: 'Yes. We are a bilingual studio on the Mexicali–Calexico border. We build in English, Spanish, or bilingual with localized SEO in both languages. Each language gets its own voice — never Google Translate.' },
-  { q: 'Do I have to pay monthly maintenance?', a: 'Not required. You get the site working with zero lock-in. If you want maintenance, we offer a retainer from $120 USD / $2,000 MXN per month with monitoring, backups, and included change hours.' },
-  { q: 'Can I edit the site myself?', a: 'Yes. We connect a simple CMS (Sanity / Notion) where you edit text, images, and prices without touching code. For structural changes, message us — billed hourly or as a small project.' },
+  { q: 'Do I have to pay monthly maintenance?', a: 'Each plan\'s monthly fee already covers hosting, care, and updates — starting at $59 USD/mo with Corner Shop. If you only want maintenance on an existing site, our retainer starts at $39 USD/mo. Cancel anytime, no lock-in.' },
+  { q: 'Can I edit the site myself?', a: 'Yes. We build a custom admin panel tailored to your site so you can edit text, images, prices, or products without touching code. Structural changes you message us about — billed hourly or as small projects.' },
   { q: 'Do you serve businesses outside Mexicali and Calexico?', a: 'Yes. While our specialty is the border corridor, we work remote with clients across Mexico and the US. We have shipped projects for San Diego, Tijuana, Mexico City, and Imperial Valley businesses.' },
 ];
 
