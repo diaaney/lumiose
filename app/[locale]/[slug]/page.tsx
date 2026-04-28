@@ -308,12 +308,23 @@ export default async function SubpagePage({ params }: { params: Params }) {
         {page.faqs && page.faqs.length > 0 && (
           <section className="sp-faq">
             <div className="sp-faq-inner">
-              <p className="sp-eyebrow sp-eyebrow-dark">{page.faqHeading ?? 'FAQ'}</p>
+              <p className="sp-eyebrow sp-eyebrow-dark">★ {page.faqHeading ?? 'FAQ'}</p>
               <div className="sp-faq-list">
                 {page.faqs.map((f, i) => (
                   <details key={i} className="sp-faq-item">
                     <summary className="sp-faq-q">
-                      <span>{f.q}</span>
+                      <span className="sp-faq-num">
+                        {String(i + 1).padStart(2, '0')}.
+                      </span>
+                      <span className="sp-faq-text">{f.q}</span>
+                      <svg
+                        className="sp-faq-arrow"
+                        viewBox="0 0 14 14"
+                        aria-hidden="true"
+                      >
+                        <line x1="2" y1="7" x2="12" y2="7" />
+                        <line className="vbar" x1="7" y1="2" x2="7" y2="12" />
+                      </svg>
                     </summary>
                     <div className="sp-faq-a">{f.a}</div>
                   </details>

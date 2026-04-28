@@ -651,31 +651,55 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 <!-- ===================== FAQ ===================== -->
 <section class="home-faq" id="faq">
   <div class="home-faq-inner">
-    <span class="kicker">04 · Frequently asked</span>
+    <span class="kicker">★ 04 · Frequently asked</span>
     <h2 class="section-title">What people <em>ask</em><br/>before starting.</h2>
     <div class="home-faq-list">
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>How much does a Lumiose website cost?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">01.</span>
+          <span class="home-faq-text">How much does a Lumiose website cost?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">Three tiers: Corner Shop from $900 USD / $15,000 MXN for small sites, Main Street $2,500–$4,000 USD / $40,000–$60,000 MXN for full builds, and Enterprise for larger operations. Free exact quote within one business day.</div>
       </details>
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>How long does it take to build my site?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">02.</span>
+          <span class="home-faq-text">How long does it take to build my site?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">2–6 weeks depending on scope. Corner Shop: 2–3 weeks. Main Street (with CMS, blog, integrations): 4–6 weeks. Exact timeline in your quote.</div>
       </details>
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>Do you work in both English and Spanish?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">03.</span>
+          <span class="home-faq-text">Do you work in both English and Spanish?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">Yes. We are a bilingual studio on the Mexicali–Calexico border. We build in English, Spanish, or bilingual with localized SEO in both languages. Each language gets its own voice — never Google Translate.</div>
       </details>
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>Do I have to pay monthly maintenance?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">04.</span>
+          <span class="home-faq-text">Do I have to pay monthly maintenance?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">Not required. You get the site working with zero lock-in. If you want maintenance, we offer a retainer from $120 USD / $2,000 MXN per month with monitoring, backups, and included change hours.</div>
       </details>
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>Can I edit the site myself?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">05.</span>
+          <span class="home-faq-text">Can I edit the site myself?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">Yes. We connect a simple CMS (Sanity / Notion) where you edit text, images, and prices without touching code. For structural changes, message us — billed hourly or as a small project.</div>
       </details>
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>Do you serve businesses outside Mexicali and Calexico?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">06.</span>
+          <span class="home-faq-text">Do you serve businesses outside Mexicali and Calexico?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">Yes. While our specialty is the border corridor, we work remote with clients across Mexico and the US. We have shipped projects for San Diego, Tijuana, Mexico City, and Imperial Valley businesses.</div>
       </details>
     </div>

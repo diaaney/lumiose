@@ -649,31 +649,55 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
 <!-- ===================== FAQ ===================== -->
 <section class="home-faq" id="faq">
   <div class="home-faq-inner">
-    <span class="kicker">04 · Preguntas frecuentes</span>
+    <span class="kicker">★ 04 · Preguntas frecuentes</span>
     <h2 class="section-title">Lo que <em>preguntan</em><br/>antes de empezar.</h2>
     <div class="home-faq-list">
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>¿Cuánto cuesta un sitio web con Lumiose?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">01.</span>
+          <span class="home-faq-text">¿Cuánto cuesta un sitio web con Lumiose?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">Tres rangos: Corner Shop desde $15,000 MXN / $900 USD para sitios pequeños, Main Street $40,000–$60,000 MXN / $2,500–$4,000 USD para builds completos, y Enterprise para operaciones más grandes. Cotización exacta gratis en 1 día hábil.</div>
       </details>
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>¿Cuánto tarda construir mi sitio?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">02.</span>
+          <span class="home-faq-text">¿Cuánto tarda construir mi sitio?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">Entre 2 y 6 semanas según el plan. Corner Shop: 2–3 semanas. Main Street (con CMS, blog, integraciones): 4–6 semanas. Te damos fecha exacta en la cotización.</div>
       </details>
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>¿Trabajan en español e inglés?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">03.</span>
+          <span class="home-faq-text">¿Trabajan en español e inglés?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">Sí. Somos un estudio bilingüe en la frontera Mexicali–Calexico. Construimos sitios en español, en inglés, o bilingües con SEO localizado en ambos idiomas. Cada idioma se escribe con voz propia, no con Google Translate.</div>
       </details>
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>¿Necesito pagar mantenimiento mensual?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">04.</span>
+          <span class="home-faq-text">¿Necesito pagar mantenimiento mensual?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">No es obligatorio. Te entregamos el sitio funcionando sin lock-in. Si quieres mantenimiento, ofrecemos retainer desde $2,000 MXN / $120 USD al mes con monitoreo, backups y horas de cambios incluidas.</div>
       </details>
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>¿Puedo editar el sitio yo mismo?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">05.</span>
+          <span class="home-faq-text">¿Puedo editar el sitio yo mismo?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">Sí. Conectamos un CMS sencillo (Sanity / Notion) donde editas texto, imágenes y precios sin tocar código. Para cambios estructurales nos escribes y te cobramos por hora o por proyecto chico.</div>
       </details>
       <details class="home-faq-item">
-        <summary class="home-faq-q"><span>¿Atienden negocios fuera de Mexicali y Calexico?</span></summary>
+        <summary class="home-faq-q">
+          <span class="home-faq-num">06.</span>
+          <span class="home-faq-text">¿Atienden negocios fuera de Mexicali y Calexico?</span>
+          <svg class="home-faq-arrow" viewBox="0 0 18 18" aria-hidden="true"><line x1="3" y1="9" x2="15" y2="9"/><line class="vbar" x1="9" y1="3" x2="9" y2="15"/></svg>
+        </summary>
         <div class="home-faq-a">Sí. Aunque nuestra especialidad es el corredor fronterizo, trabajamos remoto con clientes en cualquier lado de México y Estados Unidos. Hemos hecho proyectos para San Diego, Tijuana, CDMX y el Valle Imperial.</div>
       </details>
     </div>
