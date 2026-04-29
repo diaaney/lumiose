@@ -98,7 +98,7 @@ function buildJsonLd(locale: Locale, page: SubpageContent) {
             name: 'Lumiose Studio',
             description: page.description,
             url,
-            telephone: '+1-619-555-0148',
+            telephone: '+52-686-306-9134',
             address: page.schemaArea
               ? {
                   '@type': 'PostalAddress',

@@ -31,7 +31,7 @@ Quote is free, no commitment, response within one business day.
 ## Contact
 
 - Email: david.cintora@lumiose.studio, diane.cintora@lumiose.studio
-- WhatsApp: +1 (619) 555-0148
+- WhatsApp: +52 686 306 9134
 - Hours: Monday to Friday, 9am to 6pm Pacific Time
 
 ## Resources

@@ -122,9 +122,9 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
               <span class="flyout-eyebrow">respondemos en 24h</span>
             </div>
             <div class="fly-contact-lines">
-              <a class="fly-c-line" href="https://wa.me/16195550148">
+              <a class="fly-c-line" href="https://wa.me/526863069134">
                 <span class="fcl-key">WhatsApp</span>
-                <span class="fcl-val"><em>(619) 555-0148</em><small>respuesta el mismo día</small></span>
+                <span class="fcl-val"><em>686 306 9134</em><small>respuesta el mismo día</small></span>
               </a>
               <a class="fly-c-line" href="#contact">
                 <span class="fcl-key">Llamada</span>
@@ -731,7 +731,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <h2 class="section-title">Construyamos <em>algo</em><br/>que valga la pena.</h2>
       <p class="lead">Cuéntanos un poco sobre tu negocio y te respondemos en un día hábil. Cotización gratis. Sin presión. Sin trucos de venta.</p>
       <div class="meta-list">
-        <div class="row"><span class="label">WhatsApp</span> <a href="https://wa.me/16195550148">(619) 555-0148</a></div>
+        <div class="row"><span class="label">WhatsApp</span> <a href="https://wa.me/526863069134">686 306 9134</a></div>
         <div class="row"><span class="label">Estudio</span> Mexicali, BC, México</div>
         <div class="row"><span class="label">Horario</span> Lun–Vie · 9–6 PT</div>
       </div>

@@ -124,9 +124,9 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
               <span class="flyout-eyebrow">we reply in 24h</span>
             </div>
             <div class="fly-contact-lines">
-              <a class="fly-c-line" href="https://wa.me/16195550148">
+              <a class="fly-c-line" href="https://wa.me/526863069134">
                 <span class="fcl-key">WhatsApp</span>
-                <span class="fcl-val"><em>(619) 555-0148</em><small>same-day reply</small></span>
+                <span class="fcl-val"><em>686 306 9134</em><small>same-day reply</small></span>
               </a>
               <a class="fly-c-line" href="#contact">
                 <span class="fcl-key">Call</span>
@@ -733,7 +733,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <h2 class="section-title">Let's build <em>something</em><br/>worth shipping.</h2>
       <p class="lead">Tell us a little about your business and we'll get back within one working day. Free quote. No pressure. No sales tricks.</p>
       <div class="meta-list">
-        <div class="row"><span class="label">WhatsApp</span> <a href="https://wa.me/16195550148">(619) 555-0148</a></div>
+        <div class="row"><span class="label">WhatsApp</span> <a href="https://wa.me/526863069134">686 306 9134</a></div>
         <div class="row"><span class="label">Studio</span> Calexico, CA, United States</div>
         <div class="row"><span class="label">Hours</span> Mon–Fri · 9–6 PT</div>
       </div>

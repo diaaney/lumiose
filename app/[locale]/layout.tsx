@@ -124,7 +124,7 @@ function buildJsonLd(locale: Locale): unknown {
           '@type': 'ContactPoint',
           contactType: 'sales',
           email: 'david.cintora@lumiose.studio',
-          telephone: '+1-619-555-0148',
+          telephone: '+52-686-306-9134',
           availableLanguage: ['English', 'Spanish'],
         },
         areaServed: [
@@ -139,7 +139,7 @@ function buildJsonLd(locale: Locale): unknown {
         url,
         image: `${url}/icon.svg`,
         priceRange: '$$',
-        telephone: '+1-619-555-0148',
+        telephone: '+52-686-306-9134',
         address: isEs
           ? {
               '@type': 'PostalAddress',
