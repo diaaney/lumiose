@@ -7,6 +7,10 @@ const REPLY_FROM_ES = 'Equipo de Lumiose <notifications@send.lumiose.studio>';
 const REPLY_FROM_EN = 'Lumiose Team <notifications@send.lumiose.studio>';
 const TEAM_REPLY_TO = ['david.cintora@lumiose.studio', 'diane.cintora@lumiose.studio'];
 
+const WHATSAPP_NUMBER = '526863069134';
+const WHATSAPP_DISPLAY = '+52 686 306 9134';
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+
 const escapeHtml = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
 
@@ -16,12 +20,18 @@ function autoReplyText(locale: 'es' | 'en', name: string) {
 
 Recibimos tu mensaje en Lumiose. Lo leemos personalmente y te respondemos dentro de 1 día hábil.
 
+¿Tienes dudas antes de que empecemos? Mándalas por WhatsApp y te contestamos en el mismo día:
+${WHATSAPP_URL}  (${WHATSAPP_DISPLAY})
+
 Equipo de Lumiose
 lumiose.studio`;
   }
   return `Hi ${name},
 
 We got your message at Lumiose. We read it personally and will reply within 1 business day.
+
+Have any questions before we get started? Send them over WhatsApp and we'll reply the same day:
+${WHATSAPP_URL}  (${WHATSAPP_DISPLAY})
 
 Lumiose Team
 lumiose.studio`;
@@ -40,6 +50,10 @@ function autoReplyHtml(locale: 'es' | 'en', name: string) {
         body: 'Gracias por escribir a <strong style="color:#1a1f2b;font-weight:600">Lumiose</strong>. Lo leemos personalmente y te respondemos dentro de',
         bodyHighlight: '1 día hábil',
         bodyEnd: '.',
+        waKicker: 'Mientras tanto',
+        waLead: '¿Tienes dudas antes de que empecemos?',
+        waBody: 'Mándalas por WhatsApp y te contestamos en el mismo día.',
+        waCta: 'Escribir por WhatsApp',
         statusDot: 'En cola',
         footerName: 'Lumiose Studio',
       }
@@ -53,6 +67,10 @@ function autoReplyHtml(locale: 'es' | 'en', name: string) {
         body: 'Thanks for writing to <strong style="color:#1a1f2b;font-weight:600">Lumiose</strong>. We read every message personally and reply within',
         bodyHighlight: '1 business day',
         bodyEnd: '.',
+        waKicker: 'In the meantime',
+        waLead: 'Any questions before we get started?',
+        waBody: "Send them over WhatsApp and we'll reply the same day.",
+        waCta: 'Message us on WhatsApp',
         statusDot: 'In queue',
         footerName: 'Lumiose Studio',
       };
@@ -87,6 +105,26 @@ function autoReplyHtml(locale: 'es' | 'en', name: string) {
           <p style="margin:0;font-size:16.5px;line-height:1.65;color:#3a414f;">
             ${c.body} <strong style="color:#1a1f2b;font-weight:600;border-bottom:1.5px solid #d94f3a;padding-bottom:1px;">${c.bodyHighlight}</strong>${c.bodyEnd}
           </p>
+
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:32px;background:#f6efde;border-radius:16px;border:1px solid #e1d9c5;">
+            <tr><td style="padding:22px 24px 24px;">
+              <p style="margin:0 0 6px;font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#6a7080;">
+                <span style="display:inline-block;width:5px;height:5px;background:#25D366;border-radius:50%;vertical-align:middle;margin-right:8px;"></span>${c.waKicker}
+              </p>
+              <p style="margin:0 0 4px;font-family:'Fraunces','Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400;font-size:19px;line-height:1.3;color:#1a1f2b;">
+                ${c.waLead}
+              </p>
+              <p style="margin:0 0 14px;font-size:14.5px;line-height:1.55;color:#3a414f;">
+                ${c.waBody}
+              </p>
+              <a href="${WHATSAPP_URL}" style="display:inline-block;background:#1a1f2b;color:#fdfbf5;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:600;padding:11px 20px;border-radius:999px;letter-spacing:-0.01em;">
+                ${c.waCta} <span style="opacity:0.8;font-weight:400">↗</span>
+              </a>
+              <p style="margin:10px 0 0;font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;font-size:11px;letter-spacing:0.1em;color:#6a7080;">
+                ${WHATSAPP_DISPLAY}
+              </p>
+            </td></tr>
+          </table>
 
           <div style="margin:34px 0 0;padding-top:24px;border-top:1px dashed #e1d9c5;">
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
