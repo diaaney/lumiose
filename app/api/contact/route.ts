@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { insertLead } from '@/lib/db/leads';
 
 const TO = ['david.cintora@lumiose.studio', 'diane.cintora@lumiose.studio'];
 const FROM = 'Lumiose Web <notifications@send.lumiose.studio>';
@@ -184,6 +185,17 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'missing or invalid fields' }, { status: 400 });
   }
 
+  const leadId = await insertLead({
+    name,
+    email,
+    business: business || undefined,
+    phone: phone || undefined,
+    need: need || undefined,
+    message: message || undefined,
+    locale,
+    source: 'form',
+  });
+
   const subject = `New lead — ${name}${business ? ` · ${business}` : ''}`;
 
   const notifyText = [
@@ -193,6 +205,7 @@ export async function POST(req: Request) {
     phone && `WhatsApp: ${phone}`,
     need && `Needs: ${need}`,
     `Locale: ${locale}`,
+    leadId ? `Lead ID: ${leadId}` : 'Lead ID: (DB not configured — only email sent)',
     '',
     'Message:',
     message || '(no message)',
@@ -210,6 +223,7 @@ export async function POST(req: Request) {
         ${phone ? `<tr><td style="padding:4px 16px 4px 0;color:#666">WhatsApp</td><td><a href="https://wa.me/${escapeHtml(phone.replace(/[^0-9]/g, ''))}">${escapeHtml(phone)}</a></td></tr>` : ''}
         ${need ? `<tr><td style="padding:4px 16px 4px 0;color:#666">Necesita</td><td>${escapeHtml(need)}</td></tr>` : ''}
         <tr><td style="padding:4px 16px 4px 0;color:#666">Idioma</td><td>${locale}</td></tr>
+        <tr><td style="padding:4px 16px 4px 0;color:#666">Lead ID</td><td style="font-family:monospace;font-size:12px;color:${leadId ? '#1a1f2b' : '#a35'}">${leadId ?? '(DB no configurada)'}</td></tr>
       </table>
       <h3 style="margin:20px 0 8px;font-weight:600">Mensaje</h3>
       <p style="white-space:pre-wrap;background:#f6f6f6;padding:12px;border-radius:6px;margin:0">${escapeHtml(message || '(sin mensaje)')}</p>
