@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1125" height="600" viewBox="0 0 1125 600">
+  <defs>
+    <symbol id="mark" viewBox="0 0 24 24">
+      <g transform="rotate(30 12 12)">
+        <rect x="11" y="2" width="2" height="20" rx="1"/>
+        <rect x="11" y="2" width="2" height="20" rx="1" transform="rotate(60 12 12)"/>
+        <rect x="11" y="2" width="2" height="20" rx="1" transform="rotate(-60 12 12)"/>
+      </g>
+    </symbol>
+
+    <!-- Sky → cream gradient with paper tone at bottom -->
+    <linearGradient id="bgsky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bfe0f5"/>
+      <stop offset="38%" stop-color="#a7d2ee"/>
+      <stop offset="72%" stop-color="#dfeefb"/>
+      <stop offset="100%" stop-color="#f6efde"/>
+    </linearGradient>
+
+    <!-- Warm spotlight behind the headline -->
+    <radialGradient id="warmlight" cx="48%" cy="46%" r="55%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#fff4d6" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="softcloud" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+
+    <pattern id="grain" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="transparent"/>
+      <circle cx="1" cy="1" r="0.55" fill="rgba(0,0,0,0.05)"/>
+      <circle cx="3" cy="3" r="0.45" fill="rgba(255,255,255,0.22)"/>
+    </pattern>
+
+    <!-- Torn paper edge along the bottom — adds editorial texture -->
+    <clipPath id="paperedge">
+      <path d="M0,520
+               C 60,512 110,528 165,520
+               C 220,514 280,532 340,524
+               C 400,518 455,534 510,526
+               C 560,520 620,538 680,528
+               C 740,520 805,536 860,526
+               C 920,518 980,536 1040,526
+               C 1080,520 1110,528 1125,522
+               L 1125,600 L 0,600 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Sky base -->
+  <rect width="1125" height="600" fill="url(#bgsky)"/>
+
+  <!-- Soft drifting clouds (placed where neither the Edit button nor avatar will cover) -->
+  <g filter="url(#softcloud)" fill="#fdfbf5" opacity="0.92">
+    <ellipse cx="180" cy="90" rx="220" ry="32"/>
+    <ellipse cx="640" cy="150" rx="190" ry="26"/>
+    <ellipse cx="100" cy="300" rx="140" ry="22"/>
+  </g>
+
+  <!-- Warm halo behind the headline -->
+  <rect width="1125" height="600" fill="url(#warmlight)"/>
+
+  <!-- Paper grain over sky -->
+  <rect width="1125" height="600" fill="url(#grain)" opacity="0.55"/>
+
+  <!-- Cream paper band at bottom with torn upper edge -->
+  <g clip-path="url(#paperedge)">
+    <rect x="0" y="500" width="1125" height="100" fill="#f6efde"/>
+    <rect x="0" y="500" width="1125" height="100" fill="url(#grain)" opacity="0.7"/>
+    <!-- subtle ruled lines, like notebook paper -->
+    <g stroke="#c8b88a" stroke-width="1" opacity="0.32">
+      <line x1="0" y1="552" x2="1125" y2="552"/>
+      <line x1="0" y1="572" x2="1125" y2="572"/>
+    </g>
+  </g>
+
+  <!-- Top-left editorial badge -->
+  <g>
+    <use href="#mark" x="80" y="78" width="26" height="26" fill="#1a1f2b"/>
+    <text x="118" y="98"
+          font-family="Fraunces, Georgia, serif" font-style="italic"
+          font-size="22" font-weight="500" letter-spacing="-0.4" fill="#1a1f2b">Lumiose</text>
+    <text x="118" y="118"
+          font-family="JetBrains Mono, ui-monospace, monospace"
+          font-size="10" font-weight="500" letter-spacing="2.5" fill="#3a414f">ESTUDIO · MEXICALI ↔ CALEXICO</text>
+  </g>
+
+  <!-- HEADLINE — anchored left, occupies left 60% so avatar (center-bottom) does not crash it -->
+  <g>
+    <text x="76" y="248" fill="#1a1f2b"
+          font-family="Fraunces, Georgia, serif" font-style="normal"
+          font-size="86" font-weight="500" letter-spacing="-2.6">Mejores sitios.</text>
+    <text x="76" y="338" fill="#1a1f2b"
+          font-family="Fraunces, Georgia, serif" font-style="italic"
+          font-size="86" font-weight="500" letter-spacing="-2.6">Hechos para vender.</text>
+    <text x="76" y="416" fill="#1a1f2b"
+          font-family="Fraunces, Georgia, serif" font-style="normal"
+          font-size="86" font-weight="500" letter-spacing="-2.6">Punto.</text>
+  </g>
+
+  <!-- Decorative star, top-right, OUTSIDE the Edit-button safe zone -->
+  <g fill="#1a1f2b" opacity="0.22">
+    <use href="#mark" x="850" y="160" width="56" height="56"/>
+  </g>
+  <g fill="#1a1f2b" opacity="0.32">
+    <use href="#mark" x="930" y="240" width="34" height="34"/>
+  </g>
+
+  <!-- Right-column kicker stack — small, lives above the avatar's overlap zone -->
+  <g>
+    <line x1="780" y1="320" x2="1040" y2="320" stroke="#1a1f2b" stroke-width="1" opacity="0.32"/>
+    <text x="780" y="356"
+          font-family="JetBrains Mono, ui-monospace, monospace"
+          font-size="11" font-weight="500" letter-spacing="3" fill="#3a414f">— ESTUDIO 2026</text>
+    <text x="780" y="394" fill="#1a1f2b"
+          font-family="Fraunces, Georgia, serif" font-style="italic"
+          font-size="22" font-weight="400" letter-spacing="-0.3">Programados a mano,</text>
+    <text x="780" y="422" fill="#1a1f2b"
+          font-family="Fraunces, Georgia, serif" font-style="italic"
+          font-size="22" font-weight="400" letter-spacing="-0.3">obsesivamente rápidos.</text>
+  </g>
+
+  <!-- Bottom paper strip — service tags split LEFT and RIGHT around the avatar overlap -->
+  <g font-family="JetBrains Mono, ui-monospace, monospace" font-size="13" font-weight="500" letter-spacing="3" fill="#3a414f">
+    <text x="80" y="565">DISEÑO · SEO · ADS</text>
+    <text x="1045" y="565" text-anchor="end">LUMIOSE.STUDIO</text>
+  </g>
+
+  <!-- Subtle micro-cite with hand-drawn-like underline, bottom-left of paper band -->
+  <g>
+    <text x="80" y="588"
+          font-family="Fraunces, Georgia, serif" font-style="italic"
+          font-size="12" font-weight="400" fill="#6a7080">— escríbenos por aquí ↘</text>
+  </g>
+</svg>
