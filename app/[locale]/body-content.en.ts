@@ -12,6 +12,152 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   </a>
 </div>
 
+<!-- ===================== NAV (sibling of hero — escapes stacking context) ===================== -->
+<!-- Navigation -->
+<nav class="top">
+  <div id="locale-switcher-mount"></div>
+  <div class="navbar">
+    <div class="logo"><span class="mark"></span> Lumiose</div>
+    <ul>
+      <li class="nav-item">
+        <a href="#services">Services</a>
+        <div class="nav-flyout flyout-services" aria-hidden="true">
+          <div class="flyout-card">
+            <div class="flyout-head">
+              <span class="flyout-kicker">03 · Studio</span>
+              <span class="flyout-eyebrow">five services</span>
+            </div>
+            <div class="fly-services-list">
+              <a class="fly-svc" href="/en-us/web-design"><span class="n">i.</span><span class="nm"><em>Web</em> design</span><span class="arr">→</span></a>
+              <a class="fly-svc" href="/en-us/seo"><span class="n">ii.</span><span class="nm">SEO &amp; <em>GEO</em></span><span class="arr">→</span></a>
+              <a class="fly-svc" href="/en-us/digital-ads"><span class="n">iii.</span><span class="nm">Digital <em>ads</em></span><span class="arr">→</span></a>
+              <a class="fly-svc" href="/en-us/infrastructure"><span class="n">iv.</span><span class="nm">Infrastructure</span><span class="arr">→</span></a>
+              <a class="fly-svc" href="/en-us/consulting"><span class="n">v.</span><span class="nm">Consulting</span><span class="arr">→</span></a>
+            </div>
+            <a class="flyout-cta" href="#services">See the full index<span class="arr">↗</span></a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#work">Work</a>
+        <div class="nav-flyout flyout-work" aria-hidden="true">
+          <div class="flyout-card">
+            <div class="flyout-head">
+              <span class="flyout-kicker">02 · Recent work</span>
+              <span class="flyout-eyebrow">2026 · selection</span>
+            </div>
+            <div class="fly-work-grid">
+              <a class="fly-work-card fwc-1" href="#work">
+                <div class="fwc-chrome"><i></i><i></i><i></i><span class="fwc-domain">barriocoastal.com</span></div>
+                <div>
+                  <div class="fwc-tag">Restaurant</div>
+                  <div class="fwc-name">Barrio <em>Coastal</em></div>
+                </div>
+              </a>
+              <a class="fly-work-card fwc-2" href="#work">
+                <div class="fwc-chrome"><i></i><i></i><i></i><span class="fwc-domain">pacificironworks.fit</span></div>
+                <div>
+                  <div class="fwc-tag">Fitness</div>
+                  <div class="fwc-name">Pacific <em>Ironworks</em></div>
+                </div>
+              </a>
+              <a class="fly-work-card fwc-3" href="#work">
+                <div class="fwc-chrome"><i></i><i></i><i></i><span class="fwc-domain">lajollarealty.co</span></div>
+                <div>
+                  <div class="fwc-tag">Real Estate</div>
+                  <div class="fwc-name">La Jolla <em>Realty</em></div>
+                </div>
+              </a>
+              <a class="fly-work-card fwc-4" href="#work">
+                <div class="fwc-chrome"><i></i><i></i><i></i><span class="fwc-domain">sandovallaw.com</span></div>
+                <div>
+                  <div class="fwc-tag">Immigration</div>
+                  <div class="fwc-name">Sandoval <em>Law</em></div>
+                </div>
+              </a>
+            </div>
+            <a class="flyout-cta" href="#work">6 of 40+ projects<span class="arr">↗</span></a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#pricing">Pricing</a>
+        <div class="nav-flyout flyout-pricing" aria-hidden="true">
+          <div class="flyout-card">
+            <div class="flyout-head">
+              <span class="flyout-kicker">04 · Pricing</span>
+              <span class="flyout-eyebrow">setup + monthly</span>
+            </div>
+            <div class="fly-plans">
+              <a class="fly-plan" href="#pricing">
+                <div>
+                  <div class="fp-name">Corner <em>Shop</em></div>
+                  <span class="fp-sub">Single-location storefront site.</span>
+                </div>
+                <div class="fp-price">\${{PRICE_CORNER_SHOP}}<em>{{CURRENCY_SUFFIX}}</em></div>
+              </a>
+              <a class="fly-plan" href="#pricing">
+                <div>
+                  <div class="fp-name">Main <em>Street</em><span class="fp-pop">popular</span></div>
+                  <span class="fp-sub">Bookings, CMS, integrations.</span>
+                </div>
+                <div class="fp-price">\${{PRICE_MAIN_STREET}}<em>{{CURRENCY_SUFFIX}}</em></div>
+              </a>
+              <a class="fly-plan" href="#pricing">
+                <div>
+                  <div class="fp-name">Enter<em>prise</em></div>
+                  <span class="fp-sub">Multi-location, e-comm, custom.</span>
+                </div>
+                <div class="fp-price">from \${{PRICE_ENTERPRISE}}<em>{{CURRENCY_SUFFIX}}</em></div>
+              </a>
+            </div>
+            <a class="flyout-cta" href="#pricing">Compare all three<span class="arr">↗</span></a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#contact">Contact</a>
+        <div class="nav-flyout flyout-contact" aria-hidden="true">
+          <div class="flyout-card">
+            <div class="flyout-head">
+              <span class="flyout-kicker">05 · Say hello</span>
+              <span class="flyout-eyebrow">we reply in 24h</span>
+            </div>
+            <div class="fly-contact-lines">
+              <a class="fly-c-line" href="https://wa.me/16195550148">
+                <span class="fcl-key">WhatsApp</span>
+                <span class="fcl-val"><em>(619) 555-0148</em><small>same-day reply</small></span>
+              </a>
+              <a class="fly-c-line" href="#contact">
+                <span class="fcl-key">Call</span>
+                <span class="fcl-val"><em>Book 20 min</em><small>via Cal.com</small></span>
+              </a>
+              <a class="fly-c-line" href="#contact">
+                <span class="fcl-key">Studio</span>
+                <span class="fcl-val"><em>Calexico · Mexicali</em><small>mon–fri · 9–6</small></span>
+              </a>
+            </div>
+            <a class="flyout-cta" href="#contact">Start a project<span class="arr">↗</span></a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn" href="#contact">Book a call</a>
+    </div>
+    <details class="nav-mobile">
+      <summary class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></summary>
+      <div class="nav-mobile-menu">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn nav-mobile-cta">Book a call</a>
+      </div>
+    </details>
+  </div>
+</nav>
+
 <!-- ===================== HERO ===================== -->
 <header class="hero">
   <!-- Clouds -->
@@ -40,150 +186,6 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     <svg viewBox="0 0 120 80"><ellipse cx="36" cy="55" rx="32" ry="18" fill="#fff"/><ellipse cx="72" cy="38" rx="38" ry="24" fill="#fff"/><ellipse cx="98" cy="56" rx="22" ry="16" fill="#fff"/><ellipse cx="56" cy="22" rx="20" ry="12" fill="#fff"/></svg>
   </div>
 
-  <!-- Navigation -->
-  <nav class="top">
-    <div id="locale-switcher-mount"></div>
-    <div class="navbar">
-      <div class="logo"><span class="mark"></span> Lumiose</div>
-      <ul>
-        <li class="nav-item">
-          <a href="#services">Services</a>
-          <div class="nav-flyout flyout-services" aria-hidden="true">
-            <div class="flyout-card">
-              <div class="flyout-head">
-                <span class="flyout-kicker">03 · Studio</span>
-                <span class="flyout-eyebrow">five services</span>
-              </div>
-              <div class="fly-services-list">
-                <a class="fly-svc" href="/en-us/web-design"><span class="n">i.</span><span class="nm"><em>Web</em> design</span><span class="arr">→</span></a>
-                <a class="fly-svc" href="/en-us/seo"><span class="n">ii.</span><span class="nm">SEO &amp; <em>GEO</em></span><span class="arr">→</span></a>
-                <a class="fly-svc" href="/en-us/digital-ads"><span class="n">iii.</span><span class="nm">Digital <em>ads</em></span><span class="arr">→</span></a>
-                <a class="fly-svc" href="/en-us/infrastructure"><span class="n">iv.</span><span class="nm">Infrastructure</span><span class="arr">→</span></a>
-                <a class="fly-svc" href="/en-us/consulting"><span class="n">v.</span><span class="nm">Consulting</span><span class="arr">→</span></a>
-              </div>
-              <a class="flyout-cta" href="#services">See the full index<span class="arr">↗</span></a>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="#work">Work</a>
-          <div class="nav-flyout flyout-work" aria-hidden="true">
-            <div class="flyout-card">
-              <div class="flyout-head">
-                <span class="flyout-kicker">02 · Recent work</span>
-                <span class="flyout-eyebrow">2026 · selection</span>
-              </div>
-              <div class="fly-work-grid">
-                <a class="fly-work-card fwc-1" href="#work">
-                  <div class="fwc-chrome"><i></i><i></i><i></i><span class="fwc-domain">barriocoastal.com</span></div>
-                  <div>
-                    <div class="fwc-tag">Restaurant</div>
-                    <div class="fwc-name">Barrio <em>Coastal</em></div>
-                  </div>
-                </a>
-                <a class="fly-work-card fwc-2" href="#work">
-                  <div class="fwc-chrome"><i></i><i></i><i></i><span class="fwc-domain">pacificironworks.fit</span></div>
-                  <div>
-                    <div class="fwc-tag">Fitness</div>
-                    <div class="fwc-name">Pacific <em>Ironworks</em></div>
-                  </div>
-                </a>
-                <a class="fly-work-card fwc-3" href="#work">
-                  <div class="fwc-chrome"><i></i><i></i><i></i><span class="fwc-domain">lajollarealty.co</span></div>
-                  <div>
-                    <div class="fwc-tag">Real Estate</div>
-                    <div class="fwc-name">La Jolla <em>Realty</em></div>
-                  </div>
-                </a>
-                <a class="fly-work-card fwc-4" href="#work">
-                  <div class="fwc-chrome"><i></i><i></i><i></i><span class="fwc-domain">sandovallaw.com</span></div>
-                  <div>
-                    <div class="fwc-tag">Immigration</div>
-                    <div class="fwc-name">Sandoval <em>Law</em></div>
-                  </div>
-                </a>
-              </div>
-              <a class="flyout-cta" href="#work">6 of 40+ projects<span class="arr">↗</span></a>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="#pricing">Pricing</a>
-          <div class="nav-flyout flyout-pricing" aria-hidden="true">
-            <div class="flyout-card">
-              <div class="flyout-head">
-                <span class="flyout-kicker">04 · Pricing</span>
-                <span class="flyout-eyebrow">setup + monthly</span>
-              </div>
-              <div class="fly-plans">
-                <a class="fly-plan" href="#pricing">
-                  <div>
-                    <div class="fp-name">Corner <em>Shop</em></div>
-                    <span class="fp-sub">Single-location storefront site.</span>
-                  </div>
-                  <div class="fp-price">\${{PRICE_CORNER_SHOP}}<em>{{CURRENCY_SUFFIX}}</em></div>
-                </a>
-                <a class="fly-plan" href="#pricing">
-                  <div>
-                    <div class="fp-name">Main <em>Street</em><span class="fp-pop">popular</span></div>
-                    <span class="fp-sub">Bookings, CMS, integrations.</span>
-                  </div>
-                  <div class="fp-price">\${{PRICE_MAIN_STREET}}<em>{{CURRENCY_SUFFIX}}</em></div>
-                </a>
-                <a class="fly-plan" href="#pricing">
-                  <div>
-                    <div class="fp-name">Enter<em>prise</em></div>
-                    <span class="fp-sub">Multi-location, e-comm, custom.</span>
-                  </div>
-                  <div class="fp-price">from \${{PRICE_ENTERPRISE}}<em>{{CURRENCY_SUFFIX}}</em></div>
-                </a>
-              </div>
-              <a class="flyout-cta" href="#pricing">Compare all three<span class="arr">↗</span></a>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="#contact">Contact</a>
-          <div class="nav-flyout flyout-contact" aria-hidden="true">
-            <div class="flyout-card">
-              <div class="flyout-head">
-                <span class="flyout-kicker">05 · Say hello</span>
-                <span class="flyout-eyebrow">we reply in 24h</span>
-              </div>
-              <div class="fly-contact-lines">
-                <a class="fly-c-line" href="https://wa.me/16195550148">
-                  <span class="fcl-key">WhatsApp</span>
-                  <span class="fcl-val"><em>(619) 555-0148</em><small>same-day reply</small></span>
-                </a>
-                <a class="fly-c-line" href="#contact">
-                  <span class="fcl-key">Call</span>
-                  <span class="fcl-val"><em>Book 20 min</em><small>via Cal.com</small></span>
-                </a>
-                <a class="fly-c-line" href="#contact">
-                  <span class="fcl-key">Studio</span>
-                  <span class="fcl-val"><em>Calexico · Mexicali</em><small>mon–fri · 9–6</small></span>
-                </a>
-              </div>
-              <a class="flyout-cta" href="#contact">Start a project<span class="arr">↗</span></a>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <div class="nav-cta">
-        <a class="btn" href="#contact">Book a call</a>
-      </div>
-      <details class="nav-mobile">
-        <summary class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></summary>
-        <div class="nav-mobile-menu">
-          <a href="#services">Services</a>
-          <a href="#work">Work</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Contact</a>
-          <a href="#contact" class="btn nav-mobile-cta">Book a call</a>
-        </div>
-      </details>
-    </div>
-  </nav>
 
   <!-- Headline -->
   <div class="hero-inner">
