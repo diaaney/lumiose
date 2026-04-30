@@ -225,6 +225,14 @@ export default async function LocaleLayout({
         {children}
         <Analytics />
         <SpeedInsights />
+        {/* Lumiose Studio first-party analytics — feeds the Lumiose tenant in
+            panel.lumiose.studio so we can read our own page views in the same
+            dashboard our clients use. Bots are filtered server-side. */}
+        <script
+          src="https://panel.lumiose.studio/track.js"
+          data-tenant="lumiose"
+          defer
+        />
       </body>
     </html>
   );
