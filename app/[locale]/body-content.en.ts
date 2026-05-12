@@ -38,7 +38,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
           </div>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" style="display:none">
         <a href="#work">Work</a>
         <div class="nav-flyout flyout-work" aria-hidden="true">
           <div class="flyout-card">
@@ -149,7 +149,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <summary class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></summary>
       <div class="nav-mobile-menu">
         <a href="#services">Services</a>
-        <a href="#work">Work</a>
+        <a href="#work" style="display:none">Work</a>
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
         <a href="#contact" class="btn nav-mobile-cta">Book a call</a>

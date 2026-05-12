@@ -36,7 +36,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
           </div>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" style="display:none">
         <a href="#work">Proyectos</a>
         <div class="nav-flyout flyout-work" aria-hidden="true">
           <div class="flyout-card">
@@ -147,7 +147,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
       <summary class="nav-burger" aria-label="Menú"><span></span><span></span><span></span></summary>
       <div class="nav-mobile-menu">
         <a href="#services">Servicios</a>
-        <a href="#work">Proyectos</a>
+        <a href="#work" style="display:none">Proyectos</a>
         <a href="#pricing">Precios</a>
         <a href="#contact">Contacto</a>
         <a href="#contact" class="btn nav-mobile-cta">Agendar llamada</a>
