@@ -28,8 +28,8 @@ export default async function OgImage({ params }: { params: Params }) {
   const eyebrow = 'LUMIOSE STUDIO';
   const headline = 'Lumiose';
   const tagline = isEs
-    ? 'Sitios programados a mano, obsesivamente rápidos.'
-    : 'Custom-coded sites, obsessively fast.';
+    ? 'Sitios Web diseñados para convertir visitas en clientes.'
+    : 'Websites designed to turn visitors into customers.';
   const cta = isEs ? 'Cotización gratis →' : 'Free quote →';
   const footer = 'lumiose.studio';
 

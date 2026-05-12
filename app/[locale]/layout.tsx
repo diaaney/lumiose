@@ -116,8 +116,8 @@ function buildJsonLd(locale: Locale): unknown {
         url,
         logo: `${url}/icon.svg`,
         description: isEs
-          ? 'Estudio de desarrollo web. Sitios programados a mano, obsesivamente rápidos, para negocios pequeños.'
-          : 'Web development studio. Custom-coded, obsessively fast websites for small businesses.',
+          ? 'Estudio de desarrollo web. Sitios Web diseñados para convertir visitas en clientes, para negocios pequeños.'
+          : 'Web development studio. Websites designed to turn visitors into customers, for small businesses.',
         founder: [
           { '@type': 'Person', name: 'David Cintora' },
           { '@type': 'Person', name: 'Diane Cintora' },

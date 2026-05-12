@@ -189,7 +189,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   <div class="hero-inner">
     <span class="eyebrow"><span class="dot"></span> Reservando ahora · Mayo 2026</span>
     <h1 class="display">Mejores sitios web.<br/><em>Hechos para vender</em>. Punto.</h1>
-    <p class="sub">Programados a mano, obsesivamente rápidos, diseñados para convertir visitas en clientes. Para negocios pequeños que ya no se conforman con "más o menos".</p>
+    <p class="sub">Sitios Web diseñados para convertir visitas en clientes. Para negocios no se conforman con "más o menos".</p>
     <div class="hero-ctas">
       <a class="btn pill-lg" href="#contact">Cotización gratis</a>
       <a class="btn pill-lg ghost" href="#work">Ver proyectos →</a>
@@ -337,6 +337,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   </div>
 </div>
 
+${/* TEMP REMOVED — restore later (sección "nuestro trabajo")
 <!-- ===================== PORTFOLIO (hover list) ===================== -->
 <section class="portfolio" id="work">
   <div style="max-width:1240px;margin:0 auto">
@@ -466,6 +467,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
     </div>
   </div>
 </section>
+*/ ''}
 
 <!-- ===================== IMMERSIVE OVERLAY ===================== -->
 <div class="immersive-backdrop" id="immersive-backdrop"></div>
@@ -487,7 +489,7 @@ export const BODY_HTML = `<div id="detection-banner-mount"></div>
   <div class="svc-index" id="svc-index">
     <div class="svc-row open" data-idx="0">
       <div class="svc-num">i.</div>
-      <div class="svc-title">Desarrollo <em>web</em> <span class="svc-sub">Sitios a medida en Next.js, Astro o WordPress.</span></div>
+      <div class="svc-title">Desarrollo <em>web</em> <span class="svc-sub">Sitios a medida en Next.js.</span></div>
       <div class="svc-toggle" aria-label="Toggle"></div>
       <div class="svc-expand">
         <div class="svc-expand-inner">
